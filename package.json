@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.15",
     "@portabletext/react": "^2.0.1",
     "@reduxjs/toolkit": "^1.9.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.4.0",
+    "formik": "^2.2.9",
     "framer-motion": "^9.0.4",
     "next": "13.1.6",
     "next-sanity": "^4.1.5",
@@ -25,7 +27,8 @@
     "react-redux": "^8.0.5",
     "react-simple-typewriter": "^5.0.1",
     "sanity": "^3.4.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

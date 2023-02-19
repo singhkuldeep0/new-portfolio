@@ -5,9 +5,13 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import {client} from '../sanity.cli'
 import { useDispatch } from 'react-redux'
-import { setMyData } from '../state/index' 
+import { setMyData, setMyProjects } from '../state/index' 
+import Projects from '../components/Projects'
+import Skills from '../components/Skills'
+import About from '../components/About'
+import Contact from '../components/Contact'
 
-export default function Home({mydata}) {
+export default function Home({mydata , myprojects}) {
   const dispatch = useDispatch()
   const theme = useSelector(state => state.theme)
 
@@ -16,6 +20,7 @@ export default function Home({mydata}) {
   useEffect(() => {
 
     dispatch(setMyData(mydata))
+    dispatch(setMyProjects(myprojects))
     const handleScroll = () => {
       if(window.scrollY === 0){
         setIsTopOfPage(true)
@@ -35,9 +40,13 @@ export default function Home({mydata}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    <main className={`min-h-[140vh]`} style={{background:`${theme.background}`}}> 
+    <main style={{background:`${theme.background}`}}> 
       <Navbar isTopOfPage={isTopOfPage}/>
       <Homee/>
+      <Projects/>
+      <Skills/>
+      <About/>
+      <Contact/>
      </main>
     
     </div>
@@ -47,11 +56,14 @@ export default function Home({mydata}) {
 export async function getServerSideProps(context) {
 
   const mydetails = `*[_type == 'mydetails']`
+  const projects = `*[_type == 'projects']`
   const mydata = await client.fetch(mydetails)
+  const myprojects = await client.fetch(projects)
 
   return {
     props: {
-      mydata
+      mydata,
+      myprojects
     }, 
   }
 }

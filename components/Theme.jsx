@@ -23,20 +23,20 @@ export default function Example() {
   const lightTheme = {
     texthead:'#049CCC',
     textwhite:'#0C74BC',
-    textlight:'#818081',
-    textdark:'#040404',
-    bgdark:'#bababa',
-    bglight:'#DEE4E6',
+    textlight:'#7d7d7d',
+    textdark:'#444444',
+    bgdark:'#b1b1b1',
+    bglight:'#BCDCF4',
     buttoncolor:'#DEE4E6',
     buttonbg:'#444444',
     background:'#ffffff'
   }
   const darktheme = {
     texthead:'#EFAD13',
-    textlight:'#FCFC04',
+    textlight:'#F7EB0C',
     textwhite:'#fffff',
-    textdark:'#FCBB04',
-    bgdark:'#040404',
+    textdark:'#F7EB0C',
+    bgdark:'#F7EB0C',
     bglight:'#2C2C2C',
     buttoncolor:'#040404',
     buttonbg:'#F7EB0C',

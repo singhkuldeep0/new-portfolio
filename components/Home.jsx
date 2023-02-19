@@ -5,6 +5,7 @@ import { FaLocationArrow , FaTwitter , FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 import { Typewriter } from 'react-simple-typewriter'
+import { Zoom } from 'react-awesome-reveal'
 
 const Home = () => {
 
@@ -19,12 +20,12 @@ const Home = () => {
     <div className='[90vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full'>
       <div className="left flex items-center justify-center w-full h-[45vh] md:w-1/2 md:h-[90vh] " style={{background:theme.bgdark}}>
 
-          <div className='aspect-square overflow-hidden rounded-full'>
+          <Zoom className='aspect-square overflow-hidden rounded-full'>
         {mydata.image && <img src={urlFor(mydata.image).url()} alt="" className='h-[250px] w-[200px] lg:w-[300px] lg:h-[400px] z-[1]' style={{background:theme.bglight}}/>}
-          </div>
+          </Zoom>
         
       </div>
-      <div className='right flex items-center justify-center w-full h-[45vh]  md:h-[90vh] md:w-1/2 md:pl-20'  style={{background:theme.bglight}}>
+      <div className='right flex items-center justify-center w-full h-[45vh]  md:h-[90vh] md:w-1/2'  style={{background:theme.bglight}}>
         {mydata && (
           <div className='flex flex-col gap-1 md:gap-2 pt-3' style={{color:theme.textlight}}>
           <h1 className='text-center md:text-left text-4xl lg:text-6xl pb-1 md:pb-3 text-white font-playfair font-bold' style={{color:theme.texthead}}>

@@ -12,7 +12,8 @@ const initialState = {
     buttonbg:'#444444',
     background:'#ffffff'
   },
-  mydata:{}
+  mydata:[],
+  myprojects:[]
 }
 
 export const stateSlice = createSlice({
@@ -24,10 +25,13 @@ export const stateSlice = createSlice({
     },
     setMyData:(state , action) => {
       state.mydata = action.payload
+    },
+    setMyProjects:(state , action) => {
+      state.myprojects = action.payload
     }
   }
 })
 
-export const { setTheme , setMyData } = stateSlice.actions
+export const { setTheme , setMyData , setMyProjects } = stateSlice.actions
 
 export default stateSlice.reducer
