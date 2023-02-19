@@ -49,9 +49,9 @@ const NavName = ({isTopOfPage}) => {
         <motion.div initial="rest" whileHover="hover" animate="rest"
             className='flex h-full hover:gap-1 items-center overflow-hidden w-[148px] cursor-pointer'>
             <div className='flex justify-center items-center' >
-                <motion.span className='text-xl ' variants={slashMotion} style={{ color: isTopOfPage ? theme.lighttext : theme.navText}}>©</motion.span>
+                <motion.span className='text-xl ' variants={slashMotion} style={{color: theme.texthead}}>©</motion.span>
             </div>
-            <motion.div className='flex text-white text-xl font-Poppins overflow-hidden font-bold tracking-tighter' style={{ color: isTopOfPage ? theme.lighttext : theme.navText}}>
+            <motion.div className='flex text-white text-xl font-Poppins overflow-hidden font-bold tracking-tighter' style={{ color: theme.texthead }}>
                 <motion.div className='flex' variants={textMotion}>
                     <span>Singh</span>
                     <span>Kuldeep</span>

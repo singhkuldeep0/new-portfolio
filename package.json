@@ -11,20 +11,28 @@
   "dependencies": {
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.15",
+    "@portabletext/react": "^2.0.1",
     "@reduxjs/toolkit": "^1.9.2",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.4.0",
     "framer-motion": "^9.0.4",
     "next": "13.1.6",
+    "next-sanity": "^4.1.5",
     "react": "18.2.0",
     "react-awesome-reveal": "^4.2.3",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "react-simple-typewriter": "^5.0.1",
+    "sanity": "^3.4.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.6"
+    "tailwindcss": "^3.2.6",
+    "typescript": "4.9.5"
   }
 }

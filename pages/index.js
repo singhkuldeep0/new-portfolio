@@ -1,15 +1,21 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import Homee from '../components/Home'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import {client} from '../sanity.cli'
+import { useDispatch } from 'react-redux'
+import { setMyData } from '../state/index' 
 
-export default function Home() {
-
+export default function Home({mydata}) {
+  const dispatch = useDispatch()
   const theme = useSelector(state => state.theme)
 
   const [isTopOfPage , setIsTopOfPage] = useState(true)
 
   useEffect(() => {
+
+    dispatch(setMyData(mydata))
     const handleScroll = () => {
       if(window.scrollY === 0){
         setIsTopOfPage(true)
@@ -29,10 +35,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    <main className={`min-h-[140vh]`} style={{background:`${theme.webbg}`}}> 
+    <main className={`min-h-[140vh]`} style={{background:`${theme.background}`}}> 
       <Navbar isTopOfPage={isTopOfPage}/>
+      <Homee/>
      </main>
     
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+
+  const mydetails = `*[_type == 'mydetails']`
+  const mydata = await client.fetch(mydetails)
+
+  return {
+    props: {
+      mydata
+    }, 
+  }
 }

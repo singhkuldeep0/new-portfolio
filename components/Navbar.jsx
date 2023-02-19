@@ -8,9 +8,7 @@ import Theme from './Theme'
 
 const Navbar = ({isTopOfPage}) => {
 
-    console.log(isTopOfPage)
-
-    const theme = useSelector(state => state.theme)
+      const theme = useSelector(state => state.theme)
     const [toggle, setToggle] = useState(false)
     const [selected , setSelected] = useState('Home')
 
@@ -19,13 +17,13 @@ const Navbar = ({isTopOfPage}) => {
     ]
 
     return (
-        <div className="sticky top-0  px-4 h-16 flex items-center justify-between shadow-md" style={{ background: isTopOfPage ? `${theme.webbg}` : `${theme.nav}` }}>
+        <div className="sticky top-0  px-4 h-16 flex items-center justify-between z-[100]" style={{ background: theme.background }}>
             <div className="left">
                 <NavName isTopOfPage={isTopOfPage}/>
             </div>
-            <div className="hidden sm:flex gap-4">
+            <div className="hidden sm:flex gap-8">
                     {navItems.map((item) => (
-                        <span onClick={()=>setSelected(item)} className={`w-full font-semibold rounded-md cursor-pointer px-4 py-1.5`} style={{ color: isTopOfPage ? `${ selected===item ?  theme.webbg : theme.lighttext}` :  `${selected===item ? theme.lighttext : theme.navText}` , background:isTopOfPage ? `${selected===item ? theme.nav : 'none'}` : `${selected===item ? theme.webbg : 'none'}` }}>
+                        <span key={item} onClick={()=>setSelected(item)} className={`w-full text-base font-normal font-poppins cursor-pointer  ${selected===item && 'border-b-2'}`} style={{ color: theme.textdark , borderColor:theme.texthead }}>
                             {item}
                         </span>
                     ))}
@@ -34,15 +32,15 @@ const Navbar = ({isTopOfPage}) => {
                
                 <div className='flex gap-4'>
                     <Theme isTopOfPage={isTopOfPage}/>
-                    <GoThreeBars onClick={() => setToggle(!toggle)} className='text-2xl text-white sm:hidden cursor-pointer' />
+                    <GoThreeBars onClick={() => setToggle(!toggle)} className='text-2xl mt-4 sm:hidden cursor-pointer' style={{ color:theme.textdark}}/>
                 </div>
-                <div className={`fixed top-0 right-0 h-screen w-72 p-4 ${toggle ? 'translate-x-0' : 'translate-x-80'} duration-300 transition-all ease-in-out`} style={{ background: `${theme.nav}` }}>
-                    <div onClick={() => setToggle(!toggle)} className='h-8 w-8 rounded-full flex ml-auto items-center justify-center' style={{ background: `${theme.webbg}` }}>
+                <div className={`fixed top-0 right-0 h-screen w-80 p-4 ${toggle ? 'translate-x-0' : 'translate-x-80'} duration-300 transition-all ease-in-out z-50`} style={{ background: `${theme.buttoncolor}` }}>
+                    <div onClick={() => setToggle(!toggle)} className='h-8 w-8 rounded-full flex ml-auto items-center justify-center' style={{ background: `${theme.buttonbg}` }}>
                         <XMarkIcon className='h-6 text-white cursor-pointer' />
                     </div>
                     <div className='w-full py-4 text-xl font-semibold flex flex-col justify-center items-center'>
                         {navItems.map((item) => (
-                            <button className={`my-3 py-3 w-full rounded-xl`} style={{ background: `${theme.webbg}` }}>
+                            <button key={item} onClick={()=>{setSelected(item); setToggle(!toggle)}} className={`my-3 py-3 w-full rounded-xl`} style={{background:theme.webbg , color:selected===item ? theme.nav : theme.lighttext}}>
                                 {item}
                             </button>
                         ))}
