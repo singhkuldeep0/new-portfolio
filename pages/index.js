@@ -10,6 +10,7 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import About from '../components/About'
 import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 
 export default function Home({mydata , myprojects}) {
   const dispatch = useDispatch()
@@ -47,6 +48,7 @@ export default function Home({mydata , myprojects}) {
       <Skills/>
       <About/>
       <Contact/>
+      <Footer/>
      </main>
     
     </div>

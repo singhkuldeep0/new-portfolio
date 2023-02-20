@@ -13,12 +13,12 @@ const Skills = () => {
     const theme = useSelector(state => state.theme)
 
     return (
-        <div className='my-10 ' style={{ color: theme.textlight }}>
+        <div id="Skills" className='my-10 ' style={{ color: theme.textlight }}>
             <Heading Heading="My Skills" />
             <div className='w-[80%] flex flex-col md:flex-row m-auto justify-around mt-16 gap-10'>
               <Zoom>
                 <div className='flex justify-center items-center flex-col gap-2 pt-4 p-8 rounded-xl greyshadow'>
-                    <div className='rounded-full flex justify-center items-center h-28 w-28' style={{ background: theme.buttoncolor }}>
+                    <div className='rounded-full flex justify-center items-center h-28 w-28' style={{ background: theme.bglightprimary }}>
                         <GlobeAltIcon className='h-16' style={{ color: theme.texthead }} />
                     </div>
                     <span className='text-xl font-lato font-semibold'>Web development</span>
@@ -42,7 +42,7 @@ const Skills = () => {
                 </Zoom>
                <Zoom>
                 <div className='flex justify-center items-center flex-col gap-2 pt-4 p-8 rounded-xl greyshadow'>
-                    <div className='rounded-full h-28 w-28 flex justify-center items-center' style={{ background: theme.buttoncolor }}>
+                    <div className='rounded-full h-28 w-28 flex justify-center items-center' style={{ background: theme.bglightsecondary }}>
                         <WrenchScrewdriverIcon className='h-16' style={{ color: theme.texthead }} />
                     </div>
                     <span className='text-xl font-lato font-semibold'>Frameworks</span>

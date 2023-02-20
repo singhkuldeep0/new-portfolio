@@ -21,37 +21,50 @@ export default function Example() {
   
   const [selected, setSelected] = useState(people[0])
   const lightTheme = {
-    texthead:'#049CCC',
-    textwhite:'#0C74BC',
-    textlight:'#7d7d7d',
-    textdark:'#444444',
-    bgdark:'#b1b1b1',
-    bglight:'#BCDCF4',
-    buttoncolor:'#DEE4E6',
-    buttonbg:'#444444',
-    background:'#ffffff'
+      texthead:'#049CCC',
+      textwhite:'#040C0C',
+      textlightsecondary:'#84CCFC',
+      textdarksecondary:'#049CCC',
+      textlightprimary:'#9C9C9C',
+      textdarkprimary:'#545454',
+      bglightprimary:'#cbeaff',
+      bgdarkprimary:'#049CCC',
+      bglightsecondary:'#d7d7d7',
+      bgdarksecondary:'#545454',
+      buttonbgprimary:'#545454',
+      buttonbgseconadary:'#049CCC',
+      background:'#ffffff'
   }
   const darktheme = {
-    texthead:'#EFAD13',
-    textlight:'#F7EB0C',
-    textwhite:'#fffff',
-    textdark:'#F7EB0C',
-    bgdark:'#F7EB0C',
-    bglight:'#2C2C2C',
-    buttoncolor:'#040404',
-    buttonbg:'#F7EB0C',
-    background:'#040404'
+    texthead:'#F7BC09',
+    textwhite:'#ffffff',
+    textlightprimary:'#F6E085',
+    textdarkprimary:'#F6E085',
+    textlightsecondary:'#545454',
+    textdarksecondary:'#040C0C',
+    bglightsecondary:'#F6E085',
+    bgdarksecondary:'#F6E085',
+    bglightprimary:'#545454',
+    bgdarkprimary:'#040C0C',
+    buttonbgseconadary:'#F6E085',
+    buttonbgprimary:'#040C0C',
+    background:'#040C0C'
   }
+
   const oceantheme = {
-    texthead:'#FC246C',
-    textlight:'#FC6CB4',
-    textwhite:'#fffff',
-    textdark:'#FC246C',
-    bgdark:'#0890C9',
-    bglight:'#bbdaff',
-    buttoncolor:'#0890C9',
-    buttonbg:'#FC246C',
-    background:'#ffffff'
+    texthead:'#049CCC',
+    textwhite:'#ffffff',
+    textlightsecondary:'#BCDCF4',
+    textdarksecondary:'#049CCC',
+    textlightprimary:'#FCA0B6',
+    textdarkprimary:'#D37C9C',
+    bglightprimary:'#BCDCF4',
+    bgdarkprimary:'#047CB4',
+    bglightsecondary:'#5#FCA0B6',
+    bgdarksecondary:'#D37C9C',
+    buttonbgprimary:'#049CCC',
+    buttonbgseconadry:'#D37C9C',
+    background:'#D37C9C'
   }
 
   const changetheme = (name)=>{

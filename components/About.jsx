@@ -8,13 +8,14 @@ const About = () => {
     const theme = useSelector(state => state.theme)
 
   return (
+    <div id="About">
     <Fade className='mt-20 mb-10'>
       <Heading Heading="About Me" text="Education , Experience"/>
       <div className='w-full flex mt-10'>
-            <div className='w-1/2 h-96' style={{background:theme.buttoncolor}}>
+            <div className='w-1/2 h-96' style={{background:theme.bglightprimary}}>
                 
             </div>
-            <div className='w-1/2 h-96 flex justify-center items-center' style={{background:theme.bglight , color:theme.textdark}}>
+            <div className='w-1/2 h-96 flex justify-center items-center' style={{background:theme.bglightsecondary , color:theme.textdark}}>
                 <div className='flex flex-col gap-3'>
                 <h1 className='text-4xl font-Merriweather font-semibold'>Education</h1>
                 <span className='text-xl font-semibold'>Langara College</span>
@@ -30,6 +31,7 @@ const About = () => {
             </div>
       </div>
     </Fade>
+    </div>
   )
 }
 

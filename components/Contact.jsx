@@ -9,9 +9,10 @@ const Contact = () => {
     const theme = useSelector(state => state.theme)
 
   return (
+    <div id="Contact" className='mb-20'>
     <Fade style={{color:theme.textlight}}>
         <Heading Heading="Contact" text="Get in touch"/>
-        <div className='flex flex-col w-full md:flex-row greyshadow'>        
+        <div className='flex flex-col w-full md:flex-row'>        
             <div className='w-3/12 h-[90vh] text-white' style={{background:theme.texthead}}>
             <h1 className='text-center text-xl font-lato font-semibold my-6'>Contact Information</h1>
             <img src="logo.jpg" className='h-20 rounded-full mx-auto my-8'/>
@@ -42,6 +43,7 @@ const Contact = () => {
             </div>
         </div>
     </Fade>
+    </div>
   )
 }
 
