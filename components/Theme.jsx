@@ -33,7 +33,7 @@ export default function Example() {
       bgdarksecondary:'#545454',
       buttonbgprimary:'#545454',
       buttonbgseconadary:'#049CCC',
-      background:'#ffffff'
+      background:'#edf7ff'
   }
   const darktheme = {
     texthead:'#F7BC09',

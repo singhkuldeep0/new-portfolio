@@ -13,7 +13,7 @@ const Skills = () => {
     const theme = useSelector(state => state.theme)
 
     return (
-        <div id="Skills" className='my-10 ' style={{ color: theme.textlight }}>
+        <div id="Skills" className='py-10 ' style={{ color: theme.textlight }}>
             <Heading Heading="My Skills" />
             <div className='w-[80%] flex flex-col md:flex-row m-auto justify-around mt-16 gap-10'>
               <Zoom>
