@@ -31,9 +31,10 @@ input[type="text"], input[type="password"], input[type="email"],input[type='numb
 }
 
 .carousel .thumbs{
-    @apply !flex !justify-start md:!justify-center !gap-2 !animate-none !transition-none !translate-x-0 !transform-none
+    @apply !flex !justify-start sm:!justify-center !gap-2 md:!gap-4 md:mt-2 !animate-none !transition-none !translate-x-0 !transform-none
 }
 
 .thumb{
    @apply !h-9 md:!h-12 !max-w-fit !animate-none !transition-none !translate-x-0 !transform-none !mr-1 !border-none
 }
+
