@@ -44,10 +44,10 @@ const Footer = () => {
                         <div className='flex h-full justify-center items-center'>
                             <div className='h-[100%] md:h-[80%]  w-[2px]' style={{ background: theme.bglightsecondary }}></div>
                             <div className='flex flex-col px-6 gap-6 font-openSans' style={{ color: theme.bglightsecondary }}>
-                                <AiFillInstagram className='text-3xl cursor-pointers' />
-                                <FaTwitter className='text-2xl cursor-pointers' />
-                                <FaFacebookF className='text-2xl cursor-pointers' />
-                                <BsGithub className='text-2xl cursor-pointers' />
+                                <AiFillInstagram className='text-3xl cursor-pointer' />
+                                <FaTwitter className='text-2xl cursor-pointer' />
+                                <FaFacebookF className='text-2xl cursor-pointer' />
+                                <BsGithub className='text-2xl cursor-pointer' />
                             </div>
                         </div>
 

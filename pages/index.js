@@ -22,14 +22,14 @@ export default function Home({mydata , myprojects}) {
 
     dispatch(setMyData(mydata))
     dispatch(setMyProjects(myprojects))
-    const handleScroll = () => {
-      if(window.scrollY === 0){
-        setIsTopOfPage(true)
-      }
-      if(window.scrollY !== 0) setIsTopOfPage(false)
-    }
-    window.addEventListener("scroll" , handleScroll)
-    return () => window.removeEventListener("scroll" , handleScroll)
+    // const handleScroll = () => {
+    //   if(window.scrollY === 0){
+    //     setIsTopOfPage(true)
+    //   }
+    //   if(window.scrollY !== 0) setIsTopOfPage(false)
+    // }
+    // window.addEventListener("scroll" , handleScroll)
+    // return () => window.removeEventListener("scroll" , handleScroll)
     }, [])
   
  
@@ -42,13 +42,11 @@ export default function Home({mydata , myprojects}) {
       </Head>
 
     <main style={{background:`${theme.background}`}}> 
-      <Navbar isTopOfPage={isTopOfPage}/>
       <Homee/>
       <Projects/>
       <Skills/>
       <About/>
       <Contact/>
-      <Footer/>
      </main>
     
     </div>

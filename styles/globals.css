@@ -11,11 +11,29 @@
 
 
 .greyshadow{
-    -webkit-box-shadow: 0px 0px 10px 4px rgb(210, 208, 208);
--moz-box-shadow: 0px 0px 10px 4px rgb(210, 208, 208);
-box-shadow: 0px 0px 10px 4px rgb(210, 208, 208);
+    -webkit-box-shadow: 0px 0px 9px 4px ;
+    -moz-box-shadow: 0px 0px 9px 4px;
+    box-shadow: 0px 0px 9px 4px;
 }
 
 input[type="text"], input[type="password"], input[type="email"],input[type='number'],input[type="tel"], textarea{
     @apply w-[90%] col-span-2 md:col-span-1 border-b-2 my-2 py-2 bg-transparent  focus:outline-none
+}
+
+
+.carousel.carousel-slider .control-arrow{
+    height: 90% !important;
+}
+
+.carousel .thumbs-wrapper{
+    width: min-content !important;
+    margin: 20px auto !important;
+}
+
+.carousel .thumbs{
+    @apply !flex !justify-start md:!justify-center !gap-2 !animate-none !transition-none !translate-x-0 !transform-none
+}
+
+.thumb{
+   @apply !h-9 md:!h-12 !max-w-fit !animate-none !transition-none !translate-x-0 !transform-none !mr-1 !border-none
 }

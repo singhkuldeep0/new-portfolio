@@ -18,14 +18,14 @@ const Home = () => {
 
   return ( 
     <div id="Home" className='[90vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full'>
-      <div className="left flex items-center justify-center w-full h-[45vh] md:w-1/2 md:h-[90vh] " style={{background:theme.bglightprimary}}>
+      <div className="left flex items-center justify-center w-full h-[45vh] md:w-2/5 md:h-[90vh] " style={{background:theme.bglightprimary}}>
 
           <Zoom className='aspect-square overflow-hidden rounded-full'>
         {mydata.image && <img src='/img1.png' alt="" className='h-[250px] w-[200px] lg:w-[300px] lg:h-[400px] z-[1]' style={{background:theme.bglightsecondary}}/>}
           </Zoom>
         
       </div>
-      <div className='right flex items-center justify-center w-full h-[45vh]  md:h-[90vh] md:w-1/2'  style={{background:theme.bglightsecondary}}>
+      <div className='right flex items-center justify-center w-full h-[45vh]  md:h-[90vh] md:w-3/5'  style={{background:theme.bglightsecondary}}>
         {mydata && (
           <div className='flex flex-col gap-1 md:gap-2 pt-3' style={{color:theme.textlightprimary}}>
           <h1 className='text-center md:text-left text-4xl lg:text-6xl pb-1 md:pb-3 font-playfair font-bold' style={{color:theme.texthead}}>

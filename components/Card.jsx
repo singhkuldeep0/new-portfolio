@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Zoom } from 'react-awesome-reveal'
 import { useSelector } from 'react-redux'
 import { urlFor } from '../sanity.cli'
+import Link from 'next/link'
 
 const Card = ({ project , index }) => {
 
@@ -29,7 +30,7 @@ console.log(flip)
                     <p className='text-base font-lato' style={{color:theme.textdarkprimary}}>{project.description.slice(0,90)}...</p>
                     <div className='flex items-center justify-between mt-6 md:mt-10 '>
                         
-                <button className='font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>Read more</button>
+                <Link href={`/project/${project._id}`}><button className='font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>Read more</button></Link>
                 {project.weblink && <a href={project.weblink} target="_blank"><button className='font-semibold text-base px-4 tracking-wider rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>visit</button></a>}
                         
                     </div>
@@ -45,7 +46,7 @@ console.log(flip)
                 <p className='text-base font-lato' style={{color:theme.textdarkprimary}}>{project.description.slice(0,90)}...</p>
                 <div className='flex items-center justify-between mt-6 md:mt-10 '>
                     
-            <button className='font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>Read more</button>
+                <Link href={`/project/${project._id}`}><button className='font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>Read more</button></Link>
             {project.weblink && <a href={project.weblink} target="_blank"><button className='font-semibold text-base px-4 tracking-wider rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>visit</button></a>}
                     
                 </div>
