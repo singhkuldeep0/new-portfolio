@@ -24,23 +24,22 @@ const Navbar = ({ }) => {
     };
 
     const navigateHome = () => {
-        router.push('/')
         setSelected("Home")
     }
 
     return (
         <div className="sticky top-0  px-4 h-16 flex items-center justify-between z-[100]" style={{ background: theme.background }}>
-            <div onClick={() => navigateHome()} className="left">
+            <Link href="/"><div onClick={() => navigateHome()} className="left">
                 <NavName />
-            </div>
+            </div></Link>
             <div className="hidden sm:flex gap-8">
                 <span onClick={() => { setSelected("Home"); handleImageClick("Home"); }} className={`w-full text-base font-normal font-poppins cursor-pointer  ${selected === 'Home' && 'border-b-2'}`} style={{ color: theme.textdarkprimary, borderColor: theme.texthead, display: router.pathname === '/' ? 'block' : 'none' }}>
-                   Home
+                    Home
                 </span>
 
-                <span onClick={() => setSelected("Projects")} className={`w-full text-base font-normal font-poppins cursor-pointer  ${selected === 'Projects' && 'border-b-2'}`} style={{ color: theme.textdarkprimary, borderColor: theme.texthead, }}>
+                <Link href="/projects"><span onClick={() => setSelected("Projects")} className={`w-full text-base font-normal font-poppins cursor-pointer  ${selected === 'Projects' && 'border-b-2'}`} style={{ color: theme.textdarkprimary, borderColor: theme.texthead, }}>
                     Projects
-                </span>
+                </span></Link>
 
                 {navItems.map((item) => (
                     <span key={item} onClick={() => { setSelected(item); handleImageClick(item); }} className={`w-full text-base font-normal font-poppins cursor-pointer  ${selected === item && 'border-b-2'}`} style={{ color: theme.textdarkprimary, borderColor: theme.texthead, display: router.pathname === '/' ? 'block' : 'none' }}>
@@ -59,6 +58,12 @@ const Navbar = ({ }) => {
                         <XMarkIcon className='h-6 cursor-pointer' style={{ color: theme.textdarksecondary }} />
                     </div>
                     <div className='w-full py-4 text-xl font-semibold flex flex-col justify-center items-center'>
+                        <button onClick={() => { setSelected("Home"); setToggle(!toggle); handleImageClick("Home"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: theme.bgdark, color: theme.texthead, display: router.pathname === '/' ? 'block' : 'none' }}>
+                            Home
+                        </button>
+                        <button onClick={() => { setSelected("Projects"); setToggle(!toggle); handleImageClick("Projects"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: theme.bgdark, color: theme.texthead, display: router.pathname === '/' ? 'block' : 'none' }}>
+                            Projects
+                        </button>
                         {navItems.map((item) => (
                             <button key={item} onClick={() => { setSelected(item); setToggle(!toggle); handleImageClick(item); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: theme.bgdark, color: theme.texthead, display: router.pathname === '/' ? 'block' : 'none' }}>
                                 {item}

@@ -17,7 +17,6 @@ const Card = ({ project , index }) => {
         }
     }, [])
     
-console.log(flip)
 
     return (
         <>
@@ -26,12 +25,12 @@ console.log(flip)
             <div className='relative max-w-[600px] mt-20 md:mt-10 w-[90%]  h-[240px] md:h-[320px] mx-auto rounded-lg shadow-xl' style={{background:theme.bglightsecondary}}>
                 <img src={urlFor(project.images[0]).url()} className='absolute -top-20 rounded-lg left-[11%] sm:left-[28%] md:top-[15%] md:-left-[25%] w-[260px] h-[150px] md:w-[400px] md:h-[220px] border-[0.1px]' style={{borderColor:theme.bglightsecondary}}/>
                 <div className='flex flex-col md:justify-center h-full pt-20 md:pt-0 px-3 sm:px-6 md:w-1/2 ml-auto'>
-                    <h1 className='text-2xl font-semibold mb-1' style={{color:theme.textdarksecondary}}>{project.projectName}</h1>
+                    <h1 className='text-2xl font-semibold mb-1' style={{color:theme.texthead}}>{project.projectName}</h1>
                     <p className='text-base font-lato' style={{color:theme.textdarkprimary}}>{project.description.slice(0,90)}...</p>
                     <div className='flex items-center justify-between mt-6 md:mt-10 '>
                         
-                <Link href={`/project/${project._id}`}><button className='font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>Read more</button></Link>
-                {project.weblink && <a href={project.weblink} target="_blank"><button className='font-semibold text-base px-4 tracking-wider rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>visit</button></a>}
+                <Link href={`/project/${project._id}`}><button className='button font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgprimary , color:theme.textlightsecondary}}>Read more</button></Link>
+                {project.weblink && <a href={project.weblink} target="_blank"><button className='button font-semibold text-base px-4 tracking-wider rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgprimary , color:theme.textlightsecondary}}>visit</button></a>}
                         
                     </div>
                 </div>
@@ -42,12 +41,12 @@ console.log(flip)
         <div className='relative max-w-[600px] mt-20 md:mt-10 w-[90%]  h-[240px] md:h-[320px] mx-auto rounded-lg shadow-xl' style={{background:theme.bglightsecondary}}>
             <img src={urlFor(project.images[0]).url()} className='absolute -top-20 rounded-lg right-[12%] sm:right-[28%] md:top-[15%] md:-right-[25%] w-[260px] h-[150px] md:w-[400px] md:h-[220px] border-[0.1px]' style={{borderColor:theme.bgdark}}/>
             <div className='flex flex-col md:justify-center h-full pt-20 md:pt-0 px-3 sm:px-6 md:w-1/2 mr-auto'>
-                <h1 className='text-2xl font-semibold mb-1' style={{color:theme.textdarksecondary}}>{project.projectName}</h1>
+                <h1 className='text-2xl font-semibold mb-1' style={{color:theme.texthead}}>{project.projectName}</h1>
                 <p className='text-base font-lato' style={{color:theme.textdarkprimary}}>{project.description.slice(0,90)}...</p>
                 <div className='flex items-center justify-between mt-6 md:mt-10 '>
                     
-                <Link href={`/project/${project._id}`}><button className='font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>Read more</button></Link>
-            {project.weblink && <a href={project.weblink} target="_blank"><button className='font-semibold text-base px-4 tracking-wider rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgseconadary , color:theme.buttonbgprimary}}>visit</button></a>}
+                <Link href={`/project/${project._id}`}><button className='button font-semibold text-base px-4 rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgprimary , color:theme.textlightsecondary}}>Read more</button></Link>
+            {project.weblink && <a href={project.weblink} target="_blank"><button className='button font-semibold text-base px-4 tracking-wider rounded-full py-1.5 cursor-pointer' style={{background:theme.buttonbgprimary , color:theme.textlightsecondary}}>visit</button></a>}
                     
                 </div>
             </div>

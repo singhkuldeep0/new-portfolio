@@ -17,7 +17,7 @@ const Home = () => {
   }
 
   return ( 
-    <div id="Home" className='[90vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full'>
+    <div id="Home" className='[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full pt-10 sm:pt-0'>
       <div className="left flex items-center justify-center w-full h-[45vh] md:w-2/5 md:h-[90vh] " style={{background:theme.bglightprimary}}>
 
           <Zoom className='aspect-square overflow-hidden rounded-full'>
@@ -27,9 +27,9 @@ const Home = () => {
       </div>
       <div className='right flex items-center justify-center w-full h-[45vh]  md:h-[90vh] md:w-3/5'  style={{background:theme.bglightsecondary}}>
         {mydata && (
-          <div className='flex flex-col gap-1 md:gap-2 pt-3' style={{color:theme.textlightprimary}}>
+          <div className='flex flex-col gap-1 md:gap-2 pt-3' style={{color:theme.textdarkprimary}}>
           <h1 className='text-center md:text-left text-4xl lg:text-6xl pb-1 md:pb-3 font-playfair font-bold' style={{color:theme.texthead}}>
-            <span className='text-base mr-2 font-roboto-slab' style={{color:theme.textlightprimary}}>Hi I'm</span>
+            <span className='text-base mr-2 font-roboto-slab' style={{color:theme.textdarkprimary}}>Hi I'm</span>
             {mydata.name}
             </h1>
           <p className='text-center md:text-left text-lg tracking-tighter font-poppins font-semibold px-12 md:px-0 leading-none'>
@@ -48,20 +48,20 @@ const Home = () => {
           </span>
           </p>
           <div className="buttons flex gap-4 justify-center md:justify-start items-center mt-4">
-            <button className='font-semibold inline-flex gap-2 items-center text-base px-6 py-2 rounded-full cursor-pointer' style={{background:theme.buttonbgprimary , color:theme.textlightsecondary}}>Contact Me <FaLocationArrow className='text-base rotate-45'/></button>
-            <button className='font-semibold text-base px-6 rounded-full py-1.5  border-2 cursor-pointer' style={{borderColor:theme.buttonbgseconadary , color:theme.buttonbgseconadary}}>Download Cv</button>
+            <button className='button font-semibold inline-flex gap-2 items-center text-base px-6 py-2 rounded-full cursor-pointer' style={{background:theme.buttonbgprimary , color:theme.textlightsecondary}}>Contact Me <FaLocationArrow className='text-base rotate-45'/></button>
+            <button className='button font-semibold text-base px-6 rounded-full py-1.5  border-2 cursor-pointer' style={{borderColor:theme.buttonbgseconadary , color:theme.buttonbgseconadary}}>Download Cv</button>
           </div>
           <div className="flex items-center justify-center md:justify-start mt-3 md:mt-20 gap-4">
-              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full cursor-pointer' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
+              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full button' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
                 <AiFillInstagram className='text-3xl'/>
               </div>
-              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full cursor-pointer' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
+              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full button' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
                 <FaTwitter className='text-2xl'/>
               </div>
-              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full cursor-pointer' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
+              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full button' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
                 <FaFacebookF className='text-2xl'/>
               </div>
-              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full cursor-pointer' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
+              <div className='h-11 w-11 border-2 flex items-center justify-center rounded-full button' style={{color:theme.buttonbgseconadary , borderColor:theme.buttonbgseconadary }}>
                 <BsGithub className='text-2xl'/>
               </div>
           </div>

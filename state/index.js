@@ -3,18 +3,18 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   theme:{
     texthead:'#049CCC',
-      textwhite:'#040C0C',
-      textlightsecondary:'#84CCFC',
-      textdarksecondary:'#049CCC',
-      textlightprimary:'#9C9C9C',
-      textdarkprimary:'#545454',
-      bglightprimary:'#cbeaff',
-      bgdarkprimary:'#049CCC',
-      bglightsecondary:'#d7d7d7',
-      bgdarksecondary:'#545454',
-      buttonbgprimary:'#545454',
-      buttonbgseconadary:'#049CCC',
-      background:'#ffffff'
+    textwhite:'#040C0C',
+    textlightsecondary:'#84CCFC',
+    textdarksecondary:'#049CCC',
+    textlightprimary:'#ffffff',
+    textdarkprimary:'#545454',
+    bglightprimary:'#cbeaff',
+    bgdarkprimary:'#049CCC',
+    bglightsecondary:'#d7d7d7',
+    bgdarksecondary:'#545454',
+    buttonbgprimary:'#545454',
+    buttonbgseconadary:'#049CCC',
+    background:'#f0f0fd'
   },
   mydata:[],
   myprojects:[]

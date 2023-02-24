@@ -8,8 +8,7 @@ const Slider = ({ images }) => {
     const theme = useSelector(state => state.theme)
     const [isborder , setIsBorder] = useState(0)
 
-    console.log(isborder)
-
+   
     return (
         <div className='flex w-[100vw]'>
       

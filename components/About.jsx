@@ -12,10 +12,12 @@ const About = () => {
     <Fade className='pt-10'>
       <Heading Heading="About Me" text="Education , Experience"/>
       <div className='w-full flex flex-col md:flex-row '>
-            <div className='w-full md:w-1/2 h-96' style={{background:theme.bglightprimary}}>
-                
+            <div className='w-full md:w-1/2 h-96 flex justify-center items-center' style={{background:theme.bglightprimary}}>
+              <div className='aspect-square rounded-full overflow-hidden h-[70%]'>
+            <img src='/profile.png' alt="" className='z-[1] object-fill' style={{background:theme.bglightsecondary}}/>
+              </div>
             </div>
-            <div className='w-full md:w-1/2 h-96 flex justify-center items-center' style={{background:theme.bglightsecondary , color:theme.textdark}}>
+            <div className='w-full md:w-1/2 h-96 flex justify-center items-center' style={{background:theme.bglightsecondary , color:theme.textdarkprimary}}>
                 <div className='flex flex-col gap-3'>
                 <h1 className='text-4xl font-Merriweather font-semibold'>Education</h1>
                 <span className='text-xl font-semibold'>Langara College</span>

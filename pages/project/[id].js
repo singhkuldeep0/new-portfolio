@@ -8,16 +8,14 @@ import { BsGithub , BsGlobe } from 'react-icons/bs'
 const Project = ({project,allImages}) => {
 
     const theme = useSelector(state => state.theme)
-   
-    console.log(project , allImages)
-       
+          
   return project.length > 0 ? (
-    <div className='min-h-screen overflow-hidden' style={{background:`${theme.background}`}}>
-      <h1 className='text-center text-xl font-bold font-openSans pb-6 sm:py-2' style={{color:theme.textdarkprimary}}>{project[0].projectName}</h1>
+    <div className='min-h-screen mb-36 md:mb-4 overflow-hidden' style={{background:`${theme.background}`}}>
+      <h1 className='text-center text-xl font-bold font-openSans pb-6 sm:py-2' style={{color:theme.textdarksecondary}}>{project[0].projectName}</h1>
        <Slider images={project[0].images}/>
 
-       <div className='flex flex-col gap-0.5 p-3 md:pt-10 md:px-28 items-start'>
-       <h1 className='text-left text-md font-bold font-openSans' style={{color:theme.textdarksecondary}}>Links :</h1>
+       <div className='flex flex-col gap-1 py-6 px-3 md:pt-10 md:px-28 items-start'>
+       <h1 className='text-left text-md pb-2 font-bold font-openSans' style={{color:theme.textdarksecondary}}>Links :</h1>
      {project[0]?.weblink && <div className='inline-flex items-center justify-center gap-2'>
             <BsGlobe className='text-xl cursor-pointer' />
             <a href={project[0].weblink} target='_blank'><p className='font-medium underline text-base font-lato' style={{color:theme.textdarkprimary}}>{project[0].weblink}</p></a>

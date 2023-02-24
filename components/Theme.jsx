@@ -22,10 +22,10 @@ export default function Example() {
   const [selected, setSelected] = useState(people[0])
   const lightTheme = {
       texthead:'#049CCC',
-      textwhite:'#040C0C',
+      textwhite:'#ffffff',
       textlightsecondary:'#84CCFC',
       textdarksecondary:'#049CCC',
-      textlightprimary:'#9C9C9C',
+      textlightprimary:'#ffffff',
       textdarkprimary:'#545454',
       bglightprimary:'#cbeaff',
       bgdarkprimary:'#049CCC',
@@ -36,18 +36,18 @@ export default function Example() {
       background:'#f0f0fd'
   }
   const darktheme = {
-    texthead:'#F7BC09',
+    texthead:'#FCFC04',
     textwhite:'#ffffff',
-    textlightprimary:'#F6E085',
-    textdarkprimary:'#F6E085',
-    textlightsecondary:'#545454',
-    textdarksecondary:'#040C0C',
-    bglightsecondary:'#F6E085',
-    bgdarksecondary:'#F6E085',
-    bglightprimary:'#545454',
-    bgdarkprimary:'#040C0C',
-    buttonbgseconadary:'#F6E085',
-    buttonbgprimary:'#040C0C',
+    textlightsecondary:'#040C0C',
+    textdarksecondary:'#FCFC04',
+    textlightprimary:'#040C0C',
+    textdarkprimary:'#f5f5f5',
+    bglightsecondary:'#545454',
+    bgdarksecondary:'#040C0C',
+    bglightprimary:'#FCFC04',
+    bgdarkprimary:'#FCFC04',
+    buttonbgprimary:'#FCFC04',
+    buttonbgseconadary:'#FCFC04',
     background:'#040C0C'
   }
 

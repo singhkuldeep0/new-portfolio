@@ -10,10 +10,10 @@ const Contact = () => {
 
   return (
     <div id="Contact" className='pb-32 md:pb-10 pt-10'>
-    <Fade style={{color:theme.textlight}}>
+    <Fade>
         <Heading Heading="Contact" text="Get in touch"/>
-        <div className='flex flex-col w-full md:flex-row pt-8'>        
-            <div className='w-3/12 hidden md:block h-[90vh]' style={{background:theme.bglightprimary , color:theme.textdarkprimary}}>
+        <div className='flex flex-col w-full md:flex-row mt-6 py-12' style={{color:theme.textlight , background:theme.bgdarkprimary}}>        
+            <div className='w-3/12 hidden md:block' style={{color:theme.background}}>
             <h1 className='text-center text-xl font-lato font-semibold my-6'>Contact Information</h1>
             <img src="logo.jpg" className='h-20 rounded-full mx-auto my-8'/>
             <div className="flex flex-col gap-4">
@@ -31,9 +31,9 @@ const Contact = () => {
                 </div>
             </div>  
             </div>
-            <div className='w-full md:w-9/12 md:h-[90vh] pl-8 pb-10 md:px-8' style={{background:theme.bglightsecondary}}>
-                <h1 className='text-center text-3xl font-lato my-6'>Get in touch</h1>
-                <div className='grid grid-cols-2 gap-8 md:gap-12 mt-4'>
+            <div className='w-[90%] md:w-8/12  pl-8 pb-10 md:px-8 shadow-lg m-auto rounded-2xl' style={{background:theme.background ,color:theme.textwhite }}>
+                <h1 className='text-center text-3xl font-lato my-3'>Get in touch</h1>
+                <div className='grid grid-cols-2 gap-4 md:gap-8 mt-2'>
                     <input type="text" placeholder='Name' style={{borderColor:theme.bgdark}}/>
                     <input type="text" placeholder='Email' style={{borderColor:theme.bgdark}}/>
                     <input type="text" placeholder='Phone' style={{borderColor:theme.bgdark}}/>

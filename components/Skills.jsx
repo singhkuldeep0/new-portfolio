@@ -17,22 +17,22 @@ const Skills = () => {
             <Heading Heading="My Skills" />
             <div className='w-[80%] flex flex-col md:flex-row m-auto justify-around mt-16 gap-10'>
               <Zoom>
-                <div className='flex justify-center items-center flex-col gap-2 pt-4 p-8 rounded-xl greyshadow'>
-                    <div className='rounded-full flex justify-center items-center h-28 w-28' style={{ background: theme.bglightprimary }}>
+                <div className='flex justify-center items-center flex-col gap-2 pt-4 p-8 rounded-xl greyshadow' style={{color:theme.bglightsecondary , background:theme.bglightsecondary}}>
+                    <div className='rounded-full flex justify-center items-center h-28 w-28' style={{ background: theme.bgdarksecondary}}>
                         <GlobeAltIcon className='h-16' style={{ color: theme.texthead }} />
                     </div>
-                    <span className='text-xl font-lato font-semibold'>Web development</span>
+                    <span className='text-xl font-lato font-semibold' style={{color:theme.bglightsecondary , color:theme.texthead}}>Web development</span>
                     <div className='mt-6'>
-                        <ul className='flex flex-col gap-6'>
-                            <li className='flex justify-between text-xl md:text-2xl'>
+                        <ul className='flex flex-col gap-6 text-lg font-poppins font-semibold' style={{color:theme.bglightsecondary , color:theme.textdarkprimary}}>
+                            <li className='flex justify-between '>
                                 <span>Html</span>
                                 <AiFillHtml5 className='text-2xl md:text-4xl' style={{color:theme.texthead}}/>
                             </li>
-                            <li className='flex justify-between gap-44 text-xl md:text-2xl'>
+                            <li className='flex justify-between gap-44'>
                                 <span>Css</span>
                                <DiCss3 className='text-2xl md:text-4xl' style={{color:theme.texthead}}/>
                             </li>
-                            <li className='flex justify-between gap-44 text-xl md:text-2xl'>
+                            <li className='flex justify-between gap-44'>
                                 <span>Javascript</span>
                                 <DiJavascript1 className='text-2xl md:text-4xl' style={{color:theme.texthead}}/>
                             </li>
@@ -41,22 +41,22 @@ const Skills = () => {
                 </div>
                 </Zoom>
                <Zoom>
-                <div className='flex justify-center items-center flex-col gap-2 pt-4 p-8 rounded-xl greyshadow'>
-                    <div className='rounded-full h-28 w-28 flex justify-center items-center' style={{ background: theme.bglightsecondary }}>
+                <div className='flex justify-center items-center flex-col gap-2 pt-4 p-8 rounded-xl greyshadow' style={{color:theme.bglightsecondary , background:theme.bglightsecondary}}>
+                    <div className='rounded-full h-28 w-28 flex justify-center items-center' style={{ background: theme.bgdarksecondary }}>
                         <WrenchScrewdriverIcon className='h-16' style={{ color: theme.texthead }} />
                     </div>
-                    <span className='text-xl font-lato font-semibold'>Frameworks</span>
+                    <span className='text-xl font-lato font-semibold' style={{color:theme.bglightsecondary , color:theme.texthead}}>Frameworks</span>
                     <div className='mt-6'>
-                        <ul className='flex flex-col gap-6'>
-                            <li className='flex justify-between text-xl md:text-2xl'>
+                        <ul className='flex flex-col gap-6 text-lg font-poppins font-semibold' style={{color:theme.bglightsecondary, color:theme.textdarkprimary}}>
+                            <li className='flex justify-between'>
                                 <span>Reactjs</span>
                                 <FaReact className='text-2xl md:text-4xl' style={{color:theme.texthead}}/>
                             </li>
-                            <li className='flex justify-between gap-44 text-xl md:text-2xl'>
+                            <li className='flex justify-between gap-44 '>
                                 <span>Nextjs</span>
                                <SiNextdotjs className='text-2xl md:text-4xl' style={{color:theme.texthead}}/>
                             </li>
-                            <li className='flex justify-between gap-44 text-xl md:text-2xl'>
+                            <li className='flex justify-between gap-44 '>
                                 <span>Tailwindcss</span>
                                 <SiTailwindcss className='text-2xl md:text-4xl' style={{color:theme.texthead}}/>
                             </li>
