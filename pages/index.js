@@ -11,10 +11,11 @@ import Skills from '../components/Skills'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import axios from 'axios'
 
 export default function Home({mydata , myprojects}) {
   const dispatch = useDispatch()
-  const theme = useSelector(state => state.theme)
+  const background = useSelector(state => state.background)
 
   const [isTopOfPage , setIsTopOfPage] = useState(true)
 
@@ -41,7 +42,7 @@ export default function Home({mydata , myprojects}) {
         <link rel="icon" href="/logo.jpg" />
       </Head>
 
-    <main style={{background:`${theme.background}`}}> 
+    <main style={{background:background.secondary}}> 
       <Homee/>
       <Projects/>
       <Skills/>
@@ -57,14 +58,14 @@ export default function Home({mydata , myprojects}) {
 export async function getStaticProps(context) {
 
   const mydetails = `*[_type == 'mydetails']`
-  const projects = `*[_type == 'projects']`
+  const {data} = await axios.get(`http://localhost:3000/api/project`)
+  console.log(data)
   const mydata = await client.fetch(mydetails)
-  const myprojects = await client.fetch(projects)
 
   return {
     props: {
       mydata,
-      myprojects
+      myprojects:data
     }, 
   }
 }

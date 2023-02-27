@@ -1,21 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  theme:{
-    texthead:'#049CCC',
-    textwhite:'#040C0C',
-    textlightsecondary:'#84CCFC',
-    textdarksecondary:'#049CCC',
-    textlightprimary:'#ffffff',
-    textdarkprimary:'#545454',
-    bglightprimary:'#cbeaff',
-    bgdarkprimary:'#049CCC',
-    bglightsecondary:'#d7d7d7',
-    bgdarksecondary:'#545454',
-    buttonbgprimary:'#545454',
-    buttonbgseconadary:'#049CCC',
-    background:'#f0f0fd'
+  fontSize:{
+    xs:'12px',
+    sm:'14px',
+    base:'16px',
+    lg:'18px',
+    xl:'20px',
+    xxl:'24px',
+    xxxl:'30px',
+    xxxxl:'36px',
+    xxxxxl:'48px',
+    xxxxxxl:'60px',
   },
+  color:'#1d9bf0',
+  background:{
+    secondary:'#000000',
+    primary:'#636363',
+    bgneutral:'#ffffff',
+    textprimary:'#cecece',
+    textsecondary:'#ffffff',
+    neutral:'#a9a9a9'
+  },
+  mode:'default',
   mydata:[],
   myprojects:[]
 }
@@ -24,8 +31,17 @@ export const stateSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    setTheme: (state , action) => {
-      state.theme = action.payload
+    setColor: (state , action) => {
+      state.color = action.payload
+    },
+    setMode: (state , action) => {
+      state.mode = action.payload
+    },
+    setFontSize: (state , action) => {
+      state.fontSize = action.payload
+    },
+    setBackground: (state , action) => {
+      state.background = action.payload
     },
     setMyData:(state , action) => {
       state.mydata = action.payload
@@ -36,6 +52,6 @@ export const stateSlice = createSlice({
   }
 })
 
-export const { setTheme , setMyData , setMyProjects } = stateSlice.actions
+export const { setColor, setMode , setMyData , setMyProjects , setBackground , setFontSize} = stateSlice.actions
 
 export default stateSlice.reducer

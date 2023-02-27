@@ -54,3 +54,8 @@ input[type="text"], input[type="password"], input[type="email"],input[type='numb
 .project-smallbtn{
     @apply px-2 py-1 text-xs rounded-2xl font-semibold
 }
+
+.RSPBprogressBar{
+    height: 3px !important;
+    background-color:white !important;
+}

@@ -5,7 +5,9 @@ import ProjectCard from '../components/ProjectCard'
 
 const Projects = ({projects}) => {
 
-    const theme = useSelector(state => state.theme)
+  const background = useSelector(state => state.background)
+  const color = useSelector(state => state.color)
+
     const [selectedbtn , setSelectedbtn] = useState("All")
 
     const filterProjects = projects.filter(item => {
@@ -19,10 +21,10 @@ const Projects = ({projects}) => {
     const names = [ "All" , "Reactjs" , "Nextjs" , "MERN" , "Nodejs" , "Typescript"]
 
   return (
-    <div className='min-h-screen' style={{background:theme.background}}>
+    <div className='min-h-screen' style={{background:background.primary}}>
       <div className="grid grid-cols-3 md:grid-cols-6 w-fit gap-4 px-4 mx-auto py-6">
             {names.map(name=>(
-                <button key={name} className='project-btn button' onClick={()=>setSelectedbtn(name)} style={{background: name===selectedbtn ? theme.bgdarkprimary : theme.bglightsecondary , color: name===selectedbtn ? theme.textlightprimary : theme.textdarkprimary}}>{name}</button>
+                <button key={name} className='project-btn button' onClick={()=>setSelectedbtn(name)} style={{background: name===selectedbtn ? color : background.secondary , color: background.textsecondary}}>{name}</button>
             ))}
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 w-[90%] mx-auto'>

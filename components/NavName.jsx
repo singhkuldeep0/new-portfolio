@@ -43,15 +43,15 @@ const slashMotion = {
 
 const NavName = ({isTopOfPage}) => {
 
-    const theme = useSelector(state => state.theme)
+  const color = useSelector(state => state.color)
 
     return (
         <motion.div initial="rest" whileHover="hover" animate="rest"
             className='flex h-full hover:gap-1 items-center overflow-hidden w-[148px] cursor-pointer'>
             <div className='flex justify-center items-center' >
-                <motion.span className='text-xl ' variants={slashMotion} style={{color: theme.texthead}}>©</motion.span>
+                <motion.span className='text-xl' variants={slashMotion} style={{color:color}}>©</motion.span>
             </div>
-            <motion.div className='flex text-white text-xl font-Poppins overflow-hidden font-bold tracking-tighter' style={{ color: theme.texthead }}>
+            <motion.div className='flex text-white text-xl font-Poppins overflow-hidden font-bold tracking-tighter' style={{ color:color }}>
                 <motion.div className='flex' variants={textMotion}>
                     <span>Singh</span>
                     <span>Kuldeep</span>
