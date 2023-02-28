@@ -35,11 +35,10 @@ const CustomDot = ({onClick, ...rest }) => {
     } = rest;
    
     return  <button
-    className='rounded-full absolute right-6 p-1.5 mx-1 mb-0.5 opacity-70'
-    onClick={() => onClick()}
+    className='rounded-full absolute right-6 p-1 sm:p-1.5 mx-1 mb-0.5 opacity-70'
     style={{background:color, color:'white'}}
   >
-    <FaChevronRight className="text-sm"/>
+    <FaChevronRight className="text-xs sm:text-sm"/>
   </button>
   };
 
@@ -52,11 +51,10 @@ const CustomDot = ({onClick, ...rest }) => {
     } = rest;
    
     return  <button
-    className='rounded-full absolute left-6 p-1.5 mx-1 mb-0.5 opacity-70'
-    onClick={() => onClick()}
+    className='rounded-full absolute left-6 p-1 sm:p-1.5 mx-1 mb-0.5 opacity-70'
     style={{background:color, color:'white'}}
   >
-    <FaChevronLeft className="text-sm"/>
+    <FaChevronLeft className="text-xs sm:text-sm"/>
   </button>
   };
 
@@ -126,7 +124,7 @@ const Slider = ({ images }) => {
         customLeftArrow={<CustomLeftArrow />} 
         >
           {images.map((item)=>(
-            <div key={item._key} className="relative w-[100%] sm:w-[600px] md:w-[800px] h-[200px] sm:h-[400px] m-auto">
+            <div key={item._key} className="relative w-[290px] sm:w-[600px] md:w-[800px] h-[200px] sm:h-[400px] m-auto">
                     <Image src={urlFor(item).url()} alt="" fill style={{objectFit:'contain', paddingBottom:'10px'}} className='rounded-xl'/>
             </div>
           ))}
