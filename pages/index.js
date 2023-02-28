@@ -55,16 +55,19 @@ export default function Home({mydata , myprojects}) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
-  const mydetails = `*[_type == 'mydetails']`
-  const {data} = await axios.get(`http://localhost:3000/api/project`)
-  console.log(data)
-  const mydata = await client.fetch(mydetails)
+ const data = await Promise.all(["ae53b52d-0c46-4a7d-b489-dc19af2b3185", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
+   const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/project/${projectId}`)
+   return data
+ })
+)
+
+  const mydetails = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/mydetails`)
 
   return {
     props: {
-      mydata,
+      mydata : mydetails.data,
       myprojects:data
     }, 
   }

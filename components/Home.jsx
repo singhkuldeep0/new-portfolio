@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { urlFor } from '../sanity.cli'
 import { FaLocationArrow , FaTwitter , FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
@@ -9,7 +8,7 @@ import { Zoom } from 'react-awesome-reveal'
 
 const Home = () => {
 
-  const mydata = useSelector(state => state.mydata[0])
+  const mydata = useSelector(state => state.mydata)
   const color = useSelector(state => state.color)
   const background = useSelector(state => state.background)
   const fontSize = useSelector(state => state.fontSize)
