@@ -2,16 +2,16 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   fontSize:{
-    xs:'12px',
-    sm:'14px',
-    base:'16px',
-    lg:'18px',
-    xl:'20px',
-    xxl:'24px',
-    xxxl:'30px',
-    xxxxl:'36px',
-    xxxxxl:'48px',
-    xxxxxxl:'60px',
+    xs:'10px',
+    sm:'12px',
+    base:'14px',
+    lg:'16px',
+    xl:'18px',
+    xxl:'20px',
+    xxxl:'26px',
+    xxxxl:'32px',
+    xxxxxl:'42px',
+    xxxxxxl:'48px',
   },
   color:'#1d9bf0',
   background:{

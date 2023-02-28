@@ -59,3 +59,16 @@ input[type="text"], input[type="password"], input[type="email"],input[type='numb
     height: 3px !important;
     background-color:white !important;
 }
+
+.react-multiple-carousel__arrow{
+    z-index: 1 !important;
+    min-width: 26px !important;
+    min-height: 26px !important ;
+}
+.react-multiple-carousel__arrow::before{
+    font-size: 12px !important;
+}
+
+.react-multi-carousel-dot-list{
+    bottom: 4px !important;
+}

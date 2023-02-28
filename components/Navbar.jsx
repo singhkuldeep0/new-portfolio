@@ -17,7 +17,7 @@ const Navbar = ({ }) => {
     const [selected, setSelected] = useState('Home')
 
     const navItems = [
-        "Skills", "About", "Contact"
+        "Projects" , "Skills", "About", "Contact"
     ]
     const router = useRouter()
 
@@ -35,13 +35,13 @@ const Navbar = ({ }) => {
                 <NavName />
             </div></Link>
             <div className="hidden sm:flex gap-8">
-                <span onClick={() => { setSelected("Home"); handleImageClick("Home"); }} className={`w-full font-normal font-poppins cursor-pointer  ${selected === 'Home' && 'border-b-2'}`} style={{ color: background.textsecondary, borderColor:color , display: router.pathname === '/' ? 'block' : 'none' , fontSize:fontSize.base }}>
+                {/* <span onClick={() => { setSelected("Home"); handleImageClick("Home"); }} className={`w-full font-normal font-poppins cursor-pointer  ${selected === 'Home' && 'border-b-2'}`} style={{ color: background.textsecondary, borderColor:color , display: router.pathname === '/' ? 'block' : 'none' , fontSize:fontSize.base }}>
                     Home
                 </span>
 
-                <Link href="/projects"><span onClick={() => setSelected("Projects")} className={`w-full font-normal font-poppins cursor-pointer  ${selected === 'Projects' && 'border-b-2'}`} style={{ color: background.textsecondary, borderColor:color, fontSize:fontSize.base}}>
+                <span onClick={() => setSelected("Projects")} className={`w-full font-normal font-poppins cursor-pointer  ${selected === 'Projects' && 'border-b-2'}`} style={{ color: background.textsecondary, borderColor:color, fontSize:fontSize.base}}>
                     Projects
-                </span></Link>
+                </span> */}
 
                 {navItems.map((item) => (
                     <span key={item} onClick={() => { setSelected(item); handleImageClick(item); }} className={`w-full font-normal font-poppins cursor-pointer  ${selected === item && 'border-b-2'}`} style={{ color: background.textsecondary, borderColor:color, display: router.pathname === '/' ? 'block' : 'none' , fontSize:fontSize.base }}>
@@ -52,6 +52,7 @@ const Navbar = ({ }) => {
             <div className="right">
 
                 <div className='flex gap-4'>
+                    <Link href={`/projects`}><button className='font-semibold px-2 py-1 text-white shadow-md rounded-md hover:scale-105 transition transform duration-200 ease-in-out' style={{background:color}}>AllProjects</button></Link>
                     <Theme />
                     <GoThreeBars onClick={() => setToggle(!toggle)} className='text-2xl mt-4 sm:hidden cursor-pointer' style={{ color: background.textsecondary }} />
                 </div>
@@ -60,14 +61,27 @@ const Navbar = ({ }) => {
                         <XMarkIcon className='h-6 cursor-pointer' style={{ color: background.textprimary }} />
                     </div>
                     <div className='w-full py-4 font-semibold flex flex-col justify-center items-center' style={{fontSize:fontSize.xl}}>
-                        <button onClick={() => { setSelected("Home"); setToggle(!toggle); handleImageClick("Home"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color: background.textsecondary , display: router.pathname === '/' ? 'block' : 'none' }}>
+                        {/* <button onClick={() => { setSelected("Home"); setToggle(!toggle); handleImageClick("Home"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color: background.textsecondary , display: router.pathname === '/' ? 'block' : 'none' }}>
                             Home
                         </button>
                         <button onClick={() => { setSelected("Projects"); setToggle(!toggle); handleImageClick("Projects"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color: background.textsecondary, display: router.pathname === '/' ? 'block' : 'none' }}>
                             Projects
-                        </button>
+                        </button> */}
+                       {router.pathname === '/' &&  <button onClick={() => { 
+                            setSelected('Home'); 
+                            setToggle(!toggle); handleImageClick('Home'); 
+                            
+                            }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:color}}>
+                                Home
+                            </button>}
+                      { router.pathname !== '/' && <button onClick={() => { 
+                                router.push('/')  
+                                setToggle(!toggle);                          
+                            }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:color}}>
+                                Home
+                            </button>}
                         {navItems.map((item) => (
-                            <button key={item} onClick={() => { setSelected(item); setToggle(!toggle); handleImageClick(item); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:background.textsecondary , display: router.pathname === '/' ? 'block' : 'none' }}>
+                            <button key={item} onClick={() => { setSelected(item); setToggle(!toggle); handleImageClick(item); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:color , display: router.pathname === '/' ? 'block' : 'none' }}>
                                 {item}
                             </button>
                         ))}

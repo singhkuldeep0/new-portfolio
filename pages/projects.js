@@ -13,13 +13,14 @@ const Projects = ({projects}) => {
   const router = useRouter()
   const {search} = router.query
 
-    const names = [ "All" , "Reactjs" , "Nextjs" , "MERN" , "Nodejs" , "Typescript"]
+    const names = [ "Reactjs" , "Nextjs" , "MERN" , "Nodejs" , "Typescript"]
 
   return (
-    <div className='min-h-screen' style={{background:background.primary}}>
+    <div className='min-h-screen' style={{background:background.secondary}}>
       <div className="grid grid-cols-3 md:grid-cols-6 w-fit gap-4 px-4 mx-auto py-6">
+              <Link href={`/projects`}><button className='project-btn button w-full' style={{background: (search === undefined || null) ? color : background.secondary , color: background.textsecondary}}>All</button></Link>
             {names.map(name=>(
-                <Link href={`/projects/?search=${name}`}><button key={name} className='project-btn button' style={{background: name===search ? color : background.secondary , color: background.textsecondary}}>{name}</button></Link>
+                <Link href={`/projects/?search=${name}`}><button key={name} className='project-btn button w-full' style={{background: name===search ? color : background.secondary , color: background.textsecondary}}>{name}</button></Link>
             ))}
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 w-[90%] mx-auto'>
