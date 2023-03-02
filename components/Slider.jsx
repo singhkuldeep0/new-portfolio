@@ -29,12 +29,8 @@ const CustomDot = ({onClick, ...rest }) => {
   const CustomRightArrow = ({ onClick, ...rest }) => {
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
-    const {
-      onMove,
-      carouselState: { currentSlide, deviceType }
-    } = rest;
-   
-    return  <button
+  
+    return  <button onClick={()=>onClick()}
     className='rounded-full absolute right-6 p-1 sm:p-1.5 mx-1 mb-0.5 opacity-70'
     style={{background:color, color:'white'}}
   >
@@ -45,12 +41,8 @@ const CustomDot = ({onClick, ...rest }) => {
   const CustomLeftArrow = ({ onClick, ...rest }) => {
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
-    const {
-      onMove,
-      carouselState: { currentSlide, deviceType }
-    } = rest;
-   
-    return  <button
+      
+    return  <button onClick={()=>onClick()}
     className='rounded-full absolute left-6 p-1 sm:p-1.5 mx-1 mb-0.5 opacity-70'
     style={{background:color, color:'white'}}
   >
@@ -109,7 +101,7 @@ const Slider = ({ images }) => {
         showDots={true}
         ssr={true} 
         infinite={true}
-        autoPlay={true}
+        // autoPlay={true}
         autoPlaySpeed={2500}
         keyBoardControl={true}
         customTransition="all .5"
@@ -124,8 +116,8 @@ const Slider = ({ images }) => {
         customLeftArrow={<CustomLeftArrow />} 
         >
           {images.map((item)=>(
-            <div key={item._key} className="relative w-[290px] sm:w-[600px] md:w-[800px] h-[200px] sm:h-[400px] m-auto">
-                    <Image src={urlFor(item).url()} alt="" fill style={{objectFit:'contain', paddingBottom:'10px'}} className='rounded-xl'/>
+            <div key={item._key} className="relative w-[360px] sm:w-[600px] md:w-[800px] h-[200px] sm:h-[400px] m-auto">
+                    <Image src={urlFor(item).url()} alt="" fill style={{objectFit:'contain'}} className='rounded-xl md:pb-3'/>
             </div>
           ))}
       </Carousel>

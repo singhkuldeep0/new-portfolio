@@ -38,7 +38,7 @@ const Navbar = ({ }) => {
                         {router.pathname === '/' &&  <span key={"Home"} onClick={() =>{ setSelected("Home"); handleImageClick("Home");}} className={`w-full font-normal font-poppins cursor-pointer  ${selected === "Home" && 'border-b-2'}`} style={{ color: background.textsecondary, borderColor:color , fontSize:fontSize.base }}>
                         Home
                     </span>}
-                      { router.pathname !== '/' && <span key={"Home"} onClick={() => router.push('/')} className={`w-full font-normal font-poppins cursor-pointer`} style={{ color: background.textsecondary, borderColor:color , fontSize:fontSize.base }}>
+                      { router.pathname !== '/' && <span key={"Home"} onClick={() => router.push('/')} className={`w-full font-normal font-poppins my-auto cursor-pointer`} style={{ color: background.textsecondary, borderColor:color , fontSize:fontSize.base }}>
                         Home
                     </span>}
 
