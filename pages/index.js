@@ -5,33 +5,45 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import {client} from '../sanity.cli'
 import { useDispatch } from 'react-redux'
-import { setMyData, setMyProjects } from '../state/index' 
+import { setFontSize, setMyData, setMyProjects } from '../state/index' 
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import axios from 'axios'
+import useMediaQuery from '../hooks/MediaQuery'
 
 export default function Home({mydata , myprojects}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
 
   const [isTopOfPage , setIsTopOfPage] = useState(true)
+  const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
+
 
   useEffect(() => {
 
     dispatch(setMyData(mydata))
     dispatch(setMyProjects(myprojects))
-    // const handleScroll = () => {
-    //   if(window.scrollY === 0){
-    //     setIsTopOfPage(true)
-    //   }
-    //   if(window.scrollY !== 0) setIsTopOfPage(false)
-    // }
-    // window.addEventListener("scroll" , handleScroll)
-    // return () => window.removeEventListener("scroll" , handleScroll)
+    
     }, [])
+
+
+    useEffect(()=>{
+      dispatch(setFontSize({
+        xs: isAboveMediumScreens ? '12px' : '10px',
+        sm: isAboveMediumScreens ? '14px' : '12px',
+        base: isAboveMediumScreens ? '16px' : '14px',
+        lg: isAboveMediumScreens ? '18px' : '16px',
+        xl: isAboveMediumScreens ? '20px' : '18px',
+        xxl: isAboveMediumScreens ? '24px' : '20px',
+        xxxl: isAboveMediumScreens ? '30px' : '24px',
+        xxxxl: isAboveMediumScreens ? '36px' : '28px',
+        xxxxxl: isAboveMediumScreens ? '48px' : '32px',
+        xxxxxxl: isAboveMediumScreens ? '64px' : '36px',
+       }))
+    } , [isAboveMediumScreens])
   
  
   return (

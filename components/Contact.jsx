@@ -35,9 +35,9 @@ const Contact = () => {
             <div className='w-[90%] md:w-8/12  pl-8 pb-10 md:px-8 shadow-lg m-auto rounded-2xl' style={{background:background.secondary ,color:background.textsecondary }}>
                 <h1 className='text-center text-3xl font-lato my-3'>Get in touch</h1>
                 <div className='grid grid-cols-2 gap-4 md:gap-8 mt-2'>
-                    <input type="text" placeholder='Name' style={{borderColor:background.neutral}}/>
-                    <input type="text" placeholder='Email' style={{borderColor:background.neutral}}/>
-                    <input type="text" placeholder='Phone' style={{borderColor:background.neutral}}/>
+                    <input className='contactinput' type="text" placeholder='Name' style={{borderColor:background.neutral}}/>
+                    <input className='contactinput' type="text" placeholder='Email' style={{borderColor:background.neutral}}/>
+                    <input className='contactinput' type="text" placeholder='Phone' style={{borderColor:background.neutral}}/>
                 </div>
                 <textarea type="text" placeholder='Write your message' style={{borderColor:background.primary}} className="mt-12 h-32 w-[96%]"/>
                 <button className='mt-10 font-semibold text-base px-6 py-2 tracking-wider border-2 cursor-pointer' style={{background:color , color:'white'}}>SEND MESSAGE</button>

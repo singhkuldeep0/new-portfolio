@@ -10,22 +10,10 @@ const Footer = () => {
     const background = useSelector(state => state.background)
 
     return (
-        <div className='w-full md:min-h-screen flex items-end justify-center'>
+        <div className='w-full flex items-end justify-center shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
 
-            <div className='relative flex min-h-[50vh] items-center justify-center w-full h-[400px]' style={{ background: background.primary }}>
 
-                <div className='w-[80%] md:w-[70%] h-[120px] md:h-[160px] absolute -top-16 md:-top-24 shadow-xl left-[10%] md:left-[15%] rounded-2xl' style={{ background: background.neutral }}>
-                    <div className='flex h-full  items-center justify-center'>
-                        <div className='w-4/6 h-full flex items-center justify-center'>
-                            <span className='text-2xl md:text-4xl text-center text-bold font-openSans' style={{ color: background.textsecondary }}>Ready to get Started?</span>
-                        </div>
-                        <div className='w-2/6 flex h-full items-center justify-center'>
-                            <button className='font-medium inline-flex gap-2 items-center text-base px-6 py-2 rounded-full shadow-md  font-poppins cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out' style={{ background:color, color: 'white' }}>Sign up</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='w-full h-[80%] md:h-full flex flex-col md:flex-row items-center justify-center md:p-20'>
+                <div className='w-full md:h-full flex flex-col md:flex-row items-center justify-center md:p-20'  style={{ background: background.primary }}>
                     <div className='flex h-full flex-col gap-4 items-start justify-center w-1/2'>
                         <span className='text-3xl text-bold font-Merriweather' style={{ color:color }}>SINGHKULDEEP</span>
                         <button className='font-semibold font-lato text-xl px-16 py-1.5 cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out shadow-md border-2' style={{ borderColor:background.textsecondary, color:background.textsecondary }}>Contact</button>
@@ -54,7 +42,6 @@ const Footer = () => {
 
 
                     </div>
-                </div>
 
             </div>
         </div>

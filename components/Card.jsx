@@ -19,7 +19,6 @@ const Card = ({ project , index }) => {
         }
     }, [])
 
-    console.log(project)
 
     return  (
         <>

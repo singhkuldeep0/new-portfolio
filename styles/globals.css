@@ -16,10 +16,13 @@
     box-shadow: 0px 0px 9px 4px;
 }
 
-input[type="text"], input[type="password"], input[type="email"],input[type='number'],input[type="tel"], textarea{
+.contactinput{
     @apply w-[90%] col-span-2 md:col-span-1 border-b-2 my-2 py-2 bg-transparent  focus:outline-none
 }
 
+.formInput{
+    @apply py-2 px-3 rounded-md outline-none
+}
 
 .carousel.carousel-slider .control-arrow{
     height: 90% !important;
@@ -38,7 +41,7 @@ input[type="text"], input[type="password"], input[type="email"],input[type='numb
    @apply !h-9 md:!h-12 !max-w-fit !animate-none !transition-none !translate-x-0 !transform-none !mr-1 !border-none
 }
 
-.button {
+button {
     @apply cursor-pointer hover:shadow-lg active:scale-95
     transition transform duration-100 ease-out
 }
@@ -50,6 +53,7 @@ input[type="text"], input[type="password"], input[type="email"],input[type='numb
 .project-btn{
     @apply px-4 py-1.5 rounded-2xl font-semibold
 }
+
 
 .project-smallbtn{
     @apply px-2 py-1 text-xs rounded-2xl font-semibold
