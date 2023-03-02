@@ -15,12 +15,12 @@ const initialState = {
   },
   color:'#1d9bf0',
   background:{
-    secondary:'#000000',
-    primary:'#636363',
-    bgneutral:'#ffffff',
-    textprimary:'#cecece',
-    textsecondary:'#ffffff',
-    neutral:'#a9a9a9'
+    secondary: '#ffffff',
+    primary: '#d0d0d0',
+    bgneutral: '#dcdcdc',
+    textprimary: '#4a4a4a',
+    textsecondary: '#000000',
+    neutral: '#e0e0e0'
   },
   mode:'default',
   mydata:[],

@@ -5,6 +5,8 @@ import { urlFor } from '../sanity.cli'
 import { format } from "date-fns"
 import Link from 'next/link'
 import {motion} from 'framer-motion'
+import useMediaQuery from '../hooks/MediaQuery'
+import { FaChevronRight } from 'react-icons/fa'
 
 const ProjectCard = ({project}) => {
     const background = useSelector(state => state.background)
@@ -12,7 +14,7 @@ const ProjectCard = ({project}) => {
     const fontSize = useSelector(state => state.fontSize)
     const date = new Date(project._createdAt).toDateString()
 
-    console.log(project)
+    const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
 
      const boxVariant = {
         rest:{
@@ -42,15 +44,14 @@ const ProjectCard = ({project}) => {
              y:-260,
           opacity:0.9,
           transition: {
-            duration: 1,
-            type: "spring", stiffness: 800 ,  damping: 50
+            delay:!isAboveMediumScreens ? 3 : 0 ,
+            type: "spring", stiffness:800 ,  damping:100
           }
          },
          hover:{
              y:0,
-             opacity:0.9,
+             opacity:1,
              transition: {
-                duration: 2,
                 type: "spring", stiffness: 800 ,  damping: 50
               }
           }
@@ -59,54 +60,68 @@ const ProjectCard = ({project}) => {
      const containerVariants = {
         hidden :{
             y:-26,
+            opacity:0,
         },
         visible :{
             y:0,
+            opacity:1,
             transition: {
-               delay: 0.2,
-               when: "beforeChildren", 
-               staggerChildren: 0.2,
+                delay: 0.2,
+                duration: 0.2,
+                when: 'beforeChildren',
+                staggerChildren: 0.1,
            },
         }
     }
 
     const itemVariants = {
         hidden :{
-            y:-20
-     
+            y:-20,
+            opacity:0
         },
         visible :{
             y:0,
+            opacity:1,
             transition: {
                 delay: 0.2
             },
         }
     }
+
+    const isprojectlength = project.skills.split(',').length
       
 
   return (
     <motion.div variants={boxVariant} initial="rest" whileHover="hover" animate="view" className='relative bg-gray-200 h-56 md:h-64 w-80 md:w-96 rounded-b-xl overflow-hidden'>
         <motion.div   className='w-full h-[100%]' style={{background:background.primary}}>
-        <div className='w-full h-[20%] text-center py-2' style={{background:background.primary , fontSize:fontSize.xxl , color:background.textsecondary}}>
+        <div className='w-full h-[20%] text-center pt-1' style={{background:color , fontSize:fontSize.xxl , color:'white'}}>
             <span className='font-lato'>{project.projectName}</span>
         </div>   
         <motion.div  initial="rest" whileHover="hover" animate="view" className='relative w-full h-[80%]' >
-            <motion.div variants={innerboxVariant}  className='relative w-full flex justify-center items-center h-full z-10' style={{background:background.primary}}>
-                <div className='flex flex-col gap-2 w-full'>
-                <div className='w-full flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.sm}}>
-                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
+            <motion.div variants={innerboxVariant}  className='relative w-full flex flex-col gap-3 justify-end items-center h-full z-10' style={{background:background.primary}}>
+                <div className='w-full h-[60%] flex justify-center gap-4 items-center' style={{fontSize:fontSize.base , color:color}}>
+                    <button className='bg-white inline-flex gap-2 items-center px-3 py-2 rounded-full border-2 font-semibold' style={{borderColor:color}}>Visit Website
+                        <FaChevronRight fontSize={fontSize.lg}/>
+                    </button>
+                    <button className='inline-flex gap-2 items-center px-4 py-2 rounded-full font-semibold text-white ' style={{background:color}}>
+                        View More
+                    </button>
+                </div>
+                <div className={`flex flex-col w-full ${isprojectlength ? '40%' : '20%'}`}>
+                <div className='w-full h-10 flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.xs}}>
+                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] h-full mx-auto overflow-hidden flex gap-3 items-center justify-center' >
                      {project.skills.split(",").slice(0,3).map(item=>(
-                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
+                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>#{item}</button>
                      ))}   
                  </motion.div>
                  </div>
-                 <div className='h-10 w-full flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.sm}}>
-                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
+                {isprojectlength > 3 && <div className='w-full h-10 flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.xs}}>
+               <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] h-full mx-auto overflow-hidden flex gap-3 items-center justify-center' >
                      {project.skills.split(",").slice(3).map(item=>(
-                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
+                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>#{item}</button>
                      ))}   
                  </motion.div>
-                </div>
+                </div>}
                 </div>
             </motion.div>
                  <Image  src={urlFor(project.images[0]).url()} alt="" fill />
