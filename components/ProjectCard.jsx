@@ -12,6 +12,8 @@ const ProjectCard = ({project}) => {
     const fontSize = useSelector(state => state.fontSize)
     const date = new Date(project._createdAt).toDateString()
 
+    console.log(project)
+
      const boxVariant = {
         rest:{
              scale:0.6,
@@ -54,7 +56,32 @@ const ProjectCard = ({project}) => {
           }
      }
 
-    
+     const containerVariants = {
+        hidden :{
+            y:-26,
+        },
+        visible :{
+            y:0,
+            transition: {
+               delay: 0.2,
+               when: "beforeChildren", 
+               staggerChildren: 0,
+           },
+        }
+    }
+
+    const itemVariants = {
+        hidden :{
+            y:-20
+     
+        },
+        visible :{
+            y:0,
+            transition: {
+                delay: 0.2
+            },
+        }
+    }
       
 
   return (
@@ -64,8 +91,29 @@ const ProjectCard = ({project}) => {
             <span className='font-lato'>{project.projectName}</span>
         </div>   
         <motion.div  initial="rest" whileHover="hover" animate="view" className='relative w-full h-[80%]' >
-            <motion.div variants={innerboxVariant}  className='relative w-full h-full z-50' style={{background:background.primary}}>
-                 {/* <Image  src={urlFor(project.images[0]).url()} alt="" fill /> */}
+            <motion.div variants={innerboxVariant}  className='relative w-full flex justify-center items-center h-full z-10' style={{background:background.primary}}>
+                <div className='flex flex-col gap-2 w-full'>
+                <div className='w-full flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.sm}}>
+                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible'  transition={{
+                    type:"tween",
+                    duration:0.6
+                }} className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
+                     {project.skills.split(",").slice(0,3).map(item=>(
+                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
+                     ))}   
+                 </motion.div>
+                 </div>
+                 <div className='h-10 w-full flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.sm}}>
+                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible'  transition={{
+                    type:"tween",
+                    duration:0.6
+                }} className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
+                     {project.skills.split(",").slice(3).map(item=>(
+                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
+                     ))}   
+                 </motion.div>
+                </div>
+                </div>
             </motion.div>
                  <Image  src={urlFor(project.images[0]).url()} alt="" fill />
         </motion.div>
