@@ -65,7 +65,7 @@ const ProjectCard = ({project}) => {
             transition: {
                delay: 0.2,
                when: "beforeChildren", 
-               staggerChildren: 0,
+               staggerChildren: 0.2,
            },
         }
     }
@@ -94,20 +94,14 @@ const ProjectCard = ({project}) => {
             <motion.div variants={innerboxVariant}  className='relative w-full flex justify-center items-center h-full z-10' style={{background:background.primary}}>
                 <div className='flex flex-col gap-2 w-full'>
                 <div className='w-full flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.sm}}>
-                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible'  transition={{
-                    type:"tween",
-                    duration:0.6
-                }} className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
+                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
                      {project.skills.split(",").slice(0,3).map(item=>(
                         <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
                      ))}   
                  </motion.div>
                  </div>
                  <div className='h-10 w-full flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.sm}}>
-                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible'  transition={{
-                    type:"tween",
-                    duration:0.6
-                }} className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
+                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] mx-auto overflow-hidden flex gap-3 items-center justify-center' >
                      {project.skills.split(",").slice(3).map(item=>(
                         <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
                      ))}   
