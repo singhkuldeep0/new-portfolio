@@ -18,20 +18,21 @@ const ProjectCard = ({project}) => {
 
      const boxVariant = {
         rest:{
-             scale:0.6,
-             opacity:0.5,
-      
+             scale:0.4,
+             border:`${`2px solid ${color}`}`
          },
          view :{
              scale:1,
-             opacity:1,
-             boxShadow:`${`0px 3px 8px ${background.primary}`}`
-   
+             boxShadow:`${`0px 3px 8px ${background.primary}`}`,
+             border:`${`2px solid ${color}`}`
          },
          hover:{
              scale:1.1,
              boxShadow: `${` 4.0px 8.0px 8.0px ${background.primary}`}`,
-             border:`${`4px solid ${color}`}`
+             border:`${`6px solid ${color}`}`,
+             transition: {
+                type: "spring", stiffness: 400 ,  damping: 50
+              }
           }
         }
 
@@ -57,44 +58,19 @@ const ProjectCard = ({project}) => {
           }
      }
 
-     const containerVariants = {
-        hidden :{
-            y:-26,
-            opacity:0,
-        },
-        visible :{
-            y:0,
-            opacity:1,
-            transition: {
-                delay: 0.2,
-                duration: 0.2,
-                when: 'beforeChildren',
-                staggerChildren: 0.1,
-           },
-        }
-    }
-
-    const itemVariants = {
-        hidden :{
-            y:-20,
-            opacity:0
-        },
-        visible :{
-            y:0,
-            opacity:1,
-            transition: {
-                delay: 0.2
-            },
-        }
-    }
 
     const isprojectlength = project.skills.split(',').length
       
 
   return (
-    <motion.div variants={boxVariant} initial="rest" whileHover="hover" animate="view" className='relative bg-gray-200 h-56 md:h-64 w-80 md:w-96 rounded-b-xl overflow-hidden'>
+    <motion.div variants={boxVariant} initial="rest" whileHover="hover" animate="view"  transition={{
+        type: "spring",
+        delay:0.1,
+        stiffness: 400,
+        damping: 70
+      }} className='relative bg-gray-200 h-56 md:h-64 w-80 md:w-96 rounded-xl overflow-hidden m-auto'>
         <motion.div   className='w-full h-[100%]' style={{background:background.primary}}>
-        <div className='w-full h-[20%] text-center pt-1' style={{background:color , fontSize:fontSize.xxl , color:'white'}}>
+        <div className='w-full h-[20%] text-center pt-2' style={{background:color , fontSize:fontSize.xxl , color:'white'}}>
             <span className='font-lato'>{project.projectName}</span>
         </div>   
         <motion.div  initial="rest" whileHover="hover" animate="view" className='relative w-full h-[80%]' >
@@ -108,20 +84,13 @@ const ProjectCard = ({project}) => {
                     </button>
                 </div>
                 <div className={`flex flex-col w-full ${isprojectlength ? '40%' : '20%'}`}>
-                <div className='w-full h-10 flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.xs}}>
-                 <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] h-full mx-auto overflow-hidden flex gap-3 items-center justify-center' >
-                     {project.skills.split(",").slice(0,3).map(item=>(
-                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>#{item}</button>
+                 
+                 <div className='h-8 w-full mx-auto overflow-hidden flex flex-wrap-reverse gap-1 items-center justify-center' style={{fontSize:fontSize.xs}}>
+                     {project.skills.split(",").map(item=>(
+                        <button key={item} className='py-0.5 px-1.5 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>{item}</button>
                      ))}   
-                 </motion.div>
                  </div>
-                {isprojectlength > 3 && <div className='w-full h-10 flex flex-col gap-2 overflow-hidden'  style={{fontSize:fontSize.xs}}>
-               <motion.div variants={containerVariants} initial='hidden' whileInView='visible' className='w-[80%] h-full mx-auto overflow-hidden flex gap-3 items-center justify-center' >
-                     {project.skills.split(",").slice(3).map(item=>(
-                        <button variants={itemVariants} key={item} className='py-1 px-4 font-semibold rounded-full' style={{background:background.secondary, color:background.textsecondary }}>#{item}</button>
-                     ))}   
-                 </motion.div>
-                </div>}
+                    
                 </div>
             </motion.div>
                  <Image  src={urlFor(project.images[0]).url()} alt="" fill />

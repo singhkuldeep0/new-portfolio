@@ -76,3 +76,8 @@ button {
 .react-multi-carousel-dot-list{
     bottom: 4px !important;
 }
+
+.beforeborder::before{
+    border-color: inherit;
+    background: inherit;
+}

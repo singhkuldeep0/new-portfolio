@@ -47,7 +47,7 @@ const Navbar = ({ }) => {
                         {item}
                     </span>
                 ))}
-                <Link href={`/projects`}><button className='font-semibold px-2 py-1 text-white shadow-md rounded-md hover:scale-105 transition transform duration-200 ease-in-out' style={{background:color}}>AllProjects</button></Link>
+             
             </div>
             <div className="right">
 
@@ -86,7 +86,7 @@ const Navbar = ({ }) => {
                                 {item}
                             </button>
                         ))}
-                        <Link href={`/projects`}><button className='font-semibold px-2 py-1 text-white shadow-md rounded-md hover:scale-105 transition transform duration-200 ease-in-out' style={{background:color}}>AllProjects</button></Link>
+                       
                     </div>
                 </div>
 

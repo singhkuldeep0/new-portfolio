@@ -5,28 +5,52 @@ import ProjectCard from '../components/ProjectCard'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Link from 'next/link'
+import { AnimatePresence, motion } from 'framer-motion'
 
-const Projects = ({projects}) => {
+const Projects = ({ projects }) => {
 
   const background = useSelector(state => state.background)
   const color = useSelector(state => state.color)
+  const fontSize = useSelector(state => state.fontSize)
   const router = useRouter()
-  const {search} = router.query
+  const { search } = router.query
 
-    const names = [ "Reactjs" , "Nextjs" , "MERN" , "Nodejs" , "Typescript"]
+  const [allprojects, setProjects] = useState(projects)
+  const [selected, setSelected] = useState("All")
+
+  const names = ["All", "Reactjs", "Nextjs", "MERN", "Nodejs", "Typescript"]
+
+  const filteredProjects = allprojects.filter(item => {
+    if (selected === 'All') {
+      return item
+    }
+    else if (item.skills.split(',').includes(selected)) {
+      return item
+    }
+  })
 
   return (
-    <div className='min-h-screen' style={{background:background.secondary}}>
+
+    <div className='min-h-screen' style={{ background: background.secondary }}>
       <div className="grid grid-cols-3 md:grid-cols-6 w-fit gap-4 px-4 mx-auto py-6">
-              <Link href={`/projects`}><button className='project-btn button w-full' style={{background: (search === undefined || null) ? color : background.secondary , color:'white'}}>All</button></Link>
-            {names.map(name=>(
-                <Link href={`/projects/?search=${name}`}><button key={name} className='project-btn button w-full' style={{background: name===search ? color : background.secondary , color:'white'}}>{name}</button></Link>
-            ))}
+        {names.map(name => (
+          <button key={name} onClick={() => setSelected(name)} className='project-btn button w-full' style={{ background: selected === name ? color : background.primary, color: background.textsecondary, fontSize: fontSize.base }}>{name}</button>
+        ))}
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20 w-[90%] mx-auto mt-10'>
-                {projects && projects.map((project => (
-                  <ProjectCard key={project._id} project={project}/>
-                )))}
+        <AnimatePresence>
+          {projects && filteredProjects.map((project => (
+            <motion.div key={project._id}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ProjectCard key={project._id} project={project} />
+            </motion.div>
+          )))}
+        </AnimatePresence>
       </div>
     </div>
   )
@@ -35,19 +59,12 @@ const Projects = ({projects}) => {
 
 export async function getServerSideProps(context) {
 
-  let response;
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/project`)
 
-  if(!context.query.search || context.query.search==='All'){
-    response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/project`)
-  }
-  else{
-    response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/searchproject/${context.query.search}`)
-  }
-  console.log(response.data)
   return {
     props: {
-      projects:response.data
-    }, 
+      projects: response.data
+    },
   }
 }
 

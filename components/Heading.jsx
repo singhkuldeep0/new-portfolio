@@ -8,9 +8,9 @@ const fontSize = useSelector(state => state.fontSize)
 
   return (
 
-    <div className='pt-8 flex flex-col justify-center items-center'>
-        <h1 className='font-playfair font-semibold' style={{color:color , fontSize:fontSize.xxxxxxl}}>{Heading}</h1>
-        <span className='font-lato md:text-lg -mt-0.5 xl:mt-1' style={{color:background.textprimary, fontSize:fontSize.sm}}>{text}</span>
+    <div className='flex gap-1 flex-col justify-center items-center'>
+        <span className='font-playfair font-semibold' style={{color:color , fontSize:fontSize.xxxxxxl}}>{Heading}</span>
+        <span className='font-lato md:text-lg -mt-4' style={{color:background.textprimary, fontSize:fontSize.base}}>{text}</span>
     </div>
   )
 }

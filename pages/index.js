@@ -60,7 +60,7 @@ export default function Home({mydata , myprojects}) {
       <Skills/>
       <About/>
       <Contact/>
-      <Footer/>
+    
      </main>
     
     </div>
