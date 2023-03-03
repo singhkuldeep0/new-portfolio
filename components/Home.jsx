@@ -4,7 +4,9 @@ import { FaLocationArrow , FaTwitter , FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 import { Typewriter } from 'react-simple-typewriter'
-import { Zoom } from 'react-awesome-reveal'
+import { FaReact , FaNodeJs } from 'react-icons/fa'
+import { SiNextdotjs , SiJavascript , SiTypescript , SiTailwindcss , SiRedux , SiMongodb } from 'react-icons/si'
+import Image from 'next/image'
 
 const Home = () => {
 
@@ -19,11 +21,19 @@ const Home = () => {
 
   return ( 
     <div id="Home" className='[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full pt-10 sm:pt-0'>
-      <div className="left flex items-center justify-center w-full h-[45vh] md:w-2/5 md:h-[90vh] " style={{background:background.primary}}>
+      <div className="left flex items-center justify-center w-full h-[55vh] md:w-2/5 md:h-[90vh] " style={{background:background.primary}}>
 
-          <Zoom className='aspect-square overflow-hidden rounded-full'>
-        {mydata.image && <img src='/img1.png' alt="" className='h-[250px] w-[200px] lg:w-[300px] lg:h-[400px] z-[1]' style={{background:color}}/>}
-          </Zoom>
+          <div className='relative aspect-square w-60 h-60 md:w-80 md:h-80 rounded-full  before:absolute before:w-60 md:before:w-80 before:h-60 md:before:h-80 before:-top-12 before:left-14 beforeborder before:rounded-2xl' style={{background:color}}>
+         <Image src='/profile.png' alt="" fill className='rounded-2xl'/>
+         <FaReact className='text-2xl md:text-3xl absolute -top-10 left-16 md:left-20 text-white'/>
+         <SiNextdotjs className='text-2xl md:text-3xl absolute -top-10 left-[107px] md:left-[140px] text-white'/>
+         <SiJavascript className='text-2xl md:text-3xl absolute -top-10 left-[156px] md:left-[200px] rounded-md text-white'/>
+         <SiTypescript className='text-2xl md:text-3xl absolute -top-10 left-[210px] md:left-[265px] rounded-md text-white'/>
+         <FaNodeJs className='text-2xl md:text-3xl absolute -top-10 left-[260px] md:left-[330px] text-white'/>
+         <SiTailwindcss className='text-3xl md:text-4xl absolute top-0 md:top-1 -right-12 text-white'/>
+         <SiRedux className='text-2xl md:text-3xl absolute top-10 md:top-14 -right-12 text-white'/>
+         <SiMongodb className='text-3xl md:text-4xl absolute top-20 md:top-28 -right-12 text-white'/>
+          </div>
         
       </div>
       <div className='right flex items-center justify-center w-full min-h-[45vh] pt-4 md:h-[90vh] md:w-3/5'  style={{background:background.secondary}}>

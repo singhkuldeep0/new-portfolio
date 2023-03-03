@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import {client} from '../sanity.cli'
 import { useDispatch } from 'react-redux'
-import { setFontSize, setMyData, setMyProjects } from '../state/index' 
+import { setFontSize, setMyData, setMyProjects, setTechnologies } from '../state/index' 
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import About from '../components/About'
@@ -14,19 +14,18 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 import useMediaQuery from '../hooks/MediaQuery'
 
-export default function Home({mydata , myprojects}) {
+export default function Home({mydata , myprojects , technologies}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
 
   const [isTopOfPage , setIsTopOfPage] = useState(true)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
-
+  console.log(technologies)
 
   useEffect(() => {
-
     dispatch(setMyData(mydata))
     dispatch(setMyProjects(myprojects))
-    
+    dispatch(setTechnologies(technologies))
     }, [])
 
 
@@ -76,11 +75,13 @@ export async function getServerSideProps(context) {
 )
 
   const mydetails = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/mydetails`)
+  const technologies = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/technologies`)
 
   return {
     props: {
       mydata : mydetails.data,
-      myprojects:data
+      myprojects:data,
+      technologies:technologies.data
     }, 
   }
 }

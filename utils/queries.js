@@ -13,7 +13,7 @@
     return query
   }
 
-export const searchProjectsQuery = (searchTerm) => {
-    const query = `*[_type == "projects" && skills match '${searchTerm}*']`
-    return query
+export const technologiesQuery = () => {
+  const query = `*[_type == "technologies"]`;
+  return query
 }

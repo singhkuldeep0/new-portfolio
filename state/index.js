@@ -24,7 +24,8 @@ const initialState = {
   },
   mode:'default',
   mydata:[],
-  myprojects:[]
+  myprojects:[],
+  technologies:[]
 }
 
 export const stateSlice = createSlice({
@@ -48,10 +49,13 @@ export const stateSlice = createSlice({
     },
     setMyProjects:(state , action) => {
       state.myprojects = action.payload
-    }
+    },
+    setTechnologies:(state , action) => {
+      state.technologies = action.payload
+    },
   }
 })
 
-export const { setColor, setMode , setMyData , setMyProjects , setBackground , setFontSize} = stateSlice.actions
+export const { setColor, setMode , setMyData , setMyProjects , setBackground , setFontSize , setTechnologies} = stateSlice.actions
 
 export default stateSlice.reducer
