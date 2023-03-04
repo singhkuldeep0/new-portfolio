@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Heading from './Heading'
 import { MapPinIcon , PhoneIcon , EnvelopeIcon } from '@heroicons/react/24/solid'
-import { Fade } from 'react-awesome-reveal'
+
 
 const Contact = () => {
 
@@ -11,7 +11,7 @@ const Contact = () => {
 
   return (
     <div id="Contact" className='pb-32 md:pb-10 pt-10'>
-    <Fade>
+    <div>
         <Heading Heading="Contact" text="Get in touch"/>
         <div className='flex flex-col w-full md:flex-row mt-6 py-12' style={{color:background.textsecondary , background:background.primary}}>        
             <div className='w-3/12 hidden md:block' >
@@ -43,7 +43,7 @@ const Contact = () => {
                 <button className='mt-10 font-semibold text-base px-6 py-2 tracking-wider border-2 cursor-pointer' style={{background:color , color:'white'}}>SEND MESSAGE</button>
             </div>
         </div>
-    </Fade>
+    </div>
     </div>
   )
 }

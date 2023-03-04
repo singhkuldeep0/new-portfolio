@@ -1,10 +1,10 @@
 import React from 'react'
-import { Fade } from 'react-awesome-reveal'
 import { useSelector } from 'react-redux'
 import Heading from './Heading'
 import useMediaQuery from '../hooks/MediaQuery'
 import Image from 'next/image'
 import { FaGithub , FaInstagram , FaFacebook , FaTwitter } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 const About = () => {
 
@@ -12,11 +12,27 @@ const About = () => {
     const background = useSelector(state => state.background)
     const fontSize = useSelector(state => state.fontSize)
 
+    const rootbox = {
+      hidden :{
+          opacity:0
+      },
+      visible :{
+          opacity:1,
+          transition:{ duration: 0.5, delay:0.2 , type: "tween" }
+      }
+  }
+
+
   return (
     <div id="About">
-    <Fade className='pt-10'>
+    <motion.div
+     variants={rootbox}
+     initial="hidden"
+     whileInView="visible"
+     viewport={{ once: true }}
+    className='pt-10'>
       <Heading Heading="About Me" text="Education , Experience"/>
-      <div className='w-full flex flex-col md:flex-row '>
+      <div className='w-full flex flex-col md:flex-row mt-10'>
             <div className='w-full md:w-1/2 h-96 flex justify-center items-center' style={{background:background.primary}}>
               <div className='relative aspect-square w-60 h-60 md:w-72 md:h-72 rounded-full  before:absolute before:w-60 md:before:w-72 before:h-60 md:before:h-72 before:rounded-full before:top-0 md:before:-top-3 before:right-16 beforeborder' style={{background:color}}>
             <Image src='/profile.png' alt="" className='rounded-full' fill />
@@ -41,7 +57,7 @@ const About = () => {
                 </div>
             </div>
       </div>
-    </Fade>
+    </motion.div>
     </div>
   )
 }

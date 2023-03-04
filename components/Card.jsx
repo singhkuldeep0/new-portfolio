@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Zoom } from 'react-awesome-reveal'
 import { useSelector } from 'react-redux'
 import { urlFor } from '../sanity.cli'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { BsArrowRight } from 'react-icons/bs'
 import ButtonModal from './ButtonModal'
 
 const Card = ({ project , index }) => {

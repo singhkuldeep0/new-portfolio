@@ -20,8 +20,8 @@ const Home = () => {
   }
 
   return ( 
-    <div id="Home" className='[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full pt-10 sm:pt-0'>
-      <div className="left flex items-center justify-center w-full h-[55vh] md:w-2/5 md:h-[90vh] " style={{background:background.primary}}>
+    <div id="Home" className='h-[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full pt-10 sm:pt-0'>
+      <div className="left flex items-center justify-center w-full h-[50vh] md:w-2/5 md:h-[100vh] " style={{background:background.primary}}>
 
           <div className='relative aspect-square w-60 h-60 md:w-80 md:h-80 rounded-full  before:absolute before:w-60 md:before:w-80 before:h-60 md:before:h-80 before:-top-12 before:left-14 beforeborder before:rounded-2xl' style={{background:color}}>
          <Image src='/profile.png' alt="" fill className='rounded-2xl'/>
