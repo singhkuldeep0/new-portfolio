@@ -93,7 +93,7 @@ const Slider = ({ images }) => {
 
      
     return (
-        <div className="relative flex items-center justify-center w-[96%] md:w-[864px] my-6 mx-auto py-4 sm:px-8 sm:py-2 h-[230px] sm:h-[440px] rounded-md shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]" style={{background:background.primary}}>
+        <div className="relative flex items-center justify-center w-[96%] md:w-[700px] lg:w-[1000px] my-6 mx-auto py-4 sm:px-8 sm:py-2 h-[230px] sm:h-[440px] lg:h-[520px] rounded-md shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]" style={{background:background.primary}}>
         <Carousel 
         responsive={responsive}
         swipeable={true}
@@ -116,7 +116,7 @@ const Slider = ({ images }) => {
         customLeftArrow={<CustomLeftArrow />} 
         >
           {images.map((item)=>(
-            <div key={item._key} className="relative w-[360px] sm:w-[600px] md:w-[800px] h-[200px] sm:h-[400px] m-auto">
+            <div key={item._key} className="relative w-[360px] sm:w-[600px] md:w-[700px] lg:w-[930px] h-[200px] sm:h-[400px] lg:h-[500px] m-auto">
                     <Image src={urlFor(item).url()} alt="" fill style={{objectFit:'contain'}} className='rounded-xl md:pb-3'/>
             </div>
           ))}

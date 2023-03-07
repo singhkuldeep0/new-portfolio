@@ -45,15 +45,15 @@ const Home = () => {
             </h1>
           <p className='text-center md:text-left tracking-tighter font-poppins font-semibold px-12 md:px-0 leading-none' style={{fontSize:fontSize.lg}}>
           Self taught 
-          <span style={{color:color}}>
+          <span style={{color:color, fontSize:fontSize.xxxl}}>
           <Typewriter
             words={[' designer', ' full-stack developer']}
             loop
             cursorColor={color}
             cursor
             cursorStyle='|'
-            typeSpeed={70}
-            deleteSpeed={50}
+            typeSpeed={30}
+            deleteSpeed={30}
             delaySpeed={1000}
           />
           </span>
@@ -63,16 +63,16 @@ const Home = () => {
             <button className='button font-semibold px-6 rounded-full py-1.5  border-2 cursor-pointer' style={{borderColor:background.textsecondary , color:background.textsecondary , fontSize:fontSize.base}}>Download Cv</button>
           </div>
           <div className="flex items-center justify-center md:justify-start mt-3 md:mt-20 gap-4">
-              <div className='p-2 border-2 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color }}>
+              <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
                 <AiFillInstagram style={{fontSize:fontSize.xxxl}}/>
               </div>
-              <div className='p-2 border-2 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color }}>
+              <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
                 <FaTwitter style={{fontSize:fontSize.xxxl}}/>
               </div>
-              <div className='p-2 border-2 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color }}>
+              <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
                 <FaFacebookF style={{fontSize:fontSize.xxxl}}/>
               </div>
-              <div className='p-2 border-2 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color }}>
+              <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
                 <BsGithub style={{fontSize:fontSize.xxxl}}/>
               </div>
           </div>

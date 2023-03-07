@@ -43,14 +43,14 @@ const SignUp = () => {
     const onSubmit = async (data) => {
         const myPromise = new Promise((resolve, reject) =>
         createUserWithEmailAndPassword(data.email , data.password)
-        .then(() =>{
-            if(error){
-                setTimeout(() => reject(), 2000)
+        .then(user => {
+            if(user===undefined){
+                setTimeout(() => reject(), 1000)
             }
-            else if(user){
-                setTimeout(() => resolve(), 2000)
-            }
-        }) 
+           else if(user){
+            setTimeout(()=>resolve(),1000)
+           }
+        })
         );
        
   
@@ -80,11 +80,11 @@ const SignUp = () => {
                   
                     <h2 className='text-center font-bold'>OR</h2>
                     <div className="flex flex-col gap-1">
-                        <input  {...register("email")} className='formInput mt-3' style={{background:background.primary, fontSize:fontSize.base}} placeholder="Email"/>
+                        <input type="email" {...register("email")} className='formInput mt-3' style={{background:background.primary, fontSize:fontSize.base}} placeholder="Email"/>
                         <p className='text-red-500' style={{fontSize:fontSize.sm}}>{errors.email?.message}</p>
-                        <input  {...register("password")} className='formInput mt-3' style={{background:background.primary, fontSize:fontSize.base}} placeholder="Password"/>
+                        <input type="password" {...register("password")} className='formInput mt-3' style={{background:background.primary, fontSize:fontSize.base}} placeholder="Password"/>
                         <p className='text-red-500' style={{fontSize:fontSize.sm}}>{errors.password?.message}</p>
-                        <input  {...register("confirmpassword")} className='formInput mt-3' style={{background:background.primary, fontSize:fontSize.base}}  placeholder="Confirm Password"/>
+                        <input type="password" {...register("confirmpassword")} className='formInput mt-3' style={{background:background.primary, fontSize:fontSize.base}}  placeholder="Confirm Password"/>
                         <p className='text-red-500' style={{fontSize:fontSize.sm}}>{errors.confirmpassword?.message}</p>
                         <button className='w-full inline-flex gap-2 justify-center items-center py-2 px-4 rounded-full border-2' style={{background:color , color:'white'}}> 
                             Sign Up

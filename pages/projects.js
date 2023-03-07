@@ -34,7 +34,7 @@ const Projects = ({ projects }) => {
     <div className='min-h-screen' style={{ background: background.secondary }}>
       <div className="grid grid-cols-3 md:grid-cols-6 w-fit gap-4 px-4 mx-auto py-6">
         {names.map(name => (
-          <button key={name} onClick={() => setSelected(name)} className='project-btn button w-full' style={{ background: selected === name ? color : background.primary, color: background.textsecondary, fontSize: fontSize.base }}>{name}</button>
+          <button key={name} onClick={() => setSelected(name)} className='project-btn button w-full' style={{ background: selected === name ? color : background.primary, color: selected===name ? 'white' : background.textsecondary, fontSize: fontSize.base }}>{name}</button>
         ))}
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20 w-[90%] mx-auto mt-10'>

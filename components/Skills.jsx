@@ -52,7 +52,7 @@ const Skills = () => {
 
     return (
         <div
-         id="Skills" className="min-h-[90vh] w-[100%] py-10">
+         id="Skills" className="min-h-[50vh] md:min-h-[90vh] w-[100%] py-10">
                 <Heading Heading="Skills" text={"Tech Stack and Skills"}/>
 
               {skills.length > 0 &&  <motion.div

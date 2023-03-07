@@ -41,8 +41,8 @@ const Login = () => {
     const onSubmit = async (data) => {
         const myPromise = new Promise((resolve, reject) =>
         signInWithEmailAndPassword(data.email , data.password)
-        .then(() =>{
-            if(error){
+        .then((user) =>{
+            if(user===undefined){
                 setTimeout(() => reject(), 1400)
             }
             else if(user){
@@ -50,12 +50,11 @@ const Login = () => {
             }
         }) 
         );
-       
   
        toast.promise(myPromise, {
         loading: 'Please wait...',
         success: 'Login successfull',
-        error: error && userErrors[error?.message],
+        error: error && userErrors[error.message],
       });
        
         reset();

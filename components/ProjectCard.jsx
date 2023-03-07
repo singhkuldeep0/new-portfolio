@@ -19,17 +19,17 @@ const ProjectCard = ({project}) => {
      const boxVariant = {
         rest:{
              scale:0.4,
-             border:`${`2px solid ${color}`}`
+            //  border:`${`2px solid ${color}`}`
          },
          view :{
              scale:1,
              boxShadow:`${`0px 3px 8px ${background.primary}`}`,
-             border:`${`2px solid ${color}`}`
+            //  border:`${`2px solid ${color}`}`
          },
          hover:{
              scale:1.1,
              boxShadow: `${` 4.0px 8.0px 8.0px ${background.primary}`}`,
-             border:`${`6px solid ${color}`}`,
+            //  border:`${`6px solid ${color}`}`,
              transition: {
                 type: "spring", stiffness: 400 ,  damping: 50
               }
@@ -76,12 +76,12 @@ const ProjectCard = ({project}) => {
         <motion.div  initial="rest" whileHover="hover" animate="view" className='relative w-full h-[80%]' >
             <motion.div variants={innerboxVariant}  className='relative w-full flex flex-col gap-3 justify-end items-center h-full z-10' style={{background:background.primary}}>
                 <div className='w-full h-[60%] flex justify-center gap-4 items-center' style={{fontSize:fontSize.base , color:color}}>
-                    <button className='bg-white inline-flex gap-2 items-center px-3 py-2 rounded-full border-2 font-semibold' style={{borderColor:color}}>Visit Website
+                  {project?.weblink && <Link href={`${project?.weblink}`} target="_blank"><button className='bg-white inline-flex gap-2 items-center px-3 py-2 rounded-full font-semibold' style={{borderColor:color}}>Visit Website
                         <FaChevronRight fontSize={fontSize.lg}/>
-                    </button>
-                    <button className='inline-flex gap-2 items-center px-4 py-2 rounded-full font-semibold text-white ' style={{background:color}}>
+                    </button></Link>}
+                    <Link href={`/project/${project?._id}`}><button className='inline-flex gap-2 items-center px-4 py-2 rounded-full font-semibold text-white ' style={{background:color}}>
                         View More
-                    </button>
+                    </button></Link>
                 </div>
                 <div className={`flex flex-col w-full ${isprojectlength ? '40%' : '20%'}`}>
                  
