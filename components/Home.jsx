@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { FaLocationArrow , FaTwitter , FaFacebookF } from 'react-icons/fa'
+import { FaLocationArrow , FaTwitter , FaLinkedin } from 'react-icons/fa'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 import { Typewriter } from 'react-simple-typewriter'
 import { FaReact , FaNodeJs } from 'react-icons/fa'
 import { SiNextdotjs , SiJavascript , SiTypescript , SiTailwindcss , SiRedux , SiMongodb } from 'react-icons/si'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home = () => {
 
@@ -20,8 +21,8 @@ const Home = () => {
   }
 
   return ( 
-    <div id="Home" className='h-[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full pt-10 sm:pt-0'>
-      <div className="left flex items-center justify-center w-full h-[50vh] md:w-2/5 md:h-[100vh] " style={{background:background.primary}}>
+    <div id="Home" className='h-[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full'>
+      <div className="left flex items-center justify-start pl-6 md:pl-0 md:justify-center w-full pt-12 md:pt-0 h-[50vh] md:w-2/5 md:h-[100vh] " style={{background:background.primary}}>
 
           <div className='relative aspect-square w-60 h-60 md:w-80 md:h-80 rounded-full  before:absolute before:w-60 md:before:w-80 before:h-60 md:before:h-80 before:-top-12 before:left-14 beforeborder before:rounded-2xl' style={{background:color}}>
          <Image src='/profile.png' alt="" fill className='rounded-2xl'/>
@@ -59,21 +60,21 @@ const Home = () => {
           </span>
           </p>
           <div className="buttons flex gap-4 justify-center md:justify-start items-center mt-4">
-            <button className='button font-semibold inline-flex gap-2 items-center px-6 py-2 rounded-full cursor-pointer' style={{background:color , color:'white' , fontSize:fontSize.base}}>Contact Me <FaLocationArrow className='rotate-45'/></button>
+            <button className='button font-semibold inline-flex gap-2 items-center px-6 py-2 rounded-full cursor-pointer' onClick={()=>document.getElementById("Contact").scrollIntoView({behavior:"smooth"})} style={{background:color , color:'white' , fontSize:fontSize.base}}>Contact Me <FaLocationArrow className='rotate-45'/></button>
             <button className='button font-semibold px-6 rounded-full py-1.5  border-2 cursor-pointer' style={{borderColor:background.textsecondary , color:background.textsecondary , fontSize:fontSize.base}}>Download Cv</button>
           </div>
           <div className="flex items-center justify-center md:justify-start mt-3 md:mt-20 gap-4">
               <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
-                <AiFillInstagram style={{fontSize:fontSize.xxxl}}/>
+                <Link href="https://www.instagram.com/singh_kuldeep_0" target="_blank" ><AiFillInstagram style={{fontSize:fontSize.xxxl}}/></Link>
               </div>
               <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
-                <FaTwitter style={{fontSize:fontSize.xxxl}}/>
+                <Link href="https://twitter.com/kuldeep42210099" target="_blank" ><FaTwitter style={{fontSize:fontSize.xxxl}}/></Link>
               </div>
               <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
-                <FaFacebookF style={{fontSize:fontSize.xxxl}}/>
+                <Link href="https://www.linkedin.com/in/kuldeep-singh-21a69024b" target="_blank" ><FaLinkedin style={{fontSize:fontSize.xxxl}}/></Link>
               </div>
               <div className='p-2 cursor-pointer border-4 flex items-center justify-center rounded-full button' style={{color:color , borderColor:color , background:'white'}}>
-                <BsGithub style={{fontSize:fontSize.xxxl}}/>
+                <Link href="https://github.com/kuldeep345" target="_blank" ><BsGithub style={{fontSize:fontSize.xxxl}}/></Link>
               </div>
           </div>
           </div>

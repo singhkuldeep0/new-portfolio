@@ -17,6 +17,7 @@ const Projects = ({ projects }) => {
 
   const [allprojects, setProjects] = useState(projects)
   const [selected, setSelected] = useState("All")
+  console.log(projects.map(item => item.skills))
 
   const names = ["All", "Reactjs", "Nextjs", "MERN", "Nodejs", "Typescript"]
 
@@ -31,7 +32,7 @@ const Projects = ({ projects }) => {
 
   return (
 
-    <div className='min-h-screen' style={{ background: background.secondary }}>
+    <div className='min-h-screen pb-44' style={{ background: background.secondary }}>
       <div className="grid grid-cols-3 md:grid-cols-6 w-fit gap-4 px-4 mx-auto py-6">
         {names.map(name => (
           <button key={name} onClick={() => setSelected(name)} className='project-btn button w-full' style={{ background: selected === name ? color : background.primary, color: selected===name ? 'white' : background.textsecondary, fontSize: fontSize.base }}>{name}</button>
@@ -57,7 +58,7 @@ const Projects = ({ projects }) => {
 }
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/project`)
 

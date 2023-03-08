@@ -12,7 +12,7 @@ const Project = ({project,allImages}) => {
     const fontSize = useSelector(state => state.fontSize)
           
   return project.length > 0 ? (
-    <div className='min-h-screen mb-36 md:mb-4 overflow-hidden py-4' style={{background: background.secondary}}>
+    <div className='min-h-screen overflow-hidden py-4' style={{background: background.secondary}}>
       <h1 className='text-center font-bold font-openSans  sm:py-2' style={{color:background.textsecondary , fontSize:fontSize.xl }}>{project[0].projectName}</h1>
        <Slider images={project[0].images}/>
 
