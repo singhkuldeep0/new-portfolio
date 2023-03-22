@@ -53,36 +53,30 @@ const Navbar = ({ }) => {
 
                 <div className='flex gap-4'>
                     
-                    <Link href={`/login`}><button className='font-semibold px-2 py-1 text-white shadow-md rounded-md hover:scale-105 transition transform duration-200 ease-in-out' style={{background:color}}>Login</button></Link>
                     <Theme />
                     <GoThreeBars onClick={() => setToggle(!toggle)} className='text-2xl mt-1 sm:hidden cursor-pointer' style={{ color: background.textsecondary }} />
                 </div>
-                <div className={`fixed top-0 right-0 h-screen w-80 p-4 ${toggle ? 'translate-x-0' : 'translate-x-80'} duration-300 transition-all ease-in-out z-50`} style={{ background: background.primary}}>
-                    <div onClick={() => setToggle(!toggle)} className='h-8 w-8 rounded-full flex ml-auto items-center justify-center' style={{ background: background.primary}}>
-                        <XMarkIcon className='h-6 cursor-pointer' style={{ color: background.textprimary }} />
+                <div className={`fixed top-0 right-0 h-screen w-80 p-4 ${toggle ? 'translate-x-0' : 'translate-x-80'} duration-300 transition-all ease-in-out z-50`} style={{ background: color , color:color}}>
+                    <div onClick={() => setToggle(!toggle)} className='h-8 w-8 rounded-full flex ml-auto items-center justify-center'>
+                        <XMarkIcon className='h-8 cursor-pointer text-white ' />
                     </div>
                     <div className='w-full py-4 font-semibold flex flex-col justify-center items-center' style={{fontSize:fontSize.xl}}>
-                        {/* <button onClick={() => { setSelected("Home"); setToggle(!toggle); handleImageClick("Home"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color: background.textsecondary , display: router.pathname === '/' ? 'block' : 'none' }}>
-                            Home
-                        </button>
-                        <button onClick={() => { setSelected("Projects"); setToggle(!toggle); handleImageClick("Projects"); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color: background.textsecondary, display: router.pathname === '/' ? 'block' : 'none' }}>
-                            Projects
-                        </button> */}
+               
                        {router.pathname === '/' &&  <button onClick={() => { 
                             setSelected('Home'); 
                             setToggle(!toggle); handleImageClick('Home'); 
                             
-                            }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:color}}>
+                            }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200 text-white hover:text-inherit`} >
                                 Home
                             </button>}
                       { router.pathname !== '/' && <button onClick={() => { 
                                 router.push('/')  
                                 setToggle(!toggle);                          
-                            }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:color}}>
+                            }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} >
                                 Home
                             </button>}
                         {navItems.map((item) => (
-                            <button key={item} onClick={() => { setSelected(item); setToggle(!toggle); handleImageClick(item); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200`} style={{ background: background.primary, color:color , display: router.pathname === '/' ? 'block' : 'none' }}>
+                            <button key={item} onClick={() => { setSelected(item); setToggle(!toggle); handleImageClick(item); }} className={`my-3 py-3 w-full rounded-xl hover:bg-slate-200 text-white hover:text-inherit`} style={{display: router.pathname === '/' ? 'block' : 'none' }}>
                                 {item}
                             </button>
                         ))}

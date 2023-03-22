@@ -13,6 +13,7 @@ import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import axios from 'axios'
 import useMediaQuery from '../hooks/MediaQuery'
+import Testimonials from '../components/Testimonials'
 
 export default function Home({mydata , myprojects , technologies}) {
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ export default function Home({mydata , myprojects , technologies}) {
 
   const [isTopOfPage , setIsTopOfPage] = useState(true)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
-  console.log(technologies)
+
 
   useEffect(() => {
     dispatch(setMyData(mydata))
@@ -58,7 +59,7 @@ export default function Home({mydata , myprojects , technologies}) {
       <Projects/>
       <Skills/>
       <About/>
-      {/* <Contact/> */}
+      <Testimonials/>
     
      </main>
     
@@ -68,7 +69,7 @@ export default function Home({mydata , myprojects , technologies}) {
 
 export async function getStaticProps(context) {
 
- const data = await Promise.all(["ae53b52d-0c46-4a7d-b489-dc19af2b3185", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
+ const data = await Promise.all(["a8da2365-f7a2-4e3b-9e3e-6d90071e663e", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/project/${projectId}`)
    return data
  })
@@ -82,6 +83,6 @@ export async function getStaticProps(context) {
       mydata : mydetails.data,
       myprojects:data,
       technologies:technologies.data
-    }, 
+    }
   }
 }

@@ -17,3 +17,4 @@ export const technologiesQuery = () => {
   const query = `*[_type == "technologies"]`;
   return query
 }
+

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import Slider from '../../components/Slider'
 import { BsGithub , BsGlobe } from 'react-icons/bs'
+import Image from 'next/image'
 
 const Project = ({project,allImages}) => {
 
@@ -32,7 +33,9 @@ const Project = ({project,allImages}) => {
        <h1 className='text-left font-bold font-openSans' style={{color:color , fontSize:fontSize.lg}}>Web Technologies used :</h1>
         <div className='flex justify-start gap-4 items-center'>
            {allImages.map(item=>(
-            <img src={urlFor(item[0].icon).url()} className={`${item[0].iconName === 'Reactjs' ? 'h-14' : 'h-10'} hover:scale-110 duration-300 transition-all ease-in-out`}/>
+            <div key={urlFor(item[0].icon).url()} className='relative h-20 w-20 hover:scale-110 duration-300 transition-all ease-in-out bg-white rounded-xl'>
+            <Image src={urlFor(item[0].icon).url()} fill className='object-contain p-2 rounded-2xl'/>
+              </div>
           ))} 
         </div>
        </div>
