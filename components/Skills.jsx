@@ -25,8 +25,8 @@ const Skills = () => {
             id="Skills" className="w-[100%] py-10 flex flex-col gap-10 justify-center items-center ">
             <Heading Heading="Skills" text={"Tech Stack and Skills"} />
             <div className='flex gap-10 flex-wrap items-start justify-center'>
-                <SkillsCard skills={frontendSkills} heading="FrontEnd" />
-                <SkillsCard skills={backendSkills} heading="Backend" />
+            { frontendSkills && <SkillsCard skills={frontendSkills} heading="FrontEnd" />}
+              {backendSkills && <SkillsCard skills={backendSkills} heading="Backend" />}
             </div>
         </div>
 
