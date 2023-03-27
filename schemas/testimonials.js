@@ -16,6 +16,11 @@ export default defineConfig({
             type: "string",
           }),
           defineField({
+            title: "Email",
+            name: "email",
+            type: "string",
+          }),
+          defineField({
             title: "Description",
             name: "description",
             type: "string",

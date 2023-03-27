@@ -59,6 +59,30 @@ button {
     @apply px-2 py-1 text-xs rounded-2xl font-semibold
 }
 
+.nav{
+    @apply relative ml-10 text-inherit
+}
+
+.nav::after{
+    @apply content-[""] bg-gray-500 h-[3px] w-[0%] left-0 -bottom-[3px] rounded-xl absolute duration-300
+}
+
+.nav:hover::after{
+    @apply w-[100%]
+}
+
+.footeranim{
+    @apply relative text-inherit
+}
+
+.footeranim::after{
+    @apply content-[""] bg-white h-[3px] w-[50%] left-0 -bottom-[10px] rounded-xl absolute duration-300
+}
+
+.footeranim:hover::after{
+    @apply w-[100%]
+}
+
 .RSPBprogressBar{
     height: 3px !important;
     background-color:white !important;
@@ -81,3 +105,4 @@ button {
     border-color: inherit;
     background: inherit;
 }
+

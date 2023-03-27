@@ -40,7 +40,7 @@ const Home = () => {
     <div id="Home" className='h-[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full'>
       <div className="left flex items-center justify-start pl-6 md:pl-0 md:justify-center w-full pt-12 md:pt-0 h-[50vh] md:w-2/5 md:h-[100vh] " style={{background:background.primary}}>
 
-          <div className='relative aspect-square rounded-2xl w-60 h-60 md:w-80 md:h-80 before:rounded-2xl  before:absolute before:w-60 md:before:w-80 before:h-60 md:before:h-80 before:-top-8 before:left-8 before:border-4 before:border-inherit before:bg-inherit' style={{borderColor:color , background:background.secondary}}>
+          <div className='relative aspect-square rounded-2xl w-60 h-60 md:w-80 md:h-80 before:rounded-2xl ml-8 before:absolute before:w-60 md:before:w-80 before:h-60 md:before:h-80 before:-top-8 before:left-8 before:border-4 before:border-inherit before:bg-inherit' style={{borderColor:color , background:background.secondary}}>
          <Image src='/profile.png' alt="" fill  className='rounded-2xl'/>
 
           </div>
@@ -53,14 +53,14 @@ const Home = () => {
             <span className='mr-2 font-roboto-slab' style={{color:background.textsecondary , fontSize:fontSize.base}}>Hi I'm</span>
             {mydata.name}
             </h1>
-          <p className='text-center md:text-left tracking-tighter font-poppins font-semibold px-12 md:px-0 leading-none' style={{fontSize:fontSize.lg}}>
+          <p className='text-center md:text-left tracking-tighter font-poppins font-semibold px-4 md:px-0 leading-none' style={{fontSize:fontSize.lg}}>
           Self taught 
           <span className='ml-3' style={{color:color, fontSize:fontSize.xxxl}}>
             Full Stack developer      
           </span>
           </p>
           <div className="buttons flex gap-4 justify-center md:justify-start items-center mt-4">
-            <button className='button font-semibold inline-flex gap-2 items-center px-6 py-2 rounded-full cursor-pointer' onClick={()=>document.getElementById("Contact").scrollIntoView({behavior:"smooth"})} style={{background:color , color:'white' , fontSize:fontSize.base}}>Contact Me <FaLocationArrow className='rotate-45'/></button>
+            <Link href="/projects" className='button font-semibold inline-flex gap-2 items-center px-6 py-2 rounded-full cursor-pointer' style={{background:color , color:'white' , fontSize:fontSize.base}}>View projects <FaLocationArrow className='rotate-45'/></Link>
             <button className='button font-semibold px-6 rounded-full py-1.5  border-2 cursor-pointer' style={{borderColor:background.textsecondary , color:background.textsecondary , fontSize:fontSize.base}}>Download Cv</button>
           </div>
           <div className="flex items-center justify-center md:justify-start mt-3 md:mt-20 gap-6">

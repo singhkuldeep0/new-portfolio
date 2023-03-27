@@ -12,7 +12,6 @@ const ProjectCard = ({project}) => {
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
-    const date = new Date(project._createdAt).toDateString()
 
     const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
 
@@ -52,7 +51,7 @@ const ProjectCard = ({project}) => {
              y:0,
              opacity:1,
              transition: {
-                type: "spring", stiffness: 3000 ,  damping: 200
+                type: "spring", stiffness: 10000 ,  damping: 400
               }
           }
      }
