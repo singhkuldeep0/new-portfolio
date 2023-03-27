@@ -44,8 +44,6 @@ const NewFooter = () => {
     },
 ]
 
-const first = projects.map(item => item.images[0])
-const second = projects.map(item => item.images[1])
  
 const navItems = [
   "Home" , "Projects", "Skills", "About", "Contact"
@@ -120,7 +118,7 @@ const sendEmail = (e) => {
           <div className='w-full max-w-xs px-4'>
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Latest Projects</a>  
               <div className='flex flex-wrap gap-3 mt-8'>
-                 <div className='relative h-20 w-32 '>
+                 {/* <div className='relative h-20 w-32 '>
                   <Image src={urlFor(first[0]).url()} fill alt=""/>
                  </div>
                  <div className='relative h-20 w-32 '>
@@ -131,7 +129,7 @@ const sendEmail = (e) => {
                  </div>
                  <div className='relative h-20 w-32 '>
                   <Image src={urlFor(second[1]).url()} fill alt=""/>
-                 </div>                
+                 </div>                 */}
               </div>        
           </div>
        
