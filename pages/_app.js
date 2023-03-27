@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import { store } from '../store'
 import { Provider } from 'react-redux'
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer';
 import { SessionProvider } from "next-auth/react"
 import { Toaster } from 'react-hot-toast';
 import NewFooter from '../components/NewFooter';
