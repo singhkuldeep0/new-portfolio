@@ -58,7 +58,7 @@ const Projects = ({ projects }) => {
 }
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
   const response = await axios.get(`${process.env.NEXTAUTH_URL}/api/project`)
 
