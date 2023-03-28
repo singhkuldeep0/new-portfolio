@@ -23,7 +23,6 @@ const initialState = {
     neutral: '#e0e0e0'
   },
   mode:'default',
-  mydata:[],
   myprojects:[],
   technologies:[]
 }
@@ -44,9 +43,6 @@ export const stateSlice = createSlice({
     setBackground: (state , action) => {
       state.background = action.payload
     },
-    setMyData:(state , action) => {
-      state.mydata = action.payload
-    },
     setMyProjects:(state , action) => {
       state.myprojects = action.payload
     },
@@ -56,6 +52,6 @@ export const stateSlice = createSlice({
   }
 })
 
-export const { setColor, setMode , setMyData , setMyProjects , setBackground , setFontSize , setTechnologies} = stateSlice.actions
+export const { setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies} = stateSlice.actions
 
 export default stateSlice.reducer

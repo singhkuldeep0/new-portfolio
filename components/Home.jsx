@@ -8,7 +8,6 @@ import Link from 'next/link'
 
 const Home = () => {
 
-  const mydata = useSelector(state => state.mydata)
   const color = useSelector(state => state.color)
   const background = useSelector(state => state.background)
   const fontSize = useSelector(state => state.fontSize)
@@ -32,9 +31,6 @@ const Home = () => {
     },
   ]
 
-  if(!mydata){
-    return ''
-  }
 
   return ( 
     <div id="Home" className='h-[100vh] flex flex-col md:flex-row-reverse md:justify-between items-center w-full'>
@@ -47,11 +43,11 @@ const Home = () => {
         
       </div>
       <div className='right flex items-center justify-center w-full min-h-[45vh] pt-4 md:h-[90vh] md:w-3/5'  style={{background:background.secondary}}>
-        {mydata && (
+
           <div className='flex flex-col gap-1 md:gap-2 pt-3' style={{color:background.textprimary}}>
           <h1 className='text-center md:text-left  pb-1 md:pb-3 font-playfair font-bold' style={{color:color , fontSize:fontSize.xxxxxxl}}>
             <span className='mr-2 font-roboto-slab' style={{color:background.textsecondary , fontSize:fontSize.base}}>Hi I'm</span>
-            {mydata.name}
+            Kuldeep Singh
             </h1>
           <p className='text-center md:text-left tracking-tighter font-poppins font-semibold px-4 md:px-0 leading-none' style={{fontSize:fontSize.lg}}>
           Self taught 
@@ -71,7 +67,7 @@ const Home = () => {
                 ))}
           </div>
           </div>
-        )}
+
       </div>
     </div>
   )

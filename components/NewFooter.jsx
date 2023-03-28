@@ -83,8 +83,8 @@ const sendEmail = (e) => {
     <div id="Contact" className='flex flex-col bg-black text-white p-4 md:p-10'>
       <div className='flex justify-center flex-wrap gap-10'>
           <div className='w-full max-w-xs px-4'>
-              <a className='footeranim' stylef={{ontSize:fontSize.xxl}}>About Me</a>
-              <p className='text-left mt-5' style={{color:background.textprimary, fontSize:fontSize.sm}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam maiores consectetur veritatis magnam laudantium obcaecati at</p>
+              <a className='footeranim' stylef={{fontSize:fontSize.xxl}}>About Me</a>
+              <p className='text-left mt-5' style={{fontSize:fontSize.sm}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam maiores consectetur veritatis magnam laudantium obcaecati at</p>
 
               <div className='flex gap-4 md:gap-6 font-openSans mt-5' style={{ color:'white' }}>
                         <Link href='https://www.instagram.com/singh_kuldeep_0' target="_blank" ><AiFillInstagram className='h-10 w-10 border-[3px] cursor-pointer p-1 rounded-md' style={{ background: color }} /></Link>
@@ -97,7 +97,7 @@ const sendEmail = (e) => {
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Get In Touch</a>  
               <div className='flex flex-col gap-3 mt-5'>
                {contactData.map(item => (
-                <p className='inline-flex gap-3 items-center' style={{color:background.textprimary, fontSize:fontSize.lg}}>
+                <p className='inline-flex gap-3 items-center' style={{fontSize:fontSize.lg}}>
                   <item.Icon />
                   {item.text}
                 </p>
@@ -108,14 +108,14 @@ const sendEmail = (e) => {
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Useful Links</a>  
               <div className='flex flex-col gap-3 mt-5'>
                {navItems.map(item => (
-                <p onClick={()=>handleImageClick(item)} className='inline-flex gap-1 items-center cursor-pointer' style={{color:background.textprimary, fontSize:fontSize.lg}}>
+                <p onClick={()=>handleImageClick(item)} className='inline-flex gap-1 items-center cursor-pointer' style={{fontSize:fontSize.lg}}>
                   <FiChevronRight className='mt-1'/>
                     {item}
                 </p>
                ))}             
               </div>       
           </div>
-          <div className='w-full max-w-xs px-4'>
+          {/* <div className='w-full max-w-xs px-4'>
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Latest Projects</a>  
               <div className='flex flex-wrap gap-3 mt-8'>
                  {/* <div className='relative h-20 w-32 '>
@@ -129,9 +129,9 @@ const sendEmail = (e) => {
                  </div>
                  <div className='relative h-20 w-32 '>
                   <Image src={urlFor(second[1]).url()} fill alt=""/>
-                 </div>                 */}
+                 </div>                 
               </div>        
-          </div>
+          </div> */}
        
           <div className='flex flex-col gap-3 w-[320px]'>
             <div>

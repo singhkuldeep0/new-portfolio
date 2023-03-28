@@ -9,16 +9,15 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import Testimonials from '../components/Testimonials'
 import useMediaQuery from '../hooks/MediaQuery'
-import { setFontSize, setMyData, setMyProjects, setTechnologies } from '../state/index'
+import { setFontSize, setMyProjects, setTechnologies } from '../state/index'
 
-export default function Home({session, mydata , myprojects , technologies}) {
+export default function Home({session , myprojects , technologies}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
 
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
 
   useEffect(() => {
-    dispatch(setMyData(mydata))
     dispatch(setMyProjects(myprojects))
     dispatch(setTechnologies(technologies))
     }, [])
@@ -65,19 +64,16 @@ export default function Home({session, mydata , myprojects , technologies}) {
 export async function getServerSideProps(context) {
   const session = await getSession(context)
 
- const data = await Promise.all(["a8da2365-f7a2-4e3b-9e3e-6d90071e663e", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
+ const data = await Promise.all(["b8fba393-8f52-4667-85c1-570ccf36b852", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/project/${projectId}`)
    return data
  })
 )
-
-  const mydetails = await axios.get(`${process.env.NEXTAUTH_URL}/api/mydetails`)
   const technologies = await axios.get(`${process.env.NEXTAUTH_URL}/api/technologies`)
 
   return {
     props: {
       session,
-      mydata : mydetails.data,
       myprojects:data,
       technologies:technologies.data
     }

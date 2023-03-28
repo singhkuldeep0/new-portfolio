@@ -9,12 +9,15 @@ const Skills = () => {
     const skillsArray = useSelector(state => state.technologies)
     const fontSize = useSelector(state => state.fontSize)
 
-    const frontend = ['Reactjs', 'Nextjs', 'React Native', 'Typescript', 'Javascript', 'Redux', 'Tailwind css']
+    const frontend = ['Reactjs', 'Nextjs', 'React Native', 'Typescript', 'Javascript', 'Redux']
 
     const backend = ['Express js', 'Nodejs', 'GraphQL', 'Mongodb', 'Prisma', 'Sanity']
 
+    const cssLib = ['Tailwind css','Chakra UI', 'Sass' ,'Framer Motion']
+
     const frontendSkills = skillsArray.filter(item => frontend.includes(item.iconName))
     const backendSkills = skillsArray.filter(item => backend.includes(item.iconName))
+    const cssLibraries = skillsArray.filter(item => cssLib.includes(item.iconName))
 
     console.log(frontendSkills, backendSkills)
 
@@ -27,6 +30,7 @@ const Skills = () => {
             <div className='flex gap-10 flex-wrap items-start justify-center'>
             { frontendSkills && <SkillsCard skills={frontendSkills} heading="FrontEnd" />}
               {backendSkills && <SkillsCard skills={backendSkills} heading="Backend" />}
+              {cssLibraries && <SkillsCard skills={cssLibraries} heading="Css Frameworks" />}
             </div>
         </div>
 
