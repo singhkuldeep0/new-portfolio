@@ -62,7 +62,7 @@ export default function Home({session, mydata , myprojects , technologies}) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const session = await getSession(context)
 
  const data = await Promise.all(["a8da2365-f7a2-4e3b-9e3e-6d90071e663e", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
