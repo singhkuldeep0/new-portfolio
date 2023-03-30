@@ -60,7 +60,7 @@ button {
 }
 
 .nav{
-    @apply relative ml-10 text-inherit
+    @apply relative ml-4 md:ml-10 text-inherit
 }
 
 .nav::after{

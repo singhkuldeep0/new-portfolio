@@ -1,16 +1,12 @@
-import Link from 'next/link'
-import React from 'react'
 import emailjs from '@emailjs/browser';
-import { useSelector } from 'react-redux'
-import { FaEnvelope, FaTwitter, FaMapMarkerAlt , FaLinkedin} from 'react-icons/fa'
-import { AiFillInstagram , AiOutlineRight } from 'react-icons/ai'
-import { BsGithub , BsFillTelephoneFill } from 'react-icons/bs'
-import { FiChevronRight } from 'react-icons/fi'
-import Image from 'next/image'
-import {urlFor} from '../sanity.cli'
-import { useState } from 'react'
-import { useRef } from 'react'
-import { toast } from 'react-hot-toast'
+import Link from 'next/link';
+import React, { useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { AiFillInstagram } from 'react-icons/ai';
+import { BsFillTelephoneFill, BsGithub } from 'react-icons/bs';
+import { FaEnvelope, FaLinkedin, FaMapMarkerAlt, FaTwitter } from 'react-icons/fa';
+import { FiChevronRight } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 
 const NewFooter = () => {
 

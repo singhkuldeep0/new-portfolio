@@ -19,8 +19,6 @@ const Skills = () => {
     const backendSkills = skillsArray.filter(item => backend.includes(item.iconName))
     const cssLibraries = skillsArray.filter(item => cssLib.includes(item.iconName))
 
-    console.log(frontendSkills, backendSkills)
-
 
 
     return (

@@ -19,7 +19,7 @@ const Navbar = ({ }) => {
     const [selected, setSelected] = useState('Home')
 
     const navItems = [
-        "Projects", "Skills", "About", "Contact"
+        "Projects", "Skills", "About", "Contact", "Testimonials"
     ]
     const router = useRouter()
 
@@ -36,7 +36,7 @@ const Navbar = ({ }) => {
             <Link href="/"><div onClick={() => navigateHome()} className="left">
                 <NavName />
             </div></Link>
-            <div className="hidden sm:flex gap-8">
+            <div className="hidden sm:flex">
                 {router.pathname === '/' && <span key={"Home"} onClick={() => { setSelected("Home"); handleImageClick("Home"); }} className={`nav w-full font-normal font-poppins cursor-pointer  ${selected === "Home" && 'border-b-[3px]'}`} style={{ color: background.textsecondary, borderColor: color, fontSize: fontSize.base }}>
                     Home
                 </span>}

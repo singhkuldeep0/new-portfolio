@@ -36,7 +36,7 @@ const Testimonials = () => {
   
   
   return (
-    <div className='py-12 md:py-16' >
+    <div id='Testimonials' className='py-12 md:py-16' >
       <div className='flex flex-col justify-center items-center'>
         <Heading Heading="Testimonials" />
         {session?.user ? (<button className={btnclasses} onClick={()=>setIsOpen(true)} style={{background:background.secondary, color:color,fontSize:fontSize.lg, borderColor:color}}>Add a Testimonial</button>) : (<button onClick={()=>signIn('google')} className={btnclasses} style={{background:background.secondary, color:color,fontSize:fontSize.lg, borderColor:color}}>
@@ -48,7 +48,7 @@ const Testimonials = () => {
         <div className={`flex gap-6 mx-3 md:mx-10 justify-start px-3 md:px-10 scrollbar-thumb-gray-500 scrollbar-track-gray-100 py-10 scrollbar-thin overflow-x-scroll`} >
           {testimonials.map(item=>(
             <>
-            <Testimonial key={item.image} item={item} />
+            <Testimonial key={item.image} item={item} setTestimonials={setTestimonials} testimonials={testimonials}/>
             </>
           ))}
         </div>
