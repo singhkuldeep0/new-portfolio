@@ -9,32 +9,26 @@ import { FcGoogle } from 'react-icons/fc'
 import TestimonialModal from './TestimonialModal'
 
 
-const Testimonials = () => {
+const Testimonials = ({Alltestimonials}) => {
   const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
-  const [testimonials , setTestimonials] = useState([])
+  const [testimonials , setTestimonials] = useState(Alltestimonials)
   let [isOpen, setIsOpen] = useState(false)
 
+  
+  const fetchagain = async() => {
+    const query = `*[_type == "testimonials"] | order(_createdAt desc)`
+    const testimonials = await client.fetch(query)
+    setTestimonials((prev)=>[...prev , ...testimonials])
+  }
+  
 
   const btnclasses = 'px-4 inline-flex items-center gap-1 py-1.5 font-semibold tracking-tighter rounded-md mt-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] border-2'
-  
-  const rndInt = Math.floor(Math.random() * 5) + 1
+
   const { data:session } = useSession()
+  console.log(testimonials)
 
-  const fetchAllTestimonials = async()=>{
-      const query = `*[_type == "testimonials"] | order(_createdAt desc)`
-      const testimonials = await client.fetch(query)
-      setTestimonials(testimonials)
-   
-  }
-
-  useEffect(() => {
-    fetchAllTestimonials()
-  }, [])
-
-  
-  
   return (
     <div id='Testimonials' className='py-12 md:py-16' >
       <div className='flex flex-col justify-center items-center'>
@@ -46,14 +40,14 @@ const Testimonials = () => {
           }
       </div>
         <div className={`flex gap-6 mx-3 md:mx-10 justify-start px-3 md:px-10 scrollbar-thumb-gray-500 scrollbar-track-gray-100 py-10 scrollbar-thin overflow-x-scroll`} >
-          {testimonials.map(item=>(
-            <>
-            <Testimonial key={item.image} item={item} setTestimonials={setTestimonials} testimonials={testimonials}/>
-            </>
+          {testimonials && testimonials.map(item=>(
+            <div key={item._id}>
+            <Testimonial item={item} setTestimonials={setTestimonials} testimonials={testimonials}/>
+            </div>
           ))}
         </div>
 
-        <TestimonialModal isOpen={isOpen} setIsOpen={setIsOpen} setTestimonials={setTestimonials} testimonials={testimonials}/>
+        <TestimonialModal isOpen={isOpen} setIsOpen={setIsOpen} setTestimonials={setTestimonials} testimonials={testimonials} fetchagain={fetchagain}/>
     </div>
   )
 }

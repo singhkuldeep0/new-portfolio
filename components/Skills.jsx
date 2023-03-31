@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux'
 import Heading from './Heading'
 import SkillsCard from './SkillsCard'
 
-const Skills = () => {
+const Skills = ({skillsArray}) => {
 
     const color = useSelector(state => state.color)
     const background = useSelector(state => state.background)
-    const skillsArray = useSelector(state => state.technologies)
+    
     const fontSize = useSelector(state => state.fontSize)
 
     const frontend = ['Reactjs', 'Nextjs', 'React Native', 'Typescript', 'Javascript', 'Redux']

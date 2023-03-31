@@ -15,7 +15,6 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
   const fontSize = useSelector(state => state.fontSize)
   const { data } = useSession()
 
-
   const [isEnter, setIsEnter] = useState(false)
   const deleteTestimonial = async () => {
 
@@ -23,15 +22,33 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
       return;
     }
 
-    if (data.user.email === item.email && item) {
-      
-      await client.delete(`${item._id}`).then((result)=>{
-        const filtertestimonials = testimonials.filter(testimonial => testimonial._id !== item._id)
-        setTestimonials(filtertestimonials)
-        toast.success('Testimonial deleted successfully')
-      }).catch((err)=>{
-        toast.error('Error while deleting! Please reload and delete again')
-      })
+     if (data.user.email === item.email && item) {
+      const myPromise = new Promise(async(resolve, reject) => {
+
+        await client.delete(item._id).then(async(result)=>{
+          console.log(result.results.length)
+         if(result.results.length===0){
+          reject()
+         }
+         else{
+           const filtertestimonials = testimonials.filter(testimonial => testimonial._id !== item._id)     
+           setTimeout(() => {
+             setTestimonials(filtertestimonials)
+             resolve()
+            }, 1000);
+          }
+          
+        }).catch((err)=>{
+          reject()
+        })
+      });
+
+      toast.promise(myPromise, {
+        loading: 'deleting please wait',
+        success: 'deleted Successfully',
+        error: 'Error while deleting! Please reload and try again',
+      });
+     
       }
     else {
       console.log("login first")

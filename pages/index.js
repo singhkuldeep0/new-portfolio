@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getSession } from 'next-auth/react'
+import { getSession , useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,20 +9,19 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import Testimonials from '../components/Testimonials'
 import useMediaQuery from '../hooks/MediaQuery'
+import { client } from '../sanity.cli'
 import { setFontSize, setMyProjects, setTechnologies } from '../state/index'
 
-export default function Home({session , myprojects , technologies}) {
+export default function Home({ myprojects , technologies, testimonials}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
-
+  const session = useSession()
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
 
   useEffect(() => {
     dispatch(setMyProjects(myprojects))
     dispatch(setTechnologies(technologies))
     }, [])
-
-    console.log(session)
 
     useEffect(()=>{
       dispatch(setFontSize({
@@ -50,10 +49,10 @@ export default function Home({session , myprojects , technologies}) {
 
     <main style={{background:background.secondary}}> 
       <Homee/>
-      <Projects/>
-      <Skills/>
+      <Projects projects={myprojects}/>
+      <Skills skillsArray={technologies}/>
       <About/>
-      <Testimonials/>
+      <Testimonials Alltestimonials={testimonials}/>
     
      </main>
     
@@ -70,12 +69,16 @@ export async function getServerSideProps(context) {
  })
 )
   const technologies = await axios.get(`${process.env.NEXTAUTH_URL}/api/technologies`)
+  
+  const query = `*[_type == "testimonials"] | order(_createdAt desc)`
+  const testimonials = await client.fetch(query)
 
   return {
     props: {
       session,
       myprojects:data,
-      technologies:technologies.data
+      technologies:technologies.data,
+      testimonials
     }
   }
 }

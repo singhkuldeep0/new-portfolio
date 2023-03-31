@@ -5,9 +5,7 @@ import Heading from './Heading'
 import { MdOutlineArrowRightAlt } from 'react-icons/md'
 import Link from 'next/link'
 
-const Projects = () => {
-
-    const projects = useSelector(state => state.myprojects)
+const Projects = ({projects}) => {
 
     const color = useSelector(state => state.color)
     const background = useSelector(state => state.background)

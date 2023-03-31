@@ -8,8 +8,9 @@ import { client } from '../sanity.cli'
 import Image from 'next/image'
 import { toast } from 'react-hot-toast'
 import { useSession } from 'next-auth/react'
+import { data } from 'autoprefixer'
 
-const TestimonialModal = ({ isOpen, setIsOpen, setTestimonials, testimonials }) => {
+const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials,fetchagain}) => {
     function closeModal() {
         setIsOpen(false)
     }
@@ -19,7 +20,6 @@ const TestimonialModal = ({ isOpen, setIsOpen, setTestimonials, testimonials }) 
     }
 
     const {data:session}  = useSession()
-
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -70,13 +70,15 @@ const TestimonialModal = ({ isOpen, setIsOpen, setTestimonials, testimonials }) 
                 email:session.user.email
             }
 
-            client.create(doc).then(() => {
-                setTestimonials([doc, ...testimonials])
+            client.create(doc).then(async(result) => {
+                await fetchagain()
+                setTestimonials([...testimonials , result])
                 setName('')
                 setDescription('')
                 setImageAsset(null)
                 setUploadLoading(false)
                 setIsOpen(false)
+                
                 toast.success('Thanks for your Feedback!')
             })
 
