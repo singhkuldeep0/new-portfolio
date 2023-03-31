@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { useSession } from 'next-auth/react'
 import { client } from '../sanity.cli'
+import toast from 'react-hot-toast'
 
 const Testimonial = ({ item, testimonials, setTestimonials }) => {
 
@@ -22,11 +23,15 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
       return;
     }
 
-    if (data.user.email === item.email) {
+    if (data.user.email === item.email && item) {
       
-      await client.delete(item._id)
-      const filtertestimonials = testimonials.filter(testimonial => testimonial._id !== item._id)
-      setTestimonials(filtertestimonials)
+      await client.delete(`${item._id}`).then((result)=>{
+        const filtertestimonials = testimonials.filter(testimonial => testimonial._id !== item._id)
+        setTestimonials(filtertestimonials)
+        toast.success('Testimonial deleted successfully')
+      }).catch((err)=>{
+        toast.error('Error while deleting! Please reload and delete again')
+      })
       }
     else {
       console.log("login first")
