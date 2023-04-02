@@ -26,7 +26,6 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
       const myPromise = new Promise(async(resolve, reject) => {
 
         await client.delete(item._id).then(async(result)=>{
-          console.log(result.results.length)
          if(result.results.length===0){
           reject()
          }

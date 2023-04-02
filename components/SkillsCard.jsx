@@ -14,9 +14,9 @@ const SkillsCard = ({skills, heading}) => {
         visible: {
             opacity: 1,
             transition: {
-                duration: 0.2,
+                duration: 0.1,
                 when: 'beforeChildren',
-                staggerChildren: 0.1,
+                staggerChildren: 0.2,
             }
         },
     }
@@ -55,6 +55,7 @@ const SkillsCard = ({skills, heading}) => {
        >
            {skills.map(item => {
                return <motion.div 
+               key={item.iconName}
                variants={listVariant}
                className='md:w-40 md:h-40 w-32 h-32 flex gap-2 flex-col items-center justify-center shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-2xl' style={{background:'white'}}>
                    <div className={`relative ${item.iconName === 'Sanity' ? 'h-7 md:h-10' : 'h-16 md:h-20'} ${isArray.includes(item.iconName) ? 'w-[110px] md:w-[140px]' : 'w-16 md:w-20'}`}>

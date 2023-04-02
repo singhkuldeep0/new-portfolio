@@ -1,6 +1,4 @@
 import { client, urlFor } from '../../sanity.cli'
-import Heading from '../../components/Heading'
-import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import Slider from '../../components/Slider'
 import { BsGithub , BsGlobe } from 'react-icons/bs'
@@ -11,11 +9,11 @@ const Project = ({project,allImages}) => {
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
-          
+             
   return project.length > 0 ? (
     <div className='min-h-screen overflow-hidden py-4' style={{background: background.secondary}}>
       <h1 className='text-center font-bold font-openSans  sm:py-2' style={{color:background.textsecondary , fontSize:fontSize.xl }}>{project[0].projectName}</h1>
-       <Slider images={project[0].images}/>
+       <Slider images={project[0].images} videos={project[0].videos || []}/>
 
        <div className='flex flex-col gap-1 py-6 px-3 md:pt-10 md:px-28 items-start'>
        <h1 className='text-left pb-2 font-bold font-openSans' style={{color:color , fontSize:fontSize.lg }}>Links :</h1>
@@ -55,7 +53,15 @@ export default Project
 
 export async function getServerSideProps(context) {
 
-    const projectquery = `*[_type == 'projects' && _id == '${context.query.id}']`
+    const projectquery = `*[_type == 'projects' && _id == '${context.query.id}']{
+      ...,
+      videos[]{
+        asset->{
+          _id,
+          url
+        }
+      }
+    }`
     const project = await client.fetch(projectquery)
 
       const allImages = await Promise.all(project[0].technologies.map(async(item)=>{

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getSession , useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,13 +15,14 @@ import { setFontSize, setMyProjects, setTechnologies } from '../state/index'
 export default function Home({ myprojects , technologies, testimonials}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
-  const session = useSession()
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
-
+  
   useEffect(() => {
     dispatch(setMyProjects(myprojects))
     dispatch(setTechnologies(technologies))
-    }, [])
+  }, [])
+  
+    const session = useSession()    
 
     useEffect(()=>{
       dispatch(setFontSize({
@@ -60,9 +61,8 @@ export default function Home({ myprojects , technologies, testimonials}) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context)
-
+export async function getStaticProps(context) {
+  
  const data = await Promise.all(["b8fba393-8f52-4667-85c1-570ccf36b852", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/project/${projectId}`)
    return data
@@ -75,8 +75,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      session,
-      myprojects:data,
+       myprojects:data,
       technologies:technologies.data,
       testimonials
     }

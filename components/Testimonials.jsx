@@ -27,7 +27,6 @@ const Testimonials = ({Alltestimonials}) => {
   const btnclasses = 'px-4 inline-flex items-center gap-1 py-1.5 font-semibold tracking-tighter rounded-md mt-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] border-2'
 
   const { data:session } = useSession()
-  console.log(testimonials)
 
   return (
     <div id='Testimonials' className='py-12 md:py-16' >
