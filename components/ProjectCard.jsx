@@ -51,7 +51,7 @@ const ProjectCard = ({project}) => {
              y:0,
              opacity:1,
              transition: {
-                type: "spring", stiffness: 10000 ,  damping: 400
+                type: "spring", stiffness: 10000 ,  damping: 600
               }
           }
      }

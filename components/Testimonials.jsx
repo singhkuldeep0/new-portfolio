@@ -9,21 +9,15 @@ import { FcGoogle } from 'react-icons/fc'
 import TestimonialModal from './TestimonialModal'
 
 
-const Testimonials = ({Alltestimonials}) => {
+const Testimonials = ({testimonials:allTestimonials}) => {
   const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
-  const [testimonials , setTestimonials] = useState(Alltestimonials)
+     
+  const [testimonials , setTestimonials] = useState(allTestimonials)
   let [isOpen, setIsOpen] = useState(false)
 
   
-  const fetchagain = async() => {
-    const query = `*[_type == "testimonials"] | order(_createdAt desc)`
-    const testimonials = await client.fetch(query)
-    setTestimonials((prev)=>[...prev , ...testimonials])
-  }
-  
-
   const btnclasses = 'px-4 inline-flex items-center gap-1 py-1.5 font-semibold tracking-tighter rounded-md mt-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] border-2'
 
   const { data:session } = useSession()
@@ -46,7 +40,7 @@ const Testimonials = ({Alltestimonials}) => {
           ))}
         </div>
 
-        <TestimonialModal isOpen={isOpen} setIsOpen={setIsOpen} setTestimonials={setTestimonials} testimonials={testimonials} fetchagain={fetchagain}/>
+        <TestimonialModal isOpen={isOpen} setIsOpen={setIsOpen} setTestimonials={setTestimonials} testimonials={testimonials}/>
     </div>
   )
 }

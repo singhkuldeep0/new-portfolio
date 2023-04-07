@@ -15,7 +15,7 @@ const SignInBtn = ({ size, hide }) => {
     const iconSize = `${Number(size.split('px')[0]) + 6}px`
     return (
         <div>
-            {status === 'loading' ? (<button onClick={() => signOut()} className='w-full inline-flex gap-3 justify-center items-center bg-white rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-3 py-1.5' style={{ background: color, color: 'white' }}>
+            {status === 'loading' ? (<button onClick={() => signOut()} className='w-full inline-flex gap-3 justify-center items-center bg-white rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-3 py-2' style={{ background: color, color: 'white' }}>
                 <BeatLoader color='white' />
             </button>) : (
 

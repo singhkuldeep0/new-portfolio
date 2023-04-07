@@ -16,7 +16,7 @@ const SkillsCard = ({skills, heading}) => {
             transition: {
                 duration: 0.1,
                 when: 'beforeChildren',
-                staggerChildren: 0.2,
+                staggerChildren: 0.1,
             }
         },
     }
@@ -51,7 +51,7 @@ const SkillsCard = ({skills, heading}) => {
             variants={boxVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{once:true}}
+            // viewport={{once:true}}
        >
            {skills.map(item => {
                return <motion.div 

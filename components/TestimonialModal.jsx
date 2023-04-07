@@ -8,9 +8,9 @@ import { client } from '../sanity.cli'
 import Image from 'next/image'
 import { toast } from 'react-hot-toast'
 import { useSession } from 'next-auth/react'
-import { data } from 'autoprefixer'
+import axios from 'axios'
 
-const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials,fetchagain}) => {
+const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) => {
     function closeModal() {
         setIsOpen(false)
     }
@@ -54,34 +54,32 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials,fe
         }
     }
 
-    const savePin = () => {
+    const savePin = async() => {
 
         if(!session){
             return;
         }
 
+        if(!name || !description || !imageAsset){
+            toast.error('Please add your image including name and description')
+            return
+        }
+
         if (name && description && imageAsset?.url) {
-            setUploadLoading(true)
-            const doc = {
-                _type: 'testimonials',
-                image: imageAsset?.url,
-                name,
-                description,
-                email:session.user.email
-            }
-
-            client.create(doc).then(async(result) => {
-                await fetchagain()
-                setTestimonials([...testimonials , result])
-                setName('')
-                setDescription('')
-                setImageAsset(null)
-                setUploadLoading(false)
-                setIsOpen(false)
-                
-                toast.success('Thanks for your Feedback!')
-            })
-
+           await axios.post('/api/testimonial',{
+            email:session?.user.email,
+             name,
+             description,
+             imageUrl: imageAsset?.url
+        }).then((result)=>{
+            setTestimonials([result.data.testimonial , ...testimonials])
+            setName('')
+            setDescription('')
+            setImageAsset(null)
+            toast.success('Testimonial successfully added')
+            closeModal()
+        })
+  
         }
         else {
             return

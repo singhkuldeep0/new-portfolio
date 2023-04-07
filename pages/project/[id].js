@@ -29,10 +29,13 @@ const Project = ({project,allImages}) => {
 
        <div className='flex flex-col gap-3 p-3 md:pt-10 md:px-28 items-start'>
        <h1 className='text-left font-bold font-openSans' style={{color:color , fontSize:fontSize.lg}}>Web Technologies used :</h1>
-        <div className='flex justify-start gap-4 items-center'>
+        <div className='flex justify-start gap-4 items-center flex-wrap'>
            {allImages.map(item=>(
-            <div key={urlFor(item[0].icon).url()} className='relative h-20 w-20 hover:scale-110 duration-300 transition-all ease-in-out bg-white rounded-xl'>
-            <Image src={urlFor(item[0].icon).url()} fill className='object-contain p-2 rounded-2xl'/>
+            <div key={urlFor(item[0].icon).url()} className='relative h-24 w-24 hover:scale-110 duration-300 transition-all ease-in-out bg-white rounded-xl'>
+            <Image src={urlFor(item[0].icon).url()} fill className='object-contain p-2 pb-6 rounded-2xl'/>
+            <div className='text-black absolute bottom-1 left-0 right-0 mx-auto w-max'>
+            <span className='tracking-tighter'>{item[0].iconName}</span>
+            </div>
               </div>
           ))} 
         </div>

@@ -9,10 +9,9 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import Testimonials from '../components/Testimonials'
 import useMediaQuery from '../hooks/MediaQuery'
-import { client } from '../sanity.cli'
 import { setFontSize, setMyProjects, setTechnologies } from '../state/index'
 
-export default function Home({ myprojects , technologies, testimonials}) {
+export default function Home({ myprojects , technologies,testimonials}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
@@ -22,7 +21,6 @@ export default function Home({ myprojects , technologies, testimonials}) {
     dispatch(setTechnologies(technologies))
   }, [])
   
-    const session = useSession()    
 
     useEffect(()=>{
       dispatch(setFontSize({
@@ -53,7 +51,7 @@ export default function Home({ myprojects , technologies, testimonials}) {
       <Projects projects={myprojects}/>
       <Skills skillsArray={technologies}/>
       <About/>
-      <Testimonials Alltestimonials={testimonials}/>
+      <Testimonials testimonials={testimonials}/>
     
      </main>
     
@@ -69,15 +67,14 @@ export async function getStaticProps(context) {
  })
 )
   const technologies = await axios.get(`${process.env.NEXTAUTH_URL}/api/technologies`)
+  const testimonials = await axios.get(`${process.env.NEXTAUTH_URL}/api/testimonial`)
   
-  const query = `*[_type == "testimonials"] | order(_createdAt desc)`
-  const testimonials = await client.fetch(query)
 
   return {
     props: {
        myprojects:data,
       technologies:technologies.data,
-      testimonials
+      testimonials:testimonials.data.testimonials
     }
   }
 }

@@ -15,13 +15,15 @@ const Slider = ({ images, videos }) => {
 
     return (
         <>
-            <div className='text-white text-[20px] md:rounded-lg max-w-[1000px] mx-auto p-2 md:p-6 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' style={{ background:background.textprimary }}>
+            <div className='text-white text-[20px] md:rounded-lg max-w-[950px] mx-auto p-2 md:p-3 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' style={{ background:background.textprimary }}>
                 <Carousel
                     // autoPlay={true}
                     infiniteLoop={true}
                     showThumbs={false}
                     showIndicators={false}
                     showStatus={false}
+                    swipeable={true}
+                    emulateTouch={true}
                     renderArrowPrev={(clickHandler, hasPrev) => (
                         <div
                             onClick={clickHandler}
@@ -45,14 +47,14 @@ const Slider = ({ images, videos }) => {
                         src={item.asset.url} 
                         controls
                         loop
-                        className='rounded-2xl cursor-pointer bg-gray-100'
+                        className='rounded-2xl cursor-pointer bg-gray-100 sm:h-[300px] md:h-[460px]'
                         />
 
                     ))
                     }
                     {images.map((item) => (
-                        <div key={item._key} className="h-[180px] sm:h-[300px] md:h-[540px] w-full">
-                            <Image src={urlFor(item).url()} alt="" fill className='!relative w-full' style={{ objectFit: 'contain' }} />
+                        <div key={item._key} className="h-[180px] relative sm:h-[300px] md:h-[460px]">
+                            <Image src={urlFor(item).url()} alt="" fill className='rounded-xl h-full' style={{ objectFit: 'contain' }} />
                         </div>
                     ))}
                 </Carousel>
