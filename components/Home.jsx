@@ -46,7 +46,7 @@ const Home = () => {
 
           <div className='flex flex-col gap-1 md:gap-2 pt-3' style={{color:background.textprimary}}>
           <h1 className='text-center md:text-left  pb-1 md:pb-3 font-playfair font-bold' style={{color:color , fontSize:fontSize.xxxxxxl}}>
-            <span className='mr-2 font-roboto-slab' style={{color:background.textsecondary , fontSize:fontSize.base}}>Hi I'm</span>
+            <span className='mr-2 font-roboto-slab' style={{color:background.textsecondary , fontSize:fontSize.base}}>Hi I&apos;m</span>
             Kuldeep Singh
             </h1>
           <p className='text-center md:text-left tracking-tighter font-poppins font-semibold px-4 md:px-0 leading-none' style={{fontSize:fontSize.lg}}>

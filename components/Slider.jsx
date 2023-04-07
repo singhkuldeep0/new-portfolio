@@ -44,6 +44,7 @@ const Slider = ({ images, videos }) => {
                     {videos.map((item) => (
                      
                         <video 
+                        key={item.asset.url}
                         src={item.asset.url} 
                         controls
                         loop

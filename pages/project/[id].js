@@ -19,11 +19,11 @@ const Project = ({project,allImages}) => {
        <h1 className='text-left pb-2 font-bold font-openSans' style={{color:color , fontSize:fontSize.lg }}>Links :</h1>
      {project[0]?.weblink && <div className='inline-flex items-center justify-center gap-2'>
             <BsGlobe className='cursor-pointer' style={{color:color , fontSize:fontSize.xl}}/>
-            <a href={project[0].weblink} target='_blank'><p className='font-medium underline font-lato' style={{color:background.textprimary , fontSize:fontSize.base}}>{project[0].weblink}</p></a>
+            <a href={project[0].weblink} target='_blank' rel="noreferrer"><p className='font-medium underline font-lato' style={{color:background.textprimary , fontSize:fontSize.base}}>{project[0].weblink}</p></a>
        </div>}
        <div className='inline-flex items-center justify-center gap-2'>
             <BsGithub className='cursor-pointer' style={{color:color, fontSize:fontSize.xl}}/>
-            <a href={project[0].github} target='_blank'><p className='font-medium underline font-lato' style={{color:background.textprimary , fontSize:fontSize.base}}>{project[0].github}</p></a>
+            <a href={project[0].github} target='_blank' rel="noreferrer"><p className='font-medium underline font-lato' style={{color:background.textprimary , fontSize:fontSize.base}}>{project[0].github}</p></a>
        </div>
         </div>
 

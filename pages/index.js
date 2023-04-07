@@ -59,7 +59,7 @@ export default function Home({ myprojects , technologies,testimonials}) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   
  const data = await Promise.all(["b8fba393-8f52-4667-85c1-570ccf36b852", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/project/${projectId}`)

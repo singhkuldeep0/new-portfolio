@@ -93,7 +93,7 @@ const sendEmail = (e) => {
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Get In Touch</a>  
               <div className='flex flex-col gap-3 mt-5'>
                {contactData.map(item => (
-                <p className='inline-flex gap-3 items-center' style={{fontSize:fontSize.lg}}>
+                <p key={item.text} className='inline-flex gap-3 items-center' style={{fontSize:fontSize.lg}}>
                   <item.Icon />
                   {item.text}
                 </p>
@@ -104,7 +104,7 @@ const sendEmail = (e) => {
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Useful Links</a>  
               <div className='flex flex-col gap-3 mt-5'>
                {navItems.map(item => (
-                <p onClick={()=>handleImageClick(item)} className='inline-flex gap-1 items-center cursor-pointer' style={{fontSize:fontSize.lg}}>
+                <p key={item} onClick={()=>handleImageClick(item)} className='inline-flex gap-1 items-center cursor-pointer' style={{fontSize:fontSize.lg}}>
                   <FiChevronRight className='mt-1'/>
                     {item}
                 </p>
