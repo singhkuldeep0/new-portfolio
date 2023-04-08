@@ -10,10 +10,15 @@ import Skills from '../components/Skills'
 import Testimonials from '../components/Testimonials'
 import useMediaQuery from '../hooks/MediaQuery'
 import { setFontSize, setMyProjects, setTechnologies } from '../state/index'
+import Modal from '../components/Modal/Modal'
+import LoginModal from '../components/Modal/LoginModal'
+import RegisterModal from '../components/Modal/RegisterModal'
 
 export default function Home({ myprojects , technologies,testimonials}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
+  const login = useSelector(state => state.LoginModal)
+  const register = useSelector(state => state.RegisterModal)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
   
   useEffect(() => {
@@ -47,6 +52,8 @@ export default function Home({ myprojects , technologies,testimonials}) {
       </Head>
 
     <main style={{background:background.secondary}}> 
+    { login && <LoginModal/>}
+    { register && <RegisterModal/>}
       <Homee/>
       <Projects projects={myprojects}/>
       <Skills skillsArray={technologies}/>
@@ -61,7 +68,7 @@ export default function Home({ myprojects , technologies,testimonials}) {
 
 export async function getServerSideProps(context) {
   
- const data = await Promise.all(["b8fba393-8f52-4667-85c1-570ccf36b852", "38211ee0-3732-4738-b823-708ccd34bcf9"].map( async(projectId) => {
+ const data = await Promise.all(["38211ee0-3732-4738-b823-708ccd34bcf9","fd7731ca-cc53-433d-8c92-1170c54a3df0","b8fba393-8f52-4667-85c1-570ccf36b852"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/project/${projectId}`)
    return data
  })

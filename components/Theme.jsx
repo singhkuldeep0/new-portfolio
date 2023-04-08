@@ -7,6 +7,8 @@ import { ProgressBar, Step } from "react-step-progress-bar";
 import { useDispatch, useSelector } from 'react-redux';
 import { setBackground, setColor, setFontSize, setMode } from '../state/index'
 import useMediaQuery from '../hooks/MediaQuery';
+import { BsFillMoonFill } from 'react-icons/bs';
+import { RiSunFill } from 'react-icons/ri';
 
 export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false)
@@ -44,7 +46,7 @@ export default function MyModal() {
           className="rounded-md px-4 py-1.5 shadow-md hover:scale-105 transition transform duration-200 ease-in-out"
           style={{ background: color, color: 'white' }}
         >
-          <FaPalette className='text-xl' />
+         {mode === 'default'? <RiSunFill className="text-2xl" /> : <BsFillMoonFill className='text-xl' /> }
         </button>
       </div>
 

@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import { AiFillCamera } from 'react-icons/ai'
 import { BsTrashFill } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
@@ -21,7 +21,7 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
 
     const {data:session}  = useSession()
 
-    const [name, setName] = useState('')
+    const [name, setName] = useState(session ? session.user.name : '')
     const [description, setDescription] = useState('')
     const [loading, setLoading] = useState(false)
     const [uploadloading, setUploadLoading] = useState(false)
@@ -33,16 +33,16 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
-
-
-    const uploadImage = (e) => {
-        const { type, name } = e.target.files[0]
+ 
+    const uploadImage = (file) => {
+  
+        const { type, name } = file
 
         if (type === 'image/png' || type === 'image/svg' || type === 'image/jpeg' || type === 'image/gif' || type === 'image/tiff') {
             setWrongFileType(false)
             setLoading(true)
 
-            client.assets.upload('image', e.target.files[0], { contentType: type, filename: name }).then((document) => {
+            client.assets.upload('image', file, { contentType: type, filename: name }).then((document) => {
                 setImageAsset(document)
                 setLoading(false)
             }).catch((error) => {
@@ -124,18 +124,22 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
                                         <div className='flex flex-col gap-4  mt-8' style={{ fontSize: fontSize.lg, color: 'gray' }}>
                                             <div className='flex  items-center justify-start gap-4 mb-4'>
 
-                                                <label>
+                                         
                                                     <div className='relative rounded-full p-1 border-4' style={{ borderColor: color }}>
+                                                        <label>
                                                         <div
-                                                            className="relative flex items-center justify-center mx-auto h-24 w-24  rounded-full overflow-hidden cursor-pointer">
+                                                         className="relative flex items-center justify-center mx-auto h-24 w-24  rounded-full overflow-hidden cursor-pointer">
                                                             {imageAsset?.url ? <Image src={imageAsset.url} fill className='object-cover' alt='' /> : (loading ? <BeatLoader color={color} /> : <AiFillCamera className='text-[42px]' color={color} />)}
-                                                            <input type="file" className='hidden' onChange={uploadImage} />
+                                                            <input type="file" className='hidden' onChange={(e)=>uploadImage(e.target.files[0])} />
                                                         </div>
-                                                        <div onClick={()=> setImageAsset(null)} className='text-base absolute bottom-0 -right-1 bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-1.5 rounded-full'>
+                                                        </label>
+                                                        <div onClick={(e)=> {
+                                                            setImageAsset(null)
+                                                        }} className='text-base cursor-pointer absolute bottom-0 -right-1 bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-1.5 rounded-full'>
                                                         <BsTrashFill />
                                                         </div>
-                                                    </div>
-                                                </label>
+                                                        </div>
+                                               
                                                 <p>: Select Your Image</p>
                                             </div>
 

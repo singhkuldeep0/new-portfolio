@@ -36,12 +36,7 @@ export default async function handler(req:NextApiRequest , res:NextApiResponse){
 
         res.status(200).json({testimonial})
     }
-    else if(req.method === 'DELETE'){
-        console.log('run')
-        const body = req.body
-        console.log(body)
-    //    
-    }
+    
 
     
 } catch (error:any) {

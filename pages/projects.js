@@ -17,7 +17,7 @@ const Projects = ({ projects }) => {
 
   const [allprojects, setProjects] = useState(projects)
   const [selected, setSelected] = useState("All")
-  console.log(projects.map(item => item.skills))
+
 
   const names = ["All", "Reactjs", "Nextjs", "MERN", "Nodejs", "Typescript","React Native"]
 

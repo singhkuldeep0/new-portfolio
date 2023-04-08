@@ -84,7 +84,6 @@ const Navbar = ({ }) => {
                         ))}
 
                         <SignInBtn size={fontSize.base} />
-
                     </div>
                 </div>
 

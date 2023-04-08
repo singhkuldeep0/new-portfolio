@@ -9,7 +9,7 @@ import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 
 
 const Slider = ({ images, videos }) => {
-
+    
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
 
@@ -17,7 +17,7 @@ const Slider = ({ images, videos }) => {
         <>
             <div className='text-white text-[20px] md:rounded-lg max-w-[950px] mx-auto p-2 md:p-3 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' style={{ background:background.textprimary }}>
                 <Carousel
-                    // autoPlay={true}
+                    autoPlay={videos.length === 0 ? true : false}
                     infiniteLoop={true}
                     showThumbs={false}
                     showIndicators={false}

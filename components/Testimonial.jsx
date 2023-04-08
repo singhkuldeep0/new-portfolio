@@ -10,7 +10,6 @@ import axios from 'axios'
 
 const Testimonial = ({ item, testimonials, setTestimonials }) => {
 
-  console.log(item.id)
   const background = useSelector(state => state.background)
   const color = useSelector(state => state.color)
   const fontSize = useSelector(state => state.fontSize)
@@ -29,7 +28,7 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
     try {
       
     await axios.delete(`/api/test/${item.id}`).then((result)=>{
-      console.log(result)
+
       const filteredTestimonial = testimonials.filter((test)=>test.id !== item.id)
       setTestimonials(filteredTestimonial)
       toast.success("Testimonial successfully deleted")
