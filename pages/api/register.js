@@ -1,10 +1,7 @@
 import bcrypt from 'bcrypt'
 import { PrismaClient } from '@prisma/client'
-import { NextResponse } from 'next/server'
-import { NextApiRequest, NextApiResponse } from 'next'
 
-
-export default async function handler(req:NextApiRequest , res:NextApiResponse){
+export default async function handler(req , res){
 
     const prisma = new PrismaClient()
     const { email , name , password } = req.body
