@@ -67,7 +67,7 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
 
         if (name && description && imageAsset?.url) {
            await axios.post('/api/testimonial',{
-            email:session?.user.email,
+             email:session?.user.email,
              name,
              description,
              imageUrl: imageAsset?.url

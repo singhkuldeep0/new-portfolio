@@ -1,22 +1,21 @@
-import type { NextApiRequest , NextApiResponse} from 'next'
 import { PrismaClient } from '@prisma/client'
 
-
-export default async function handler(req:NextApiRequest , res:NextApiResponse){
+export default async function handler(req , res){
     try {
     const prisma = new PrismaClient()
    
     const { id } = req.query
+    console.log(id)
    
     const testimonial = await prisma.testimonial.delete({
             where:{
-                id:id.toString()
+                email:id
             }
     })
     
             res.status(200).json(testimonial)
     
-} catch (error:any) {
+} catch (error) {
     console.log(error)
         throw new Error(error)
 }

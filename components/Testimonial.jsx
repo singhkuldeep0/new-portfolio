@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react'
 import { client } from '../sanity.cli'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { getUserNameById }  from '../hooks/getUserById'
 
 const Testimonial = ({ item, testimonials, setTestimonials }) => {
 
@@ -21,13 +22,16 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
       return;
     }
 
-    if (data.user.id !== item.userId) {
+    if (data.user.email !== item.email) {
       toast.error('Invalid User')
+      return
     }
     
     try {
+
+      if(!data.user) return
       
-    await axios.delete(`/api/test/${item.id}`).then((result)=>{
+    await axios.delete(`/api/test/${data.user.email}`).then((result)=>{
 
       const filteredTestimonial = testimonials.filter((test)=>test.id !== item.id)
       setTestimonials(filteredTestimonial)
@@ -35,10 +39,11 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
     })
     
   } catch (error) {
+    console.log(error)
     toast.error('something went wrong! please reload and try again')   
   }
   }
-
+  console.log(item)
   return (
     < >
       {item && (
@@ -71,7 +76,7 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
 
                 {item.description}
               </p>
-              {data && data.user.id === item.userId && <button onClick={deleteTestimonial} className='absolute bottom-0 right-0 p-2 bg-red-600 rounded-tl-lg rounded-br-lg'>
+              {data &&  data.user.email === item.email && <button onClick={deleteTestimonial} className='absolute bottom-0 right-0 p-2 bg-red-600 rounded-tl-lg rounded-br-lg'>
 
                 <BsFillTrashFill className='text-xl text-white' />
 

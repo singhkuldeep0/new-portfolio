@@ -59,6 +59,7 @@ model VerificationToken {
 model Testimonial {
   id            String  @id @default(auto()) @map("_id") @db.ObjectId
   userId        String
+  email        String    @unique
   user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   name          String
   description   String
