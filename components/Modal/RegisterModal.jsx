@@ -9,7 +9,7 @@ import Button from './Button';
 import { FcGoogle } from 'react-icons/fc'
 import { AiFillGithub } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoginModal, setRegisterModal } from '../../state';
+import { setLoginModal, setRegisterModal, setUser } from '../../state';
 import { signIn } from 'next-auth/react'
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
@@ -40,7 +40,9 @@ const RegisterModal = () => {
     const onSubmit = async(data)=>{
         setLoading(true)
 
-       await axios.post('/api/register' , data).then(()=>{
+       await axios.post('/api/register' , data).then((user)=>{
+        localStorage.setItem('user' , JSON.stringify(user.data))
+        dispatch(setUser(user.data))
         toast.success('you are logged in')
             dispatch(setRegisterModal(false))
         }).catch((error)=>{

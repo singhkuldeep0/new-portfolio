@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+  user:null,
   fontSize:{
     xs:'10px',
     sm:'12px',
@@ -33,6 +34,9 @@ export const stateSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
+    setUser: (state , action) => {
+      state.user = action.payload
+    },
     setColor: (state , action) => {
       state.color = action.payload
     },
@@ -60,6 +64,6 @@ export const stateSlice = createSlice({
   }
 })
 
-export const { setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies, setLoginModal , setRegisterModal} = stateSlice.actions
+export const {setUser , setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies, setLoginModal , setRegisterModal} = stateSlice.actions
 
 export default stateSlice.reducer

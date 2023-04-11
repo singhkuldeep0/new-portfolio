@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,10 +8,10 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import Testimonials from '../components/Testimonials'
 import useMediaQuery from '../hooks/MediaQuery'
-import { setFontSize, setMyProjects, setTechnologies } from '../state/index'
-import Modal from '../components/Modal/Modal'
+import { setFontSize, setMyProjects, setTechnologies , setUser } from '../state/index'
 import LoginModal from '../components/Modal/LoginModal'
 import RegisterModal from '../components/Modal/RegisterModal'
+import { useSession } from 'next-auth/react'
 
 export default function Home({ myprojects , technologies,testimonials}) {
   const dispatch = useDispatch()
@@ -20,11 +19,24 @@ export default function Home({ myprojects , technologies,testimonials}) {
   const login = useSelector(state => state.LoginModal)
   const register = useSelector(state => state.RegisterModal)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
-  
+  const session = useSession()
+   
   useEffect(() => {
+
     dispatch(setMyProjects(myprojects))
     dispatch(setTechnologies(technologies))
-  }, [])
+
+    if(localStorage.getItem('user')){
+      setUser(localStorage.getItem('user'))
+      dispatch(setUser(JSON.parse(localStorage.getItem('user'))))
+    }
+
+    if(session.data){
+      setUser(localStorage.setItem('user' , JSON.stringify(session.data.user)))
+      dispatch(setUser(session.data.user))
+    }
+
+  }, [session.data , session.data && session.data.user])
   
 
     useEffect(()=>{
