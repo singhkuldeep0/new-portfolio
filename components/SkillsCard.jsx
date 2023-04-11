@@ -51,7 +51,7 @@ const SkillsCard = ({skills, heading}) => {
             variants={boxVariant}
             initial="hidden"
             whileInView="visible"
-            // viewport={{once:true}}
+            viewport={{once:true}}
        >
            {skills.map(item => {
                return <motion.div 

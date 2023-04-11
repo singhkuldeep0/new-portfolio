@@ -39,7 +39,7 @@ const Card = ({ project , index }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="w-[100%] my-6 flex items-center justify-center py-6 md:py-12"
+        className="w-[100%]  flex items-center justify-center pb-16 md:py-12"
         >
             <div className={`flex ${flip ? 'flex-col md:flex-row' : 'flex-col md:flex-row-reverse'} items-center md:items-start justify-center w-[86%] md:w-[80%] max-w-5xl mx-auto`}>
                 <div className={`relative w-[90%] md:w-1/2 h-[200px] md:h-[260px] before:absolute before:w-[100%] before:h-[200px] md:before:h-[260px] before:border-[8px] beforeborder before:top-6 before:right-6 rounded-xl before:rounded-xl shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]`} style={{borderColor:color}}>

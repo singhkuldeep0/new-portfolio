@@ -52,25 +52,41 @@ const Project = ({project,allImages}) => {
   ) : null
 }
 
-export default Project
+export const getStaticPaths = async () => {
+  const query = `*[_type == "projects"]{ _id }`;
 
-export async function getServerSideProps(context) {
+  const products = await client.fetch(query);
 
-    const projectquery = `*[_type == 'projects' && _id == '${context.query.id}']{
-      ...,
-      videos[]{
-        asset->{
-          _id,
-          url
-        }
+  const paths = products.map((product) => ({
+    params: {
+      id: product._id
+  }
+  }))
+
+  return {
+      paths,
+      fallback: 'blocking'
+  }
+}
+
+
+export async function getStaticProps(context) {
+  
+  const projectquery = `*[_type == 'projects' && _id == '${context.params.id}']{
+    ...,
+    videos[]{
+      asset->{
+        _id,
+        url
       }
-    }`
+    }
+  }`
     const project = await client.fetch(projectquery)
 
-      const allImages = await Promise.all(project[0].technologies.map(async(item)=>{
+    const allImages = await Promise.all(project[0].technologies.map(async(item)=>{
       return client.fetch(`*[_type == 'technologies' && _id == '${item._ref}']`)
     }))
-
+    
     return {
       props: {
         project,
@@ -78,4 +94,7 @@ export async function getServerSideProps(context) {
       }, 
     }
   }
+
+
+  export default Project
   

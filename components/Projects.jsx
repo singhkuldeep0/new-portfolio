@@ -12,7 +12,7 @@ const Projects = ({projects}) => {
     const fontSize = useSelector(state => state.fontSize)
 
   return (
-    <div id="Projects" className='flex flex-col gap-10 py-10 md:gap-4 min-h-screen'>
+    <div id="Projects" className='flex flex-col gap-10 md:py-10 md:gap-4 min-h-screen'>
      
       <Heading Heading='Projects' text="some of my recent projects" rightbtn={true}/>
        
@@ -22,7 +22,7 @@ const Projects = ({projects}) => {
         ))
       )}
 
-        <Link href="/projects" className='mx-auto flex md:hidden'><button className='w-fit inline-flex items-center justify-center gap-3 rounded-md px-6 mt-4 py-1 border-2 bg-white hover:bg-transparent font-semibold' style={{fontSize:fontSize.xl , borderColor:color , color:color}}>
+        <Link href="/projects" className='mx-auto flex md:hidden'><button className='w-fit inline-flex items-center justify-center gap-3 rounded-md px-6 -mt-12 py-1 border-2 bg-white hover:bg-transparent font-semibold' style={{fontSize:fontSize.xl , borderColor:color , color:color}}>
           View All Projects
           <MdOutlineArrowRightAlt style={{fontSize:fontSize.xxxxxl}}/>
         </button></Link>

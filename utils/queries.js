@@ -18,3 +18,12 @@ export const technologiesQuery = () => {
   return query
 }
 
+export const articlesQuery = ()=>{
+  const query = `*[_type == "articles"]`
+  return query
+}
+
+export const articleDetailQuery = (articleId) => {
+  const query = `*[_type == "articles" && _id == '${articleId}']`;
+  return query;
+};

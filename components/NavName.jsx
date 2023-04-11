@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
       }
     },
     hover: {
-      x: -48,
+      x: -49,
       transition: {
         type: "spring",
         damping:100,
@@ -47,7 +47,7 @@ const NavName = ({isTopOfPage}) => {
 
     return (
         <motion.div initial="rest" whileHover="hover" animate="rest"
-            className='flex h-full hover:gap-1 items-center overflow-hidden w-[148px] cursor-pointer'>
+            className='flex h-full hover:gap-1 items-center overflow-hidden w-[145px] hover:w-[150px] cursor-pointer'>
             <div className='flex justify-center items-center' >
                 <motion.span className='text-xl' variants={slashMotion} style={{color:color}}>©</motion.span>
             </div>

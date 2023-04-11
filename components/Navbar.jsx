@@ -32,7 +32,7 @@ const Navbar = ({ }) => {
     }
 
     return (
-        <div className="sticky top-0  px-4 h-16 flex items-center justify-between z-[100] shadow-md" style={{ background: background.secondary }}>
+        <div className="sticky top-0  px-2 md:px-4 h-16 flex items-center justify-between z-[100] shadow-md" style={{ background: background.secondary }}>
             <Link href="/"><div onClick={() => navigateHome()} className="left">
                 <NavName />
             </div></Link>
