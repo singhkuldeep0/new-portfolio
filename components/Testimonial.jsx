@@ -3,35 +3,29 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { motion } from 'framer-motion'
 import { BsFillTrashFill } from 'react-icons/bs'
-import { useSession } from 'next-auth/react'
-import { client } from '../sanity.cli'
 import toast from 'react-hot-toast'
 import axios from 'axios'
-import { getUserNameById }  from '../hooks/getUserById'
 
 const Testimonial = ({ item, testimonials, setTestimonials }) => {
 
   const background = useSelector(state => state.background)
   const color = useSelector(state => state.color)
   const fontSize = useSelector(state => state.fontSize)
-  const { data } = useSession()
+  const user = useSelector(state => state.user)
 
   const deleteTestimonial = async () => {
 
-    if (!data) {
+    if (!user) {
       return;
     }
 
-    if (data.user.email !== item.email) {
+    if (user.email !== item.email) {
       toast.error('Invalid User')
       return
     }
     
     try {
-
-      if(!data.user) return
-      
-    await axios.delete(`/api/test/${data.user.email}`).then((result)=>{
+    await axios.delete(`/api/test/${user.email}`).then((result)=>{
 
       const filteredTestimonial = testimonials.filter((test)=>test.id !== item.id)
       setTestimonials(filteredTestimonial)
@@ -43,7 +37,7 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
     toast.error('something went wrong! please reload and try again')   
   }
   }
-  console.log(item)
+
   return (
     < >
       {item && (
@@ -76,7 +70,7 @@ const Testimonial = ({ item, testimonials, setTestimonials }) => {
 
                 {item.description}
               </p>
-              {data &&  data.user.email === item.email && <button onClick={deleteTestimonial} className='absolute bottom-0 right-0 p-2 bg-red-600 rounded-tl-lg rounded-br-lg'>
+              {user && user.email === item.email && <button onClick={deleteTestimonial} className='absolute bottom-0 right-0 p-2 bg-red-600 rounded-tl-lg rounded-br-lg'>
 
                 <BsFillTrashFill className='text-xl text-white' />
 

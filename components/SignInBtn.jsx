@@ -9,7 +9,7 @@ import { setLoginModal, setUser } from '../state'
 const SignInBtn = ({ size, hide }) => {
 
     const user = useSelector(state => state.user)
-    console.log(user)
+
     const {status} = useSession()
 
     const background = useSelector(state => state.background)

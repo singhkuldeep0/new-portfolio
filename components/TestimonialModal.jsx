@@ -19,9 +19,9 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
         setIsOpen(true)
     }
 
-    const {data:session}  = useSession()
+    const user = useSelector(state => state.user)
 
-    const [name, setName] = useState(session ? session.user.name : '')
+    const [name, setName] = useState(user ? user.name : '')
     const [description, setDescription] = useState('')
     const [loading, setLoading] = useState(false)
     const [uploadloading, setUploadLoading] = useState(false)
@@ -56,7 +56,7 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
 
     const savePin = async() => {
 
-        if(!session){
+        if(!user){
             return;
         }
 
@@ -66,12 +66,14 @@ const TestimonialModal = ({ isOpen, setIsOpen , testimonials, setTestimonials}) 
         }
 
         if (name && description && imageAsset?.url) {
+           setUploadLoading(true)
            await axios.post('/api/testimonial',{
-             email:session?.user.email,
+             email:user.email,
              name,
              description,
              imageUrl: imageAsset?.url
         }).then((result)=>{
+            setUploadLoading(false)
             setTestimonials([result.data.testimonial , ...testimonials])
             setName('')
             setDescription('')

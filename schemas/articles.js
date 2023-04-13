@@ -33,6 +33,11 @@ export const articles = defineType({
       title: "BlogLink",
     }),
     defineField({
+      name: "webLink",
+      type: "string",
+      title: "WebLink",
+    }),
+    defineField({
       name: "smallDescription",
       type: "string",
       title: "SmallDescription",

@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/register.js", "pages/api/test/[id].ts"  ],
+, "pages/api/register.js", "pages/api/test/[id].ts", "pages/api/testimonial.js"  ],
   "exclude": [
     "node_modules"
   ]
