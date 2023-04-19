@@ -1,18 +1,20 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { client } from '../sanity.cli'
 import Heading from './Heading'
 import Testimonial from './Testimonial'
 import {signIn} from "next-auth/react"
 import { FcGoogle } from 'react-icons/fc'
 import TestimonialModal from './TestimonialModal'
+import { setLoginModal } from '../state/index'
 
 
 const Testimonials = ({testimonials:allTestimonials}) => {
   const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
+    const dispatch = useDispatch()
      
   const [testimonials , setTestimonials] = useState(allTestimonials)
   let [isOpen, setIsOpen] = useState(false)
@@ -22,11 +24,15 @@ const Testimonials = ({testimonials:allTestimonials}) => {
 
   const user = useSelector(state => state.user)
 
+  const openModal = ()=>{
+    dispatch(setLoginModal(true))
+  }
+
   return (
     <div id='Testimonials' className='py-12 md:py-16' >
       <div className='flex flex-col justify-center items-center'>
         <Heading Heading="Testimonials" />
-        {user ? (<button className={btnclasses} onClick={()=>setIsOpen(true)} style={{background:background.secondary, color:color,fontSize:fontSize.lg, borderColor:color}}>Add a Testimonial</button>) : (<button onClick={()=>signIn('google')} className={btnclasses} style={{background:background.secondary, color:color,fontSize:fontSize.lg, borderColor:color}}>
+        {user ? (<button className={btnclasses} onClick={()=>setIsOpen(true)} style={{background:background.secondary, color:color,fontSize:fontSize.lg, borderColor:color}}>Add a Testimonial</button>) : (<button onClick={openModal} className={btnclasses} style={{background:background.secondary, color:color,fontSize:fontSize.lg, borderColor:color}}>
           <FcGoogle size={fontSize.xl}/>
           Login to Add testimonial
           </button>)

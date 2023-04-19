@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,20 +7,15 @@ import About from '../components/About'
 import Homee from '../components/Home'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
-import Testimonials from '../components/Testimonials'
 import useMediaQuery from '../hooks/MediaQuery'
-import { setFontSize, setMyProjects, setTechnologies , setUser } from '../state/index'
-import LoginModal from '../components/Modal/LoginModal'
-import RegisterModal from '../components/Modal/RegisterModal'
-import { useSession } from 'next-auth/react'
+import { setFontSize, setMyProjects, setTechnologies, setUser } from '../state/index'
 
-export default function Home({ myprojects , technologies,testimonials}) {
+export default function Home({ myprojects , technologies}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
-  const login = useSelector(state => state.LoginModal)
-  const register = useSelector(state => state.RegisterModal)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
   const session = useSession()
+  console.log(session)
    
   useEffect(() => {
 
@@ -64,13 +60,12 @@ export default function Home({ myprojects , technologies,testimonials}) {
       </Head>
 
     <main style={{background:background.secondary}}> 
-    { login && <LoginModal/>}
-    { register && <RegisterModal/>}
+
       <Homee/>
       <Projects projects={myprojects}/>
       <Skills skillsArray={technologies}/>
       <About/>
-      <Testimonials testimonials={testimonials}/>
+      {/* <Testimonials testimonials={testimonials}/> */}
     
      </main>
     
@@ -78,7 +73,7 @@ export default function Home({ myprojects , technologies,testimonials}) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   
  const data = await Promise.all(["38211ee0-3732-4738-b823-708ccd34bcf9","fd7731ca-cc53-433d-8c92-1170c54a3df0","b8fba393-8f52-4667-85c1-570ccf36b852"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/project/${projectId}`)
@@ -86,14 +81,12 @@ export async function getServerSideProps(context) {
  })
 )
   const technologies = await axios.get(`${process.env.NEXTAUTH_URL}/api/technologies`)
-  const testimonials = await axios.get(`${process.env.NEXTAUTH_URL}/api/testimonial`)
   
 
   return {
     props: {
        myprojects:data,
-      technologies:technologies.data,
-      testimonials:testimonials.data.testimonials
+      technologies:technologies.data
     }
   }
 }

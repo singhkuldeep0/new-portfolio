@@ -6,7 +6,6 @@ import { GoThreeBars } from 'react-icons/go'
 import Theme from './Theme'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import SignInBtn from './SignInBtn'
 
 
 const Navbar = ({ }) => {
@@ -19,7 +18,7 @@ const Navbar = ({ }) => {
     const [selected, setSelected] = useState('Home')
 
     const navItems = [
-        "Projects", "Skills", "About", "Contact", "Testimonials"
+        "Projects", "Skills", "About", "Contact",
     ]
     const router = useRouter()
 
@@ -50,11 +49,15 @@ const Navbar = ({ }) => {
                     </span>
                 ))}
 
+                <Link href="/testimonials" className={`nav w-full font-normal font-poppins my-auto cursor-pointer ml-6`} style={{ color: background.textsecondary, borderColor: color, fontSize: fontSize.base }}>
+                    Testimonials
+                </Link>
+
             </div>
             <div className="right">
 
                 <div className='flex gap-4'>
-                    <SignInBtn size={fontSize.lg} hide/>
+                    {/* <SignInBtn size={fontSize.lg} hide /> */}
                     <Theme />
                     <GoThreeBars onClick={() => setToggle(!toggle)} className='text-2xl mt-1 sm:hidden cursor-pointer' style={{ color: background.textsecondary }} />
                 </div>
@@ -83,7 +86,7 @@ const Navbar = ({ }) => {
                             </button>
                         ))}
 
-                        <SignInBtn size={fontSize.base} />
+                        {/* <SignInBtn size={fontSize.base} /> */}
                     </div>
                 </div>
 

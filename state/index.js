@@ -26,8 +26,8 @@ const initialState = {
   mode:'default',
   myprojects:[],
   technologies:[],
-  LoginModal:false,
-  RegisterModal:false
+  type:'login',
+  modal:false
 }
 
 export const stateSlice = createSlice({
@@ -55,15 +55,15 @@ export const stateSlice = createSlice({
     setTechnologies:(state , action) => {
       state.technologies = action.payload
     },
-    setLoginModal:(state,action) => {
-      state.LoginModal = action.payload
+    setType:(state,action) => {
+      state.type = action.payload
     },
-    setRegisterModal:(state,action) => {
-      state.RegisterModal = action.payload
+    setModal:(state,action) => {
+      state.modal = action.payload
     }
   }
 })
 
-export const {setUser , setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies, setLoginModal , setRegisterModal} = stateSlice.actions
+export const {setUser , setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies, setModal, setType} = stateSlice.actions
 
 export default stateSlice.reducer

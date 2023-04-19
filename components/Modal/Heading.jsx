@@ -10,7 +10,7 @@ const Heading = ({
 
   return (
     <div className={`mb-3 ${center ? 'text-center' : 'text-start'}`} style={{color:background.textsecondary}}>
-        <div className="text-2xl font-bold" >
+        <div className="text-2xl font-semibold font-Merriweather">
             {title}
         </div>
         <div style={{color:background.textprimary}}>
