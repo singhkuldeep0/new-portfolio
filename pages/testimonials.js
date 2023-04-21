@@ -7,7 +7,7 @@ import { getSession, useSession } from 'next-auth/react'
 import TestButtons from '../components/TestButtons'
 import axios from 'axios'
 
-const testimonials = ({ testimonials}) => {
+const testimonials = ({session , testimonials}) => {
   
   const background = useSelector(state => state.background)
   const color = useSelector(state => state.color)
@@ -15,7 +15,7 @@ const testimonials = ({ testimonials}) => {
   const testimon = useSelector(state => state.testimonials)
 
   const dispatch = useDispatch()
-  const session = useSession()
+ 
   const openModal = ()=>{
     dispatch(setType('login'))
     dispatch(setModal(true))
@@ -32,9 +32,7 @@ const testimonials = ({ testimonials}) => {
   return (
     <div className='min-h-screen p-4 md:p-10' style={{ background: background.secondary, color: background.textsecondary }}>
       <Modal/>
-      {session.data && session.data.user ? <TestButtons/> : <div className='pb-10 w-full flex justify-end px-4'>
-        <button onClick={openModal} style={{background:color}} className='ml-auto font-semibold px-4 py-1.5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg text-white'>SignIn to upload Testimonial</button>
-      </div> }
+     <TestButtons/> 
       <div className='w-[90%] mx-auto flex justify-center flex-wrap gap-x-12 gap-y-14'>
      {testimon.length === 0 ? (<div>
         <h1 className='font-semibold' style={{fontSize:fontSize.xl}}>No Testimonial added yet! Be the first one to upload it</h1>
@@ -49,11 +47,12 @@ const testimonials = ({ testimonials}) => {
 }
 
 export async function getServerSideProps(context) {
-
+  const session = await getSession(context)
   const {data} = await axios.get(`${process.env.NEXTAUTH_URL}/api/testimonials`)
 
   return {
     props: {
+      session,
       testimonials:data
     },
   }
