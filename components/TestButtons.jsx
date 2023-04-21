@@ -17,6 +17,13 @@ const TestButtons = () => {
 
   const session = useSession()
 
+   
+  const openModal = ()=>{
+    dispatch(setType('login'))
+    dispatch(setModal(true))
+  }
+
+
   return (
     <div className='pb-10 w-full flex justify-end px-4'>
 

@@ -15,11 +15,6 @@ const testimonials = ({session , testimonials}) => {
   const testimon = useSelector(state => state.testimonials)
 
   const dispatch = useDispatch()
- 
-  const openModal = ()=>{
-    dispatch(setType('login'))
-    dispatch(setModal(true))
-  }
 
   useEffect(() => {
     if(testimonials){

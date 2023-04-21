@@ -18,12 +18,16 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  session:{
+    strategy:"jwt"
+},
   secret:process.env.NEXTAUTH_SECRET,
   callbacks:{
     async session({session , token , user}){
        return { ...session , user:{...session.user , ...user}}
     }
-  }
+  },
+  
 }
 
 export default NextAuth(authOptions)
