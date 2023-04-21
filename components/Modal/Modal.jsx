@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setModal } from '../../state'
 import Login from './Login'
 import { AiFillCloseCircle } from 'react-icons/ai'
+import TestimonialModal from './TestimonialModal'
 
 const Modal = () => {
 
@@ -12,6 +13,7 @@ const Modal = () => {
     const fontSize = useSelector(state => state.fontSize)
     const modal = useSelector(state => state.modal)
     const type = useSelector(state => state.type)
+    
 
     return (
 
@@ -40,10 +42,10 @@ const Modal = () => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="relative w-full max-w-md transform overflow-hidden rounded-2xl p-2 text-left align-middle shadow-xl transition-all" style={{ background: background.secondary }}>
-                               < AiFillCloseCircle onClick={()=>dispatch(setModal(false))} className='absolute right-3 top-3 cursor-pointer' style={{fontSize:fontSize.xxxl , color:background.textsecondary}}/>
+                            <Dialog.Panel className="relative max-w-md transform overflow-hidden rounded-2xl p-2 text-left align-middle shadow-xl transition-all" style={{ background: background.secondary }}>
+                               < AiFillCloseCircle onClick={()=>dispatch(setModal(false))} className='absolute right-3 top-3 cursor-pointer z-50' style={{fontSize:fontSize.xxxl , color:background.textsecondary}}/>
                                {type==='login' && <Login />}
-                                
+                                {type==='upload' && <TestimonialModal/> }
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>

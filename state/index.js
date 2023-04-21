@@ -27,7 +27,8 @@ const initialState = {
   myprojects:[],
   technologies:[],
   type:'login',
-  modal:false
+  modal:false,
+  testimonials:[]
 }
 
 export const stateSlice = createSlice({
@@ -60,10 +61,13 @@ export const stateSlice = createSlice({
     },
     setModal:(state,action) => {
       state.modal = action.payload
+    },
+    setTestimonials:(state,action) => {
+      state.testimonials = action.payload
     }
   }
 })
 
-export const {setUser , setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies, setModal, setType} = stateSlice.actions
+export const {setUser , setColor, setMode , setMyProjects , setBackground , setFontSize , setTechnologies, setModal, setType , setTestimonials} = stateSlice.actions
 
 export default stateSlice.reducer

@@ -14,7 +14,7 @@ const Login = () => {
     const btn = `border-2 py-2 rounded-md inline-flex gap-4 items-center justify-center`
  
     return (
-        <div className='p-8' style={{ background: background.secondary, color: background.textsecondary }}>
+        <div className='p-8 w-96' style={{ background: background.secondary, color: background.textsecondary }}>
         
             <div className='flex flex-col gap-2'>
                 <button onClick={()=>signIn("google")} className={`${btn}`}>

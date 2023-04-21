@@ -1,19 +1,32 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { motion } from 'framer-motion'
 import { MdDeleteForever } from 'react-icons/md'
-import toast from 'react-hot-toast'
 import axios from 'axios'
 import {FaQuoteLeft} from 'react-icons/fa'
+import { useSession } from 'next-auth/react'
+import { setTestimonials } from '../state'
+import { toast } from 'react-hot-toast'
 
-const Testimonial = () => {
+const Testimonial = ({item}) => {
 
   const background = useSelector(state => state.background)
   const color = useSelector(state => state.color)
   const fontSize = useSelector(state => state.fontSize)
-  const user = useSelector(state => state.user)
-  // style={{ boxShadow: `${background.textprimary} 0px 5px 15px` }}
+  const session = useSession()
+  const test = useSelector(state => state.testimonials)
+
+  const allTests = test.slice()
+  const dispatch = useDispatch()
+
+  const deleteTestimonial = async()=>{
+    await axios.delete(`/api/test/${item.id}`).then((result)=>{
+      const testimonials = allTests.filter(test => test.id !== item.id)
+      dispatch(setTestimonials(testimonials))
+      toast.success(result.data.message)
+    })
+  }
 
   return (
     
@@ -29,8 +42,8 @@ const Testimonial = () => {
           style={{background:color , fontSize:fontSize.xl}}
         >
 
-            <Image src='/logo.jpg' width={90} height={90} className='rounded-full mx-auto'/>
-            <p className='tracking-widest font-semibold py-4 text-white'>KULDEEP SINGH</p>
+            <Image src={item.imageUrl} width={90} height={90} className='rounded-full mx-auto'/>
+            <p className='tracking-widest font-semibold py-4 text-white'>{item.name}</p>
     
 
             <div className='min-h-[140px] relative z-10 rounded-3xl p-6 flex flex-col gap-4'
@@ -38,13 +51,12 @@ const Testimonial = () => {
             >
               <FaQuoteLeft style={{color , fontSize:fontSize.xxxl}} className='mx-auto'/>
 
-            <p>
-            It is a long established fact that a reader will be distracted by the readable content of a page
-            It is a long established fact that a reader will be distracted by the readable content of a page
+            <p className='break-words'>
+           {item.description}
             </p>
-          <div className='absolute top-0 right-0 bg-red-600 p-1 rounded-tr-lg rounded-bl-lg'>
+         {session.data && session.data.user.id == item.userId && <button onClick={deleteTestimonial} className='absolute top-0 right-0 bg-red-600 p-1 rounded-tr-lg rounded-bl-lg'>
           <MdDeleteForever style={{fontSize:fontSize.xxl}} className='text-white cursor-pointer'/>
-          </div>
+          </button>}
             </div>
         </motion.div>
   )
