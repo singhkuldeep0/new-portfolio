@@ -2,20 +2,21 @@ import React from 'react'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { setModal, setType } from '../state'
-import { useSession } from 'next-auth/react'
+import { useSession , signIn , signOut } from 'next-auth/react'
 
-const TestButtons = () => {
+
+const TestButtons = ({}) => {
 
   const color = useSelector(state => state.color)
   const fontSize = useSelector(state => state.fontSize)
   const dispatch = useDispatch()
 
+  const session = useSession()
+
   const openUploadModal = () => {
     dispatch(setType('upload'))
     dispatch(setModal(true))
   }
-
-  const session = useSession()
 
    
   const openModal = ()=>{
@@ -24,8 +25,8 @@ const TestButtons = () => {
   }
 
 
-  return (
-    <div className='pb-10 w-full flex justify-end px-4'>
+  return  (
+     <div className='pb-10 w-full flex justify-end px-4'>
 
       {session.data && session.data.user ? (
         <>
@@ -40,8 +41,8 @@ const TestButtons = () => {
         <button onClick={openModal} style={{ background: color }} className='ml-auto font-semibold px-4 py-1.5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg text-white'>SignIn to upload Testimonial</button>
       </div>
       }
-    </div>
-  )
+    </div> 
+  ) 
 }
 
 export default TestButtons

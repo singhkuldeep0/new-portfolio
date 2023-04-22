@@ -48,10 +48,10 @@ const Navbar = ({ }) => {
                         {item}
                     </span>
                 ))}
-
+{/* 
                 <Link href="/testimonials" className={`nav w-full font-normal font-poppins my-auto cursor-pointer ml-6`} style={{ color: background.textsecondary, borderColor: color, fontSize: fontSize.base }}>
                     Testimonials
-                </Link>
+                </Link> */}
 
             </div>
             <div className="right">

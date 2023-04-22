@@ -29,6 +29,7 @@ const TestimonialModal = ({ }) => {
     const test = useSelector(state => state.testimonials)
 
     const allTests = test.slice()
+    console.log(session.data.user.id)
     
     const uploadImage = (file) => {
 

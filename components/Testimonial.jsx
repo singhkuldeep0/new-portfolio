@@ -9,14 +9,14 @@ import { useSession } from 'next-auth/react'
 import { setTestimonials } from '../state'
 import { toast } from 'react-hot-toast'
 
-const Testimonial = ({item}) => {
+const Testimonial = ({ item}) => {
 
   const background = useSelector(state => state.background)
   const color = useSelector(state => state.color)
   const fontSize = useSelector(state => state.fontSize)
-  const session = useSession()
-  const test = useSelector(state => state.testimonials)
 
+  const test = useSelector(state => state.testimonials)
+  const session = useSession()
   const allTests = test.slice()
   const dispatch = useDispatch()
 
@@ -28,7 +28,7 @@ const Testimonial = ({item}) => {
     })
   }
 
-  return (
+  return session ? (
     
         <motion.div
           initial={{ scale: 0.4 }}
@@ -59,7 +59,7 @@ const Testimonial = ({item}) => {
           </button>}
             </div>
         </motion.div>
-  )
+  ) : null
 }
 
 export default Testimonial
