@@ -32,7 +32,7 @@ const About = () => {
      viewport={{ once: true }}
     className='pt-10'>
       <Heading Heading="About Me" text="Education , Experience"/>
-      <div className='w-full flex flex-col md:flex-row my-10'>
+      <div className='w-full flex flex-col md:flex-row py-10'>
             <div className='w-full md:w-1/2 h-96 flex justify-center items-center' style={{background:background.primary}}>
               <div className='relative aspect-square w-60 h-60 md:w-72 md:h-72 rounded-full  before:absolute before:w-60 md:before:w-72 before:h-60 md:before:h-72 before:rounded-full before:top-0 md:before:-top-3 before:right-16 beforeborder' style={{background:color}}>
             <Image src='/profile.png' alt="" className='rounded-full' fill />

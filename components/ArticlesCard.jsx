@@ -9,7 +9,7 @@ const ArticlesCard = ({article}) => {
     const background = useSelector(state => state.background)
     const color = useSelector(state => state.color)
     const fontSize = useSelector(state => state.fontSize)
-    console.log(article)
+   
     
     const boxVariant = {
       rest:{

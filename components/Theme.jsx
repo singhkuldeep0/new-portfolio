@@ -218,21 +218,36 @@ export default function MyModal() {
 
                   <div className="mt-3">
                     <span className='text-sm' style={{ color: background.textprimary }} >Color</span>
-                    <div className='w-[100%] py-4 mt-2 px-4 flex justify-between items-center gap-4 m-auto rounded-lg' style={{ background: background.primary }}>
-                      <div className='w-8 h-8 flex items-center justify-center cursor-pointer rounded-full bg-[#1d9bf0]' onClick={() => dispatch(setColor('#1d9bf0'))}>
-                        {color === '#1d9bf0' && <AiOutlineCheck className='text-base text-white' />}
+                    <div className='w-[100%] grid grid-cols-5 py-4 mt-2 px-4 gap-4 rounded-lg' style={{ background: background.primary }}>
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#1d9bf0]' onClick={() => dispatch(setColor('#1d9bf0'))}>
+                        {color === '#1d9bf0' && <AiOutlineCheck className='text-lg text-white' />}
                       </div>
-                      <div className='w-8 h-8 flex items-center justify-center cursor-pointer rounded-full bg-[#ffd400]' onClick={() => dispatch(setColor('#ffd400'))}>
-                        {color === '#ffd400' && <AiOutlineCheck className='text-base text-white' />}
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#ffd400]' onClick={() => dispatch(setColor('#ffd400'))}>
+                        {color === '#ffd400' && <AiOutlineCheck className='text-lg text-white' />}
                       </div>
-                      <div className='w-8 h-8 flex items-center justify-center cursor-pointer rounded-full bg-[#f91880]' onClick={() => dispatch(setColor('#f91880'))}>
-                        {color === '#f91880' && <AiOutlineCheck className='text-base text-white' />}
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#f91880]' onClick={() => dispatch(setColor('#f91880'))}>
+                        {color === '#f91880' && <AiOutlineCheck className='text-lg text-white' />}
                       </div>
-                      <div className='w-8 h-8 flex items-center justify-center cursor-pointer rounded-full bg-[#ff7a00]' onClick={() => dispatch(setColor('#ff7a00'))}>
-                        {color === '#ff7a00' && <AiOutlineCheck className='text-base text-white' />}
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#ff7a00]' onClick={() => dispatch(setColor('#ff7a00'))}>
+                        {color === '#ff7a00' && <AiOutlineCheck className='text-lg text-white' />}
                       </div>
-                      <div className='w-8 h-8 flex items-center justify-center cursor-pointer rounded-full bg-[#00ba7c]' onClick={() => dispatch(setColor('#00ba7c'))}>
-                        {color === '#00ba7c' && <AiOutlineCheck className='text-base text-white' />}
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#00ba7c]' onClick={() => dispatch(setColor('#00ba7c'))}>
+                        {color === '#00ba7c' && <AiOutlineCheck className='text-lg text-white' />}
+                      </div>
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#E6417D]' onClick={() => dispatch(setColor('#E6417D'))}>
+                        {color === '#E6417D' && <AiOutlineCheck className='text-lg text-white' />}
+                      </div>
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#04CCFC]' onClick={() => dispatch(setColor('#04CCFC'))}>
+                        {color === '#04CCFC' && <AiOutlineCheck className='text-lg text-white' />}
+                      </div>
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#5833C6]' onClick={() => dispatch(setColor('#5833C6'))}>
+                        {color === '#5833C6' && <AiOutlineCheck className='text-lg text-white' />}
+                      </div>
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#E51437]' onClick={() => dispatch(setColor('#E51437'))}>
+                        {color === '#E51437' && <AiOutlineCheck className='text-lg text-white' />}
+                      </div>
+                      <div className='w-9 h-9 mx-auto flex items-center justify-center border-[3px] cursor-pointer rounded-full bg-[#84DA39]' onClick={() => dispatch(setColor('#84DA39'))}>
+                        {color === '#84DA39' && <AiOutlineCheck className='text-lg text-white' />}
                       </div>
                     </div>
                   </div>

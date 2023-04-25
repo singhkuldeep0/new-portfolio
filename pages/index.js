@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,25 +13,16 @@ export default function Home({ myprojects , technologies}) {
   const dispatch = useDispatch()
   const background = useSelector(state => state.background)
   const isAboveMediumScreens = useMediaQuery("(min-width:800px)")
-  const session = useSession()
-  console.log(session)
+   
    
   useEffect(() => {
 
     dispatch(setMyProjects(myprojects))
     dispatch(setTechnologies(technologies))
 
-    if(localStorage.getItem('user')){
-      setUser(localStorage.getItem('user'))
-      dispatch(setUser(JSON.parse(localStorage.getItem('user'))))
-    }
 
-    if(session.data){
-      setUser(localStorage.setItem('user' , JSON.stringify(session.data.user)))
-      dispatch(setUser(session.data.user))
-    }
 
-  }, [session.data , session.data && session.data.user])
+  }, [])
   
 
     useEffect(()=>{
@@ -75,7 +65,7 @@ export default function Home({ myprojects , technologies}) {
 
 export async function getStaticProps(context) {
   
- const data = await Promise.all(["38211ee0-3732-4738-b823-708ccd34bcf9","fd7731ca-cc53-433d-8c92-1170c54a3df0","b8fba393-8f52-4667-85c1-570ccf36b852"].map( async(projectId) => {
+ const data = await Promise.all(["fbc5e99b-d007-4e96-bd2e-b12172258fb3","38211ee0-3732-4738-b823-708ccd34bcf9","fd7731ca-cc53-433d-8c92-1170c54a3df0","b8fba393-8f52-4667-85c1-570ccf36b852"].map( async(projectId) => {
    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/project/${projectId}`)
    return data
  })

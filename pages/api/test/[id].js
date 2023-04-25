@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
         const prisma = new PrismaClient();
         const { id } = req.query
-        console.log(id)
+    
        await prisma.testimonial.delete({
             where: {
               id,

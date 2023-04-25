@@ -76,7 +76,7 @@ const sendEmail = (e) => {
 
 
   return (
-    <div id="Contact" className='flex flex-col bg-black text-white p-4 md:p-10 mt-20'>
+    <div id="Contact" className='flex flex-col bg-black text-white  pt-56 pb-10'>
       <div className='flex justify-center flex-wrap gap-10'>
           <div className='w-full max-w-xs px-4'>
               <a className='footeranim' stylef={{fontSize:fontSize.xxl}}>About Me</a>
