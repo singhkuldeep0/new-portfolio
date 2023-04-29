@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { AiFillInstagram } from 'react-icons/ai';
@@ -14,6 +15,7 @@ const NewFooter = () => {
   const background = useSelector(state => state.background)
   const fontSize = useSelector(state => state.fontSize)
   const projects = useSelector(state => state.myprojects)
+  const router = useRouter()
 
   const [selected, setSelected] = useState('Home')
 
@@ -28,7 +30,7 @@ const NewFooter = () => {
   const contactData = [
     {
       Icon:FaMapMarkerAlt,
-      text:"Punjab,India"
+      text:"Surrey,BC"
     },
     {
       Icon:FaEnvelope,
@@ -36,7 +38,7 @@ const NewFooter = () => {
     },
     {
       Icon:BsFillTelephoneFill,
-      text:"+919914759117"
+      text:"2368664785"
     },
 ]
 
@@ -100,7 +102,7 @@ const sendEmail = (e) => {
                ))}             
               </div>       
           </div>
-          <div className='w-full max-w-xs px-4'>
+         {router.pathname === '/' && <div className='w-full max-w-xs px-4'>
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Useful Links</a>  
               <div className='flex flex-col gap-3 mt-5'>
                {navItems.map(item => (
@@ -110,7 +112,7 @@ const sendEmail = (e) => {
                 </p>
                ))}             
               </div>       
-          </div>
+          </div>}
           {/* <div className='w-full max-w-xs px-4'>
               <a className='footeranim' style={{fontSize:fontSize.xxl}}>Latest Projects</a>  
               <div className='flex flex-wrap gap-3 mt-8'>

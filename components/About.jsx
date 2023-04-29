@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Heading from './Heading'
 import useMediaQuery from '../hooks/MediaQuery'
 import Image from 'next/image'
-import { FaGithub , FaInstagram , FaFacebook , FaTwitter } from 'react-icons/fa'
+import { FaGithub , FaInstagram , FaFacebook , FaTwitter, FaLinkedin } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 const About = () => {
@@ -22,6 +22,14 @@ const About = () => {
       }
   }
 
+  const icons = [
+    
+    'https://github.com/kuldeep345',
+       'https://www.instagram.com/singh_kuldeep_0',
+      'https://twitter.com/kuldeep42210099',
+      'https://www.linkedin.com/in/kuldeep-singh-21a69024b',
+  ]
+
 
   return (
     <div id="About">
@@ -36,10 +44,10 @@ const About = () => {
             <div className='w-full md:w-1/2 h-96 flex justify-center items-center' style={{background:background.primary}}>
               <div className='relative aspect-square w-60 h-60 md:w-72 md:h-72 rounded-full  before:absolute before:w-60 md:before:w-72 before:h-60 md:before:h-72 before:rounded-full before:top-0 md:before:-top-3 before:right-16 beforeborder' style={{background:color}}>
             <Image src='/profile.png' alt="" className='rounded-full' fill />
-            <FaGithub className='absolute top-9 -left-4 text-2xl text-white cursor-pointer'/>
-            <FaInstagram className='absolute top-20 -left-10 text-2xl text-white cursor-pointer'/>
-            <FaFacebook className='absolute top-[130px] -left-10 text-2xl text-white cursor-pointer'/>
-            <FaTwitter className='absolute top-[180px] -left-6 md:-left-8 text-2xl text-white cursor-pointer'/>
+            <a target='_blank'  href={icons[0]}><FaGithub className='absolute top-9 -left-4 text-2xl text-white cursor-pointer'/></a>
+            <a target='_blank' href={icons[1]}><FaInstagram className='absolute top-20 -left-10 text-2xl text-white cursor-pointer'/></a> 
+            <a target='_blank'  href={icons[2]}><FaLinkedin className='absolute top-[130px] -left-10 text-2xl text-white cursor-pointer'/></a>
+            <a target='_blank'  href={icons[3]}><FaTwitter className='absolute top-[180px] -left-6 md:-left-8 text-2xl text-white cursor-pointer'/></a>
               </div>
             </div>
             <div className='w-full md:w-1/2 min-h-96 py-3 px-3 flex justify-center items-center' style={{background:background.secondary , color:background.textsecondary}}>
